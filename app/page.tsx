@@ -1,8 +1,8 @@
 import { SiteHero } from "@/components/site-hero"
-import { AppIntro } from "@/components/app-intro"
+import { PhilosophySection } from "@/components/philosophy-section"
+import { HowItWorks } from "@/components/how-it-works"
+import { PreregisterForm } from "@/components/preregister-form"
 import { GetApp } from "@/components/get-app"
-import { AboutOperator } from "@/components/about-operator"
-import { SupportSection } from "@/components/support-section"
 import { SiteFooter } from "@/components/site-footer"
 import { DownloadFab } from "@/components/download-fab"
 
@@ -10,10 +10,10 @@ export default function HomePage() {
   return (
     <main>
       <SiteHero />
-      <AppIntro />
+      <PhilosophySection />
+      <HowItWorks />
+      <PreregisterForm />
       <GetApp />
-      <AboutOperator />
-      <SupportSection />
       <SiteFooter />
       <DownloadFab />
     </main>

@@ -1,18 +1,18 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Zen_Kaku_Gothic_New, Noto_Sans_JP } from 'next/font/google'
+import { BIZ_UDPGothic } from 'next/font/google'
 import { siteConfig } from '@/lib/site-config'
 import './globals.css'
 
-const zenKaku = Zen_Kaku_Gothic_New({
+const bizHeading = BIZ_UDPGothic({
   subsets: ['latin'],
-  weight: ['500', '700'],
+  weight: '700',
   variable: '--font-heading',
 })
 
-const notoSansJp = Noto_Sans_JP({
+const bizBody = BIZ_UDPGothic({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  weight: '400',
   variable: '--font-body',
 })
 
@@ -23,15 +23,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${siteConfig.appName} | 公式サイト`,
     description: siteConfig.tagline,
-    images: [{ url: siteConfig.heroPoster }],
     locale: 'ja_JP',
     type: 'website',
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: `${siteConfig.appName} | 公式サイト`,
     description: siteConfig.tagline,
-    images: [siteConfig.heroPoster],
   },
   icons: {
     icon: [
@@ -54,7 +52,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#ffffff',
+  themeColor: '#FBF6EE',
 }
 
 export default function RootLayout({
@@ -63,7 +61,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ja" className={`light bg-background ${zenKaku.variable} ${notoSansJp.variable}`}>
+    <html lang="ja" className={`light bg-background ${bizHeading.variable} ${bizBody.variable}`}>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
