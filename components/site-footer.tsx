@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { SiX } from "react-icons/si"
+import { SiX, SiLine } from "react-icons/si"
 import { siteConfig } from "@/lib/site-config"
 
 const legalLinks = [
@@ -38,6 +38,15 @@ export function SiteFooter() {
           >
             <SiX className="h-3.5 w-3.5" aria-hidden="true" />
             Xをフォロー
+          </a>
+          <a
+            href={siteConfig.lineUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-green-500 px-4 py-2 text-xs font-bold text-white shadow-flat-sm transition-colors hover:bg-green-600"
+          >
+            <SiLine className="h-3.5 w-3.5" aria-hidden="true" />
+            LINEで登録
           </a>
           <span className="text-foreground/70">Instagram（近日開設）</span>
         </div>

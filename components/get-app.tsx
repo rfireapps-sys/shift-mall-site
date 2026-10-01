@@ -31,9 +31,26 @@ export function GetApp() {
               iOS 版も順次リリース予定です。
             </p>
             <p className="mt-2 text-xs text-foreground/50">{siteConfig.paidNote}</p>
-            <SplitButtonLink href={siteConfig.lineUrl} compact className="mt-5 shadow-flat-sm">
-              LINEで登録する
-            </SplitButtonLink>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
+              <a
+                href={siteConfig.lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-4 py-3 text-xs font-bold text-white shadow-flat-sm transition-colors hover:bg-foreground/80"
+              >
+                <SiGoogleplay className="h-4 w-4" aria-hidden="true" />
+                Google Play（準備中）
+              </a>
+              <a
+                href={siteConfig.lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-4 py-3 text-xs font-bold text-white shadow-flat-sm transition-colors hover:bg-foreground/80"
+              >
+                <SiApple className="h-4 w-4" aria-hidden="true" />
+                App Store（準備中）
+              </a>
+            </div>
           </div>
         </div>
       </Reveal>
