@@ -13,12 +13,12 @@ export function SiteHeader() {
         </a>
 
         <nav aria-label="サイト内" className="no-scrollbar min-w-0 flex-1 overflow-x-auto">
-          <ul className="flex justify-end items-center gap-2.5 whitespace-nowrap text-[10px] font-medium text-foreground/80 sm:gap-8 sm:text-sm">
+          <ul className="flex justify-end items-center gap-2.5 whitespace-nowrap text-xs font-medium text-foreground/80 sm:gap-8 sm:text-lg">
             {siteConfig.navItems.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="border-b-2 border-transparent py-1 transition-colors hover:border-red hover:text-foreground"
+                  className="border-b-2 border-transparent py-2 transition-colors hover:border-red hover:text-foreground"
                 >
                   {item.label}
                 </a>
