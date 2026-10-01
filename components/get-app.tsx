@@ -19,18 +19,10 @@ export function GetApp() {
         <div className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
           <PhoneMockup />
           <div>
-            <div className="flex items-center justify-center gap-2 md:justify-start">
-              <SiGoogleplay className="h-4 w-4 shrink-0 text-foreground/70" aria-hidden="true" />
-              <h2 className="font-heading text-xl font-bold text-foreground">Google Play でも入手予定</h2>
-            </div>
-            <p className="mt-1 text-sm leading-relaxed text-foreground/70">
-              Android 版を Google Play で配信予定です。公開まではLINE公式アカウントでお知らせします。
+            <h2 className="font-heading text-xl font-bold text-foreground">iPhone/Androidで配信予定</h2>
+            <p className="mt-2 text-sm leading-relaxed text-foreground/70">
+              公開まではLINE公式アカウントや各種SNSでお知らせします。
             </p>
-            <p className="mt-2 flex items-center justify-center gap-1.5 text-xs text-foreground/60 md:justify-start">
-              <SiApple className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-              iOS 版も順次リリース予定です。
-            </p>
-            <p className="mt-2 text-xs text-foreground/50">{siteConfig.paidNote}</p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
               <a
                 href={siteConfig.lineUrl}
