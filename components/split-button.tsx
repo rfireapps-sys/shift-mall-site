@@ -1,6 +1,6 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react"
 
-const labelBase = "flex items-center bg-gold font-bold text-navy"
+const labelBase = "flex items-center bg-yellow font-bold text-ink"
 const sizeClass = {
   default: "px-7 py-3.5 text-sm",
   compact: "px-5 py-3 text-sm",

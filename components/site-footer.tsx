@@ -1,12 +1,11 @@
 import Link from "next/link"
+import { SiX } from "react-icons/si"
 import { siteConfig } from "@/lib/site-config"
 
 const legalLinks = [
   { href: "/terms", label: "利用規約" },
   { href: "/privacy", label: "プライバシーポリシー" },
 ]
-
-const snsLinks = [{ label: "X" }, { label: "Instagram" }]
 
 export function SiteFooter() {
   return (
@@ -27,18 +26,23 @@ export function SiteFooter() {
               {link.label}
             </Link>
           ))}
-          <span className="text-foreground/55">税金・年収の壁について（近日公開）</span>
+          <span className="text-foreground/70">税金・年収の壁について（近日公開）</span>
         </nav>
 
-        <div className="flex flex-wrap gap-x-6 gap-y-2 text-foreground/55">
-          {snsLinks.map((sns) => (
-            <span key={sns.label}>
-              {sns.label}（近日開設）
-            </span>
-          ))}
+        <div className="flex flex-wrap items-center gap-3">
+          <a
+            href={siteConfig.xUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-xs font-bold text-white shadow-flat-sm transition-colors hover:bg-blue"
+          >
+            <SiX className="h-3.5 w-3.5" aria-hidden="true" />
+            Xをフォロー
+          </a>
+          <span className="text-foreground/70">Instagram（近日開設）</span>
         </div>
 
-        <p className="text-xs text-foreground/55">
+        <p className="text-xs text-foreground/65">
           &copy; {new Date().getFullYear()} {siteConfig.tradeName}
         </p>
       </div>

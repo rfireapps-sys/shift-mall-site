@@ -31,12 +31,11 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-gold-foreground: var(--gold-foreground);
-  --color-gold: var(--gold);
-  --color-navy: var(--navy);
-  --color-terracotta: var(--terracotta);
-  --color-ember: var(--ember);
-  --color-paper: var(--paper);
+  --color-yellow-foreground: var(--yellow-foreground);
+  --color-yellow: var(--yellow);
+  --color-blue: var(--blue);
+  --color-red: var(--red);
+  --color-ink: var(--ink);
   --color-primary: var(--primary);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
@@ -53,34 +52,44 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 :root {
   color-scheme: light;
-  /* シフトモール ハードスプリット配色（確定パレット） */
-  --paper: #fbf6ee;
-  --navy: #1e2733;
-  --gold: #d4a017;
-  --terracotta: #8f2a20;
-  --ember: #e0451e;
+  /* トライアル配色（2026/9/29 更新）：ビビッドな赤を主、黄を少し、青はさらに少なく。
+     面積の目安は 赤7 : 黄2 : 青1。隣り合う色の間には ink（ほぼ黒）か白を挟む。 */
+  --blue: #0a5cff;
+  --yellow: #ffd400;
+  --red: #e60012;
+  --ink: #111418;
 
-  --background: var(--paper);
-  --foreground: var(--navy);
+  --background: #f4f5f7;
+  --foreground: var(--ink);
   --card: #ffffff;
-  --card-foreground: var(--navy);
+  --card-foreground: var(--ink);
   --popover: #ffffff;
-  --popover-foreground: var(--navy);
-  --primary: var(--gold);
-  --primary-foreground: var(--navy);
-  --secondary: var(--terracotta);
-  --secondary-foreground: #ffffff;
-  --muted: #f1e9da;
-  --muted-foreground: color-mix(in oklab, var(--navy) 62%, transparent);
-  --accent: var(--ember);
+  --popover-foreground: var(--ink);
+  --primary: var(--red);
+  --primary-foreground: #ffffff;
+  --secondary: var(--yellow);
+  --secondary-foreground: var(--ink);
+  --muted: #f2f5fa;
+  --muted-foreground: color-mix(in oklab, var(--ink) 62%, transparent);
+  --accent: var(--blue);
   --accent-foreground: #ffffff;
-  --gold-foreground: var(--navy);
+  --yellow-foreground: var(--ink);
   --destructive: #b3261e;
-  --border: color-mix(in oklab, var(--navy) 16%, transparent);
-  --input: color-mix(in oklab, var(--navy) 16%, transparent);
-  --ring: var(--navy);
+  --border: color-mix(in oklab, var(--ink) 16%, transparent);
+  --input: color-mix(in oklab, var(--ink) 16%, transparent);
+  --ring: var(--red);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -97,77 +106,8 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-.dark {
-  color-scheme: dark;
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    color-scheme: dark;
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
-  }
-}
+/* ダークモードは非対応（2026/9/17確定）。.dark および
+   prefers-color-scheme: dark 用のトークンは意図的に持たない。 */
 
 @layer base {
   * {
@@ -182,30 +122,58 @@
   font-family: var(--font-heading);
 }
 
+/* ヘッダーナビが幅に収まらないとき横スクロールできるようにする。
+   バーは出さず、見た目をフラットに保つ。 */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* フラットなオフセット影のみ使用（ぼかし・グローは禁止） */
 @utility shadow-flat {
-  box-shadow: 4px 4px 0 var(--navy);
+  box-shadow: 4px 4px 0 var(--ink);
 }
 
 @utility shadow-flat-sm {
-  box-shadow: 3px 3px 0 var(--navy);
+  box-shadow: 3px 3px 0 var(--ink);
 }
 
 @utility shadow-flat-lg {
-  box-shadow: 6px 6px 0 var(--navy);
+  box-shadow: 6px 6px 0 var(--ink);
 }
 
-/* CTAボタンの装飾テール（本体は常にgold地でテキストの可読性を確保し、
-   ハードスプリット配色はテキストと重ならない右端の帯に限定する） */
+/* CTAボタンの装飾テール（本体は常に黄地でテキストの可読性を確保し、
+   青はテキストと重ならない右端の帯に限定する。青の両脇は ink で挟む） */
 @utility btn-split-tail {
   background: linear-gradient(
     115deg,
-    var(--navy) 0%,
-    var(--navy) 12%,
-    var(--terracotta) 12%,
-    var(--terracotta) 75%,
-    var(--navy) 75%,
-    var(--navy) 100%
+    var(--ink) 0%,
+    var(--ink) 12%,
+    var(--blue) 12%,
+    var(--blue) 75%,
+    var(--ink) 75%,
+    var(--ink) 100%
+  );
+}
+
+/* 写真の彩度・コントラストを揃えて、出どころの違う写真でも
+   統一感を持たせるための共通トーン */
+@utility photo-tone {
+  filter: saturate(0.85) contrast(1.05);
+}
+
+/* ヒーロー写真の色味は変えず、文字が乗る下側だけを黒でぼかさず暗くする
+   （ブランドカラーで写真を染めない） */
+@utility hero-scrim {
+  background: linear-gradient(
+    to top,
+    rgba(17, 20, 24, 0.78) 0%,
+    rgba(17, 20, 24, 0.5) 45%,
+    rgba(17, 20, 24, 0.14) 78%,
+    rgba(17, 20, 24, 0) 100%
   );
 }
 

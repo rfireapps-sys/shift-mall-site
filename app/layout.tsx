@@ -17,6 +17,7 @@ const bizBody = BIZ_UDPGothic({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://shift-mall-site.vercel.app'),
   title: `${siteConfig.appName} | 公式サイト`,
   description: siteConfig.tagline,
   generator: 'v0.app',
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: `${siteConfig.appName} | 公式サイト`,
     description: siteConfig.tagline,
   },
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#FBF6EE',
+  themeColor: '#f4f5f7',
 }
 
 export default function RootLayout({

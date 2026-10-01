@@ -1,9 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Download } from "lucide-react"
+import { Bell } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
-import { SplitButtonLink } from "@/components/split-button"
 
 export function DownloadFab() {
   const [hidden, setHidden] = useState(false)
@@ -19,17 +18,17 @@ export function DownloadFab() {
     return () => observer.disconnect()
   }, [])
 
+  // TODO: Google Playでの配信が始まったら、hrefを siteConfig.playUrl に、
+  // ラベルを「アプリを入手」に戻す。それまではLINE事前登録に誘導する。
   return (
-    <SplitButtonLink
-      href={siteConfig.playUrl}
-      aria-label="アプリを入手"
-      compact
-      className={`fixed bottom-6 right-6 z-50 shadow-flat transition-all duration-300 ${
+    <a
+      href={siteConfig.lineUrl}
+      aria-label="LINEで事前登録する"
+      className={`fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-yellow shadow-flat transition-all duration-300 ${
         hidden ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"
       }`}
     >
-      <Download className="mr-2 h-4 w-4" aria-hidden="true" />
-      アプリを入手
-    </SplitButtonLink>
+      <Bell className="h-6 w-6 text-ink" aria-hidden="true" />
+    </a>
   )
 }
