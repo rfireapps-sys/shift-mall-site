@@ -24,10 +24,10 @@ export function DownloadFab() {
         hidden ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"
       }`}
     >
-      <span className="flex items-center justify-center bg-ink px-4 py-3 text-sm font-bold text-white">
+      <span className="flex items-center justify-center bg-ink px-6 py-4 text-base font-bold text-white">
         事前
       </span>
-      <span className="flex items-center justify-center bg-blue px-4 py-3 text-sm font-bold text-white">
+      <span className="flex items-center justify-center bg-blue px-6 py-4 text-base font-bold text-white">
         登録
       </span>
     </a>
