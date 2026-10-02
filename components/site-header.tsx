@@ -13,7 +13,7 @@ export function SiteHeader() {
         </a>
 
         <nav aria-label="サイト内" className="no-scrollbar min-w-0 flex-1 overflow-x-auto">
-          <ul className="flex justify-end items-center gap-2.5 whitespace-nowrap text-sm font-medium text-foreground/80 sm:gap-8 sm:text-2xl">
+          <ul className="flex w-max min-w-full items-center justify-end gap-2.5 whitespace-nowrap text-xs font-medium text-foreground/80 sm:text-base md:gap-3.5 md:text-lg lg:gap-5 lg:text-2xl">
             {siteConfig.navItems.map((item) => (
               <li key={item.href}>
                 <a

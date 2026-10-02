@@ -27,7 +27,7 @@ export function WhatIsShiftMall() {
           <p key={idx} className={idx > 0 ? "mt-8 border-l-4 border-red pl-5 text-pretty leading-loose text-foreground/80 md:text-lg" : "text-pretty leading-loose text-foreground/80 md:text-lg"}>
             {paragraph.includes("空想のお金") ? (
               <>
-                シフトモールは勤務表と空想通販という二つの機能があります。まずは日々働いてあなたの勤怠を入力しましょう。すると締日には<span className="text-red">空想のお金がアプリ内のお財布に入金されます</span>。そこからはあなたの自由。好きなものを買ってください。ただし実際のお金は消費されません。商品も届きません。<span className="text-red">空想の買い物体験を経て、本当に欲しいものを見つけましょう</span>。
+                シフトモールは勤務表と空想通販という二つの機能があります。まずは日々働いてあなたの勤怠を入力しましょう。すると締日には<span className="text-red">空想のお金がアプリ内のお財布に入金されます</span>。そこからはあなたの自由。好きなものを買ってください。ただし実際のお金は消費されません。商品も届きません。<span className="text-red">もし本当に欲しいと思ったら、アプリ内から買いに行けます</span>。
               </>
             ) : (
               paragraph

@@ -3,7 +3,7 @@ import { Reveal } from "@/components/reveal"
 
 export function WhySection() {
   return (
-    <section className="bg-background px-6 pb-28 pt-4 md:pb-40 md:pt-6">
+    <section id="story" className="scroll-mt-20 bg-background px-6 pb-28 pt-4 md:pb-40 md:pt-6">
       <div className="mx-auto max-w-2xl">
         <Reveal className="mb-14 grid grid-cols-3 gap-3 md:mb-20 md:gap-4">
           <div className="aspect-[3/4] overflow-hidden rounded-sm shadow-flat-sm">
@@ -46,7 +46,7 @@ export function WhySection() {
 
         <Reveal delay={160} className="mt-6">
           <p className="text-pretty leading-loose text-foreground/80 md:text-lg">
-            お金ってすぐ無くなりませんか？ 税金や借金の返済で自分の給与を100%使えない。なのに欲しいものは無限にある。だからとりあえず欲しいものを買いたい。それを叶えるアプリです。
+            お金ってすぐ無くなりませんか？ 税金や借金の返済で自分の給与を100%使えない。<span className="text-red">なのに欲しいものは無限にある。</span>だからとりあえず欲しいものを買いたい。それらを叶えるアプリです。
           </p>
         </Reveal>
 
