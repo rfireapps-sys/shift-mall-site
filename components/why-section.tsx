@@ -50,11 +50,6 @@ export function WhySection() {
           </p>
         </Reveal>
 
-        <Reveal delay={240} className="mt-6">
-          <p className="text-pretty leading-loose text-foreground/80 md:text-lg">
-            シフトモールは勤務表と仮想通販という二つの機能があります。まずは日々働いてあなたの勤怠を入力しましょう。すると締日には<span className="text-red">仮想のお金がアプリ内のお財布に入金されます</span>。そこからはあなたの自由。好きなものを買ってください。ただし実際のお金は消費されません。商品も届きません。<span className="text-red">仮想の買い物体験を経て、本当にお金を払って欲しいものを探しましょう</span>。あなたの大切なお金を使ってでも、手に入れたいあなただけの幸せを。
-          </p>
-        </Reveal>
       </div>
     </section>
   )
