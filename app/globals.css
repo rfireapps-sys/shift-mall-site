@@ -31,8 +31,11 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-gold-foreground: var(--gold-foreground);
-  --color-gold: var(--gold);
+  --color-yellow-foreground: var(--yellow-foreground);
+  --color-yellow: var(--yellow);
+  --color-blue: var(--blue);
+  --color-red: var(--red);
+  --color-ink: var(--ink);
   --color-primary: var(--primary);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
@@ -49,29 +52,44 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 :root {
   color-scheme: light;
-  --background: oklch(0.99 0.004 106);
-  --foreground: oklch(0.24 0.012 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.24 0.012 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.24 0.012 250);
-  --primary: oklch(0.5 0.135 155);
-  --primary-foreground: oklch(0.99 0.004 106);
-  --secondary: oklch(0.96 0.008 120);
-  --secondary-foreground: oklch(0.3 0.02 160);
-  --muted: oklch(0.965 0.006 110);
-  --muted-foreground: oklch(0.52 0.014 250);
-  --accent: oklch(0.94 0.02 155);
-  --accent-foreground: oklch(0.32 0.03 160);
-  /* 給料日の「報酬」感を出すゴールドアクセント（バッジ・強調用） */
-  --gold: oklch(0.8 0.15 83);
-  --gold-foreground: oklch(0.32 0.07 70);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.91 0.008 120);
-  --input: oklch(0.91 0.008 120);
-  --ring: oklch(0.48 0.062 158);
+  /* トライアル配色（2026/9/29 更新）：ビビッドな赤を主、黄を少し、青はさらに少なく。
+     面積の目安は 赤7 : 黄2 : 青1。隣り合う色の間には ink（ほぼ黒）か白を挟む。 */
+  --blue: #0a5cff;
+  --yellow: #ffd400;
+  --red: #e60012;
+  --ink: #111418;
+
+  --background: #f4f5f7;
+  --foreground: var(--ink);
+  --card: #ffffff;
+  --card-foreground: var(--ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--ink);
+  --primary: var(--red);
+  --primary-foreground: #ffffff;
+  --secondary: var(--yellow);
+  --secondary-foreground: var(--ink);
+  --muted: #f2f5fa;
+  --muted-foreground: color-mix(in oklab, var(--ink) 62%, transparent);
+  --accent: var(--blue);
+  --accent-foreground: #ffffff;
+  --yellow-foreground: var(--ink);
+  --destructive: #b3261e;
+  --border: color-mix(in oklab, var(--ink) 16%, transparent);
+  --input: color-mix(in oklab, var(--ink) 16%, transparent);
+  --ring: var(--red);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -88,77 +106,8 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-.dark {
-  color-scheme: dark;
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    color-scheme: dark;
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
-  }
-}
+/* ダークモードは非対応（2026/9/17確定）。.dark および
+   prefers-color-scheme: dark 用のトークンは意図的に持たない。 */
 
 @layer base {
   * {
@@ -173,18 +122,59 @@
   font-family: var(--font-heading);
 }
 
-/* ヒーローの1文字ずつ表示 */
-@keyframes hero-char-in {
-  from {
-    opacity: 0;
-    transform: translateY(0.4em);
-    filter: blur(4px);
+/* ヘッダーナビが幅に収まらないとき横スクロールできるようにする。
+   バーは出さず、見た目をフラットに保つ。 */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
+}
+
+/* フラットなオフセット影のみ使用（ぼかし・グローは禁止） */
+@utility shadow-flat {
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+@utility shadow-flat-sm {
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+@utility shadow-flat-lg {
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+/* CTAボタンの装飾テール（本体は常に黄地でテキストの可読性を確保し、
+   青はテキストと重ならない右端の帯に限定する。青の両脇は ink で挟む） */
+@utility btn-split-tail {
+  background: linear-gradient(
+    115deg,
+    var(--ink) 0%,
+    var(--ink) 12%,
+    var(--blue) 12%,
+    var(--blue) 75%,
+    var(--ink) 75%,
+    var(--ink) 100%
+  );
+}
+
+/* 写真の彩度・コントラストを揃えて、出どころの違う写真でも
+   統一感を持たせるための共通トーン */
+@utility photo-tone {
+  filter: saturate(0.85) contrast(1.05);
+}
+
+/* ヒーロー写真の色味は変えず、文字が乗る下側だけを黒でぼかさず暗くする
+   （ブランドカラーで写真を染めない） */
+@utility hero-scrim {
+  background: linear-gradient(
+    to top,
+    rgba(17, 20, 24, 0.78) 0%,
+    rgba(17, 20, 24, 0.5) 45%,
+    rgba(17, 20, 24, 0.14) 78%,
+    rgba(17, 20, 24, 0) 100%
+  );
 }
 
 @keyframes hero-fade-in {
@@ -198,18 +188,12 @@
   }
 }
 
-.hero-char {
-  opacity: 0;
-  animation: hero-char-in 0.5s ease-out forwards;
-}
-
 .hero-fade {
   opacity: 0;
   animation: hero-fade-in 0.7s ease-out forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-char,
   .hero-fade {
     animation: none;
     opacity: 1;

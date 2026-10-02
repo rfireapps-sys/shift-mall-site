@@ -1,8 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Download } from "lucide-react"
-import { siteConfig } from "@/lib/site-config"
+import { SplitButtonLink } from "@/components/split-button"
 
 export function DownloadFab() {
   const [hidden, setHidden] = useState(false)
@@ -19,15 +18,14 @@ export function DownloadFab() {
   }, [])
 
   return (
-    <a
-      href={siteConfig.playUrl}
-      aria-label="アプリを入手"
-      className={`fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-all duration-300 hover:opacity-90 ${
+    <SplitButtonLink
+      href="#preregister"
+      aria-label="事前登録セクションへ移動"
+      className={`fixed bottom-6 right-6 z-50 shadow-flat transition-all duration-300 ${
         hidden ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"
       }`}
     >
-      <Download className="h-4 w-4" aria-hidden="true" />
-      アプリを入手
-    </a>
+      事前登録する
+    </SplitButtonLink>
   )
 }
