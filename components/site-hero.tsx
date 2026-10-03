@@ -4,11 +4,15 @@ import { SplitButtonLink } from "@/components/split-button"
 export function SiteHero() {
   return (
     <section id="top" className="relative flex min-h-[92svh] w-full flex-col justify-end overflow-hidden px-6 pb-20 pt-32">
-      <img
-        src="/images/hero-crossing.jpg"
-        alt=""
-        className="photo-tone absolute inset-0 h-full w-full object-cover"
-      />
+      {/* スマホは縦長の写真、PC（md以上）は横長の写真を使う（縦長の写真を横長に引き伸ばすと荒くなるため） */}
+      <picture>
+        <source media="(min-width: 768px)" srcSet="/images/hero-crossing-wide.webp" />
+        <img
+          src="/images/hero-crossing.jpg"
+          alt=""
+          className="photo-tone absolute inset-0 h-full w-full object-cover"
+        />
+      </picture>
       <div className="hero-scrim absolute inset-0" aria-hidden="true" />
 
       <div className="relative mx-auto w-full max-w-3xl lg:max-w-[69rem]">
