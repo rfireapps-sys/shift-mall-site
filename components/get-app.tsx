@@ -17,8 +17,8 @@ export function GetApp() {
           <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">アプリ入手</h2>
         </Reveal>
         {/* PC（md以上）は、文章を左・スマホモックを右に置き、モックをカードの下端にのぞかせる。 */}
-        <Reveal delay={80} className="mt-6 flex flex-col items-start gap-8 overflow-hidden rounded-sm border border-border bg-card px-6 pt-10 text-left shadow-flat-sm md:mt-10 md:flex-row-reverse md:items-end md:justify-between md:gap-12 md:px-12 md:pt-0 lg:px-20">
-          <PhoneMockup />
+        <Reveal delay={80} className="mt-6 flex flex-col items-start gap-8 overflow-hidden rounded-sm border border-border bg-card px-6 pt-10 text-left shadow-flat-sm md:mt-10 md:flex-row-reverse md:items-end md:justify-between md:gap-12 md:px-12 md:pt-12 lg:px-20">
+          <PhoneMockup className="self-center md:self-auto" />
           <div className="pb-10 md:self-center md:py-16">
             <h3 className="font-heading text-xl font-bold text-foreground">iOS/Androidで配信予定</h3>
             <p className="mt-2 text-sm leading-relaxed text-foreground/70">
