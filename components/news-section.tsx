@@ -6,7 +6,7 @@ export function NewsSection() {
     <section id="news" className="scroll-mt-20 px-6 py-12 md:py-16">
       <div className="mx-auto max-w-2xl rounded-sm border border-border bg-card px-6 py-8 shadow-flat-lg md:px-10 md:py-10 lg:max-w-[69rem] lg:px-12 lg:py-12">
         <Reveal>
-          <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-red">News</p>
+          <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">News</p>
         </Reveal>
         <Reveal delay={40} className="mt-2">
           <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">お知らせ</h2>

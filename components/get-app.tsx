@@ -11,7 +11,7 @@ export function GetApp() {
     <section id="get" className="scroll-mt-20 px-6 py-4 md:py-8">
       <div className="mx-auto max-w-2xl lg:max-w-[69rem]">
         <Reveal>
-          <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-red">Get The App</p>
+          <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">Get The App</p>
         </Reveal>
         <Reveal delay={40} className="mt-2">
           <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">アプリ入手</h2>

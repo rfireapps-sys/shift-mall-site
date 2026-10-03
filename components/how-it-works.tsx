@@ -9,7 +9,7 @@ export function HowItWorks() {
     <section id="how-it-works" className="scroll-mt-20 border-t border-border bg-background px-6 py-28 md:py-40">
       <div className="mx-auto max-w-2xl lg:max-w-[69rem]">
         <Reveal>
-          <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-red">How It Works</p>
+          <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">How It Works</p>
         </Reveal>
         <Reveal delay={40} className="mt-4">
           <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">かんたん4ステップ</h2>
