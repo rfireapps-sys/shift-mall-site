@@ -9,17 +9,14 @@ import { PhoneMockup } from "@/components/phone-mockup"
 export function GetApp() {
   return (
     <section id="get" className="scroll-mt-20 px-6 py-4 md:py-8">
-      {/* PC（lg以上）は、見出しを左・カードを右の2カラムにする。 */}
-      <div className="mx-auto max-w-2xl lg:grid lg:max-w-5xl lg:grid-cols-12 lg:gap-x-16">
-        <div className="lg:col-span-4">
-          <Reveal>
-            <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-red">Get The App</p>
-          </Reveal>
-          <Reveal delay={40} className="mt-2">
-            <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">アプリ入手</h2>
-          </Reveal>
-        </div>
-        <Reveal delay={80} className="mt-6 lg:col-span-8 lg:mt-0 flex flex-col items-center gap-8 rounded-sm border border-border bg-card px-6 py-10 text-left shadow-flat-sm md:flex-row md:items-center md:justify-between md:px-10">
+      <div className="mx-auto max-w-2xl lg:max-w-[69rem]">
+        <Reveal>
+          <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-red">Get The App</p>
+        </Reveal>
+        <Reveal delay={40} className="mt-2">
+          <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">アプリ入手</h2>
+        </Reveal>
+        <Reveal delay={80} className="mt-6 lg:mt-10 flex flex-col items-center gap-8 rounded-sm border border-border bg-card px-6 py-10 text-left shadow-flat-sm md:flex-row md:items-center md:justify-between md:px-10">
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-center">
             <PhoneMockup />
             <div>

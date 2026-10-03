@@ -11,8 +11,8 @@ export function SiteHero() {
       />
       <div className="hero-scrim absolute inset-0" aria-hidden="true" />
 
-      <div className="relative mx-auto w-full max-w-3xl lg:max-w-5xl">
-        <div className="lg:ml-auto lg:w-7/12">
+      <div className="relative mx-auto w-full max-w-3xl lg:max-w-[69rem]">
+        <div className="lg:max-w-2xl">
           <div
             className="hero-fade inline-flex overflow-hidden rounded-sm text-xs font-bold tracking-wide shadow-flat-sm sm:hidden"
             style={{ animationDelay: "0s" }}
@@ -30,7 +30,7 @@ export function SiteHero() {
 
           {/* 文節（inline-block）単位で改行させ、「しあわせ」「決められる」が途中で割れないようにする。
               文言を変えたら、ここの区切りも合わせて直すこと。 */}
-          <h1 className="font-heading mt-4 text-[calc((100vw-3rem)/9.2)] font-bold leading-[1.3] text-white sm:text-6xl lg:text-[3.25rem]">
+          <h1 className="font-heading mt-4 text-[calc((100vw-3rem)/9.2)] font-bold leading-[1.3] text-white sm:text-6xl lg:text-6xl">
             <span className="hero-fade block" style={{ animationDelay: "0.2s" }}>
               <span className="inline-block">じぶんの</span>
               <span className="inline-block">しあわせを、</span>

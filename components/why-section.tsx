@@ -1,12 +1,11 @@
-import { siteConfig } from "@/lib/site-config"
 import { Reveal } from "@/components/reveal"
 
 export function WhySection() {
   return (
     <section id="story" className="scroll-mt-20 bg-background px-6 pb-28 pt-4 md:pb-40 md:pt-6">
-      {/* PC（lg以上）は、写真を左・文章を右の2カラムにする。 */}
-      <div className="mx-auto max-w-2xl lg:grid lg:max-w-5xl lg:grid-cols-12 lg:items-start lg:gap-x-16">
-        <Reveal className="mb-14 grid grid-cols-3 gap-3 md:mb-20 md:gap-4 lg:col-span-6 lg:mb-0 lg:gap-5">
+      {/* PC（lg以上）は、見出し・文章を左、写真を右の2カラムにする（写真は2行ぶんの高さで右に置く）。 */}
+      <div className="mx-auto max-w-2xl lg:grid lg:max-w-[69rem] lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-16">
+        <Reveal className="mb-14 grid grid-cols-3 gap-3 md:mb-20 md:gap-4 lg:col-span-6 lg:col-start-7 lg:row-span-2 lg:row-start-1 lg:mb-0 lg:gap-5 lg:self-center">
           <div className="aspect-[3/4] overflow-hidden rounded-sm shadow-flat-sm">
             <img
               src="/images/why-scaffold.jpg"
@@ -30,7 +29,7 @@ export function WhySection() {
           </div>
         </Reveal>
 
-        <div className="lg:col-span-6">
+        <div className="lg:col-span-6 lg:col-start-1 lg:row-start-1">
           <Reveal>
             <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-red">Story</p>
           </Reveal>
@@ -39,8 +38,10 @@ export function WhySection() {
               なぜ、シフトモールなのか
             </h2>
           </Reveal>
+        </div>
 
-          <Reveal delay={80} className="mt-8">
+        <div className="lg:col-span-6 lg:col-start-1 lg:row-start-2">
+          <Reveal delay={80} className="mt-8 lg:mt-10">
             <p className="text-pretty leading-loose text-foreground/80 md:text-lg">
               お金の計算ってすごく面倒ですよね？ 正直苦手です。だからAIに毎回給与計算をお願いしていましたが、<span className="text-red">全然信頼できませんでした</span>。ならば信頼できるアプリを作ろう。でもただ給与計算できるなんてつまらない。
             </p>
@@ -51,7 +52,6 @@ export function WhySection() {
               お金ってすぐ無くなりませんか？ 税金や借金の返済で自分の給与を100%使えない。<span className="text-red">なのに欲しいものは無限にある。</span>だからとりあえず欲しいものを買いたい。それらを叶えるアプリです。
             </p>
           </Reveal>
-
         </div>
       </div>
     </section>

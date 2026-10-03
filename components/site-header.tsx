@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/site-config"
 export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/95">
-      <div className="mx-auto flex h-16 max-w-5xl items-center gap-2 px-3 sm:gap-4 sm:px-6">
+      <div className="mx-auto flex h-16 max-w-6xl items-center gap-2 px-3 sm:gap-4 sm:px-6">
         <a
           href="#top"
           className="hidden shrink-0 overflow-hidden rounded-sm text-xs font-bold tracking-wide shadow-flat-sm sm:inline-flex"
