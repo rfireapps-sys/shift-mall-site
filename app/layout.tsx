@@ -20,7 +20,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://shift-mall-site.vercel.app'),
   title: `${siteConfig.appName} | 公式サイト`,
   description: siteConfig.tagline,
-  generator: 'v0.app',
   openGraph: {
     title: `${siteConfig.appName} | 公式サイト`,
     description: siteConfig.tagline,

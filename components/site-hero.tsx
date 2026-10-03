@@ -13,7 +13,7 @@ export function SiteHero() {
 
       <div className="relative mx-auto w-full max-w-3xl">
         <div
-          className="hero-fade inline-flex overflow-hidden rounded-sm text-xs font-bold tracking-wide shadow-flat-sm"
+          className="hero-fade inline-flex overflow-hidden rounded-sm text-xs font-bold tracking-wide shadow-flat-sm sm:hidden"
           style={{ animationDelay: "0s" }}
         >
           <span className="bg-yellow px-3 py-1.5 text-yellow-foreground">SHIFT</span>
@@ -21,19 +21,22 @@ export function SiteHero() {
         </div>
 
         <p
-          className="hero-fade mt-8 text-sm font-medium tracking-wide text-white/80"
+          className="hero-fade mt-8 text-base font-bold tracking-wide text-white"
           style={{ animationDelay: "0.1s" }}
         >
           {siteConfig.appName} 事前登録受付中
         </p>
 
-        <h1 className="font-heading mt-4 text-balance text-[2.75rem] font-bold leading-[1.3] text-white sm:text-6xl md:text-7xl">
+        {/* 文節（inline-block）単位で改行させ、「しあわせ」「決められる」が途中で割れないようにする。
+            文言を変えたら、ここの区切りも合わせて直すこと。 */}
+        <h1 className="font-heading mt-4 text-[calc((100vw-3rem)/9.2)] font-bold leading-[1.3] text-white sm:text-6xl md:text-7xl">
           <span className="hero-fade block" style={{ animationDelay: "0.2s" }}>
-            {siteConfig.taglineLine1}
+            <span className="inline-block">じぶんの</span>
+            <span className="inline-block">しあわせを、</span>
           </span>
           <span className="hero-fade block" style={{ animationDelay: "0.32s" }}>
-            <span className="text-red">{siteConfig.taglineLine2.slice(0, 3)}</span>
-            {siteConfig.taglineLine2.slice(3)}
+            <span className="inline-block text-red">自分で</span>
+            <span className="inline-block">決められるように。</span>
           </span>
         </h1>
 
@@ -48,7 +51,7 @@ export function SiteHero() {
           <SplitButtonLink href="#preregister" className="shadow-flat">
             事前登録する
           </SplitButtonLink>
-          <p className="text-xs text-white/70">{siteConfig.releaseTiming}リリース予定</p>
+          <p className="text-sm font-medium text-white">{siteConfig.releaseTiming}リリース予定</p>
         </div>
       </div>
     </section>

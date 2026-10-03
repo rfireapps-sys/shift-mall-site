@@ -13,7 +13,7 @@ export function WhatIsShiftMall() {
         <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">シフトモールとは？</h2>
       </Reveal>
       <Reveal delay={80} className="mt-6">
-        <p className="text-pretty text-lg leading-loose text-foreground/80 md:text-xl">
+        <p className="text-balance text-lg leading-loose text-foreground/80 md:text-xl">
           {lines.map((line, i) => (
             <span key={line} className="block">
               {line}

@@ -3,25 +3,37 @@
 import { useEffect, useState } from "react"
 import { SplitButtonLink } from "@/components/split-button"
 
+// 同じ導線がすでに見えている間（Heroのボタン・事前登録セクション・フッター）は隠す。
+const hideTargets = ['#top a[href="#preregister"]', "#preregister", "footer"]
+
 export function DownloadFab() {
   const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
-    const footer = document.querySelector("footer")
-    if (!footer) return
+    const visible = new Set<Element>()
     const observer = new IntersectionObserver(
-      ([entry]) => setHidden(entry.isIntersecting),
-      { rootMargin: "0px 0px -10% 0px" },
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) visible.add(entry.target)
+          else visible.delete(entry.target)
+        }
+        setHidden(visible.size > 0)
+      },
+      { rootMargin: "-72px 0px 0px 0px" },
     )
-    observer.observe(footer)
+    for (const selector of hideTargets) {
+      const el = document.querySelector(selector)
+      if (el) observer.observe(el)
+    }
     return () => observer.disconnect()
   }, [])
 
   return (
     <SplitButtonLink
       href="#preregister"
+      compact
       aria-label="事前登録セクションへ移動"
-      className={`fixed bottom-6 right-6 z-50 shadow-flat transition-all duration-300 ${
+      className={`fixed bottom-4 right-4 z-50 shadow-flat transition-all duration-300 sm:bottom-6 sm:right-6 ${
         hidden ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"
       }`}
     >

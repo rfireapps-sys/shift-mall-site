@@ -68,7 +68,7 @@ html {
      面積の目安は 赤7 : 黄2 : 青1。隣り合う色の間には ink（ほぼ黒）か白を挟む。 */
   --blue: #0a5cff;
   --yellow: #ffd400;
-  --red: #e60012;
+  --red: #e00010;
   --ink: #111418;
 
   --background: #f4f5f7;
@@ -115,6 +115,8 @@ html {
   }
   body {
     @apply bg-background text-foreground;
+    /* 日本語を文節単位で改行する（未対応ブラウザでは通常の改行） */
+    word-break: auto-phrase;
   }
 }
 

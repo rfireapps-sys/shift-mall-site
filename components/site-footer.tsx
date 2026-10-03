@@ -16,17 +16,17 @@ export function SiteFooter() {
           <p className="mt-1 text-foreground/60">{siteConfig.tradeName}</p>
         </div>
 
-        <nav aria-label="フッター" className="flex flex-col gap-3">
+        <nav aria-label="フッター" className="flex flex-col">
           {legalLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-foreground/70 underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+              className="inline-block py-3 text-foreground/70 underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
           ))}
-          <span className="text-foreground/70">税金・年収の壁について（近日公開）</span>
+          <span className="py-3 text-foreground/70">税金・年収の壁について（近日公開）</span>
         </nav>
 
         <div className="flex flex-wrap items-center gap-3">
@@ -34,18 +34,18 @@ export function SiteFooter() {
             href={siteConfig.xUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-ink px-4 py-2 text-xs font-bold text-white shadow-flat-sm transition-colors hover:bg-blue"
+            className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white shadow-flat-sm transition-colors hover:bg-blue"
           >
-            <SiX className="h-3.5 w-3.5" aria-hidden="true" />
+            <SiX className="h-4 w-4" aria-hidden="true" />
             Xをフォロー
           </a>
           <a
             href={siteConfig.lineUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-green-500 px-4 py-2 text-xs font-bold text-white shadow-flat-sm transition-colors hover:bg-green-600"
+            className="inline-flex items-center gap-2 rounded-full bg-green-500 px-5 py-3 text-sm font-bold text-white shadow-flat-sm transition-colors hover:bg-green-600"
           >
-            <SiLine className="h-3.5 w-3.5" aria-hidden="true" />
+            <SiLine className="h-4 w-4" aria-hidden="true" />
             LINEで登録
           </a>
           <span className="text-foreground/70">Instagram（近日開設）</span>

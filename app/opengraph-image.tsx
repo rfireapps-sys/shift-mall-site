@@ -8,7 +8,7 @@ export const alt = `${siteConfig.appName} — ${siteConfig.tagline}`
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
-// トライアル配色（red #E60012 / yellow #FFD400 / blue #0A5CFF / ink #111418）をOGP画像にも適用。
+// トライアル配色（red #E00010 / yellow #FFD400 / blue #0A5CFF / ink #111418）をOGP画像にも適用。
 // ぼかしなしのオフセット影（shadow-flat）もCSS任せにできないため、
 // ここでは同じ視覚効果をボーダー2枚の重ねで再現している。
 export default async function Image() {
@@ -85,8 +85,8 @@ export default async function Image() {
 
         {/* フッター行: リリース時期 + 赤のアクセントバー */}
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div style={{ display: "flex", width: 56, height: 10, backgroundColor: "#E60012" }} />
-          <div style={{ display: "flex", fontSize: 26, fontWeight: 700, color: "#E60012" }}>
+          <div style={{ display: "flex", width: 56, height: 10, backgroundColor: "#E00010" }} />
+          <div style={{ display: "flex", fontSize: 26, fontWeight: 700, color: "#E00010" }}>
             {siteConfig.releaseTiming}リリース予定
           </div>
         </div>

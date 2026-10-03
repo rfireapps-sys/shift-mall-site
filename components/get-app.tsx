@@ -15,20 +15,20 @@ export function GetApp() {
       <Reveal delay={40} className="mt-2">
         <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">アプリ入手</h2>
       </Reveal>
-      <Reveal delay={80} className="mt-6 flex flex-col items-center gap-8 rounded-sm border border-border bg-card px-6 py-10 text-center shadow-flat-sm md:flex-row md:items-center md:justify-between md:px-10 md:text-left">
-        <div className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
+      <Reveal delay={80} className="mt-6 flex flex-col items-center gap-8 rounded-sm border border-border bg-card px-6 py-10 text-left shadow-flat-sm md:flex-row md:items-center md:justify-between md:px-10">
+        <div className="flex flex-col items-start gap-6 md:flex-row md:items-center">
           <PhoneMockup />
           <div>
-            <h2 className="font-heading text-xl font-bold text-foreground">iPhone/Androidで配信予定</h2>
+            <h3 className="font-heading text-xl font-bold text-foreground">まずはAndroidで配信予定</h3>
             <p className="mt-2 text-sm leading-relaxed text-foreground/70">
-              公開まではLINE公式アカウントや各種SNSでお知らせします。
+              iPhone版はAndroid版のあとに対応予定です。公開まではLINE公式アカウントや各種SNSでお知らせします。
             </p>
-            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               <a
                 href={siteConfig.lineUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-4 py-3 text-xs font-bold text-white shadow-flat-sm transition-colors hover:bg-foreground/80"
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-4 py-3.5 text-sm font-bold text-white shadow-flat-sm transition-colors hover:bg-foreground/80"
               >
                 <SiGoogleplay className="h-4 w-4" aria-hidden="true" />
                 Google Play（準備中）
@@ -37,10 +37,10 @@ export function GetApp() {
                 href={siteConfig.lineUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-4 py-3 text-xs font-bold text-white shadow-flat-sm transition-colors hover:bg-foreground/80"
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-4 py-3.5 text-sm font-bold text-white shadow-flat-sm transition-colors hover:bg-foreground/80"
               >
                 <SiApple className="h-4 w-4" aria-hidden="true" />
-                App Store（準備中）
+                App Store（対応予定）
               </a>
             </div>
           </div>

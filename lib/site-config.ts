@@ -1,7 +1,7 @@
 // 差し替え用のプレースホルダー。ここを書き換えるだけで全ページに反映されます。
 export const siteConfig = {
   // 屋号
-  tradeName: "{TRADE_NAME}",
+  tradeName: "プロメテウスドライバー",
   // アプリ名
   appName: "シフトモール",
   // タグライン（企業理念）
