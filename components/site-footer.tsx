@@ -10,7 +10,7 @@ const legalLinks = [
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto flex max-w-2xl flex-col gap-8 px-6 py-14 text-sm">
+      <div className="mx-auto flex max-w-2xl flex-col gap-8 px-6 py-14 text-sm lg:max-w-[72rem]">
         <div>
           <p className="font-heading font-bold text-foreground">{siteConfig.appName}</p>
           <p className="mt-1 text-foreground/60">{siteConfig.tradeName}</p>

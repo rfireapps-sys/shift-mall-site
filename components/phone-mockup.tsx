@@ -8,8 +8,8 @@ const shifts = [
 
 export function PhoneMockup({ className = "" }: { className?: string }) {
   return (
-    // スマホ幅では上半分だけ見せる（全体だと大きすぎるため）。md以上は全体を表示する。
-    <div className={`h-[330px] shrink-0 overflow-hidden pl-[3px] pr-[6px] md:h-auto md:overflow-visible md:px-0 ${className}`}>
+    // 全体だと大きすぎるため、上半分だけ見せる。PCではカードの下端にのぞかせる。
+    <div className={`h-[330px] shrink-0 overflow-hidden pl-[3px] pr-[6px] ${className}`}>
       <div className="relative w-[240px]">
         {/* サイドボタン */}
         <span aria-hidden="true" className="absolute -left-[3px] top-24 h-6 w-[3px] rounded-l-sm bg-ink" />
