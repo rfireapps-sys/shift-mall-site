@@ -4,15 +4,17 @@ import { Reveal } from "@/components/reveal"
 export function NewsSection() {
   return (
     <section id="news" className="scroll-mt-20 px-6 py-12 md:py-16">
-      <div className="mx-auto max-w-2xl rounded-sm border border-border bg-card px-6 py-8 shadow-flat-lg md:px-10 md:py-10">
-        <Reveal>
-          <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-red">News</p>
-        </Reveal>
-        <Reveal delay={40} className="mt-2">
-          <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">お知らせ</h2>
-        </Reveal>
+      <div className="mx-auto max-w-2xl rounded-sm border border-border bg-card px-6 py-8 shadow-flat-lg md:px-10 md:py-10 lg:grid lg:max-w-5xl lg:grid-cols-12 lg:gap-x-16 lg:px-12 lg:py-12">
+        <div className="lg:col-span-4">
+          <Reveal>
+            <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-red">News</p>
+          </Reveal>
+          <Reveal delay={40} className="mt-2">
+            <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">お知らせ</h2>
+          </Reveal>
+        </div>
 
-        <ul className="mt-8 flex flex-col divide-y divide-border border-t border-border">
+        <ul className="mt-8 flex flex-col divide-y divide-border border-t border-border lg:col-span-8 lg:mt-0">
           {siteConfig.newsItems.map((item, i) => (
             <Reveal key={item.date + item.body} delay={i * 60} as="li" className="flex flex-col gap-2 py-5 sm:flex-row sm:items-baseline sm:gap-6">
               <div className="flex shrink-0 items-baseline gap-3">
