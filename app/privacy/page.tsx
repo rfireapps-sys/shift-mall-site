@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 
 // 本文は、運営者から受け取った正式な文面（shift-mall-legal.pdf、2026年10月4日版）。
 // 文言を勝手に変えないこと。変更するときは運営者に確認する。
+// 2026/10/5: 運営者の指示で、サイトの用語にそろえて「仮想」を「空想」に統一した。
 const externalServices = [
   {
     name: "Google AdMob(Google LLC)",
@@ -35,7 +36,7 @@ const externalServices = [
 
 export default function PrivacyPage() {
   return (
-    <LegalLayout title="プライバシーポリシー" updatedAt="2026年10月4日">
+    <LegalLayout title="プライバシーポリシー" updatedAt="2026年10月5日">
       <p className="text-muted-foreground">運営者: {siteConfig.tradeName}</p>
 
       <LegalSection heading="1. 運営者">
@@ -68,7 +69,7 @@ export default function PrivacyPage() {
 
       <LegalSection heading="4. 利用目的">
         <p>
-          アプリに入力した内容は、給与計算・カレンダー表示・仮想ショッピングの表示にだけ使います。外部サービスに送信される情報の目的は、3.に記載のとおりです。
+          アプリに入力した内容は、給与計算・カレンダー表示・空想ショッピングの表示にだけ使います。外部サービスに送信される情報の目的は、3.に記載のとおりです。
         </p>
       </LegalSection>
 
