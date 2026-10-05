@@ -2,6 +2,7 @@ import type { ReactNode } from "react"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
+import { DownloadFab } from "@/components/download-fab"
 
 export function LegalLayout({
   title,
@@ -55,6 +56,8 @@ export function LegalLayout({
           </p>
         </div>
       </footer>
+
+      <DownloadFab href="/#preregister" />
     </div>
   )
 }
