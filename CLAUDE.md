@@ -15,13 +15,13 @@
 
 - Next.js 16（App Router）+ React 19 + Tailwind CSS v4 + shadcn（`@base-ui/react`）+ `@vercel/analytics`。Vercelにデプロイ（shift-mall-site.vercel.app）。
 - `npm run dev` / `npm run build` / `npm run lint`。プレビュー設定は `.claude/launch.json`（`shift-mall-site-dev`、ポート3000）。
-- **公開前のパスワード保護**：`proxy.ts` のBasic認証。環境変数 `SITE_BASIC_AUTH_USER` / `SITE_BASIC_AUTH_PASS` が両方設定されている間だけ有効。一般公開するときは、Vercelからこの2つを削除する。
+- **公開前のパスワード保護**：`proxy.ts` のBasic認証。環境変数 `SITE_BASIC_AUTH_USER` / `SITE_BASIC_AUTH_PASS` が両方設定されている間だけ有効。一般公開するときは、Vercelからこの2つを削除する。**ただし `/terms`（利用規約）と `/privacy`（プライバシーポリシー）は、アプリ・ストアから参照される公開URLなので、`proxy.ts` の `matcher` で保護の対象外にしている**（2026/10/5）。`/tradelaw` は保護したまま。
 - **文言・URLの管理**：屋号・タグライン・4ステップ・LINE URL・リリース時期などは `lib/site-config.ts` にまとめてある。文言を変えるときはまずここを編集する。
 - トップページ（`app/page.tsx`）の構成：Hero → お知らせ（News）→ 理念（Philosophy）→ シフトモールとは？（WhatIsShiftMall、id=`what`）→ なぜ、シフトモールなのか（WhySection、id=`story`）→ かんたん4ステップ（HowItWorks）→ 事前登録（Preregister、赤背景）→ アプリ入手（GetApp）→ Footer ＋ DownloadFab。ヘッダーのナビは `siteConfig.navItems`（お知らせ／理念／サービス／ストーリー／使い方／アプリ入手）で、**「アプリ入手」は `#preregister`（事前登録セクション）までスクロールする**（事前登録よりアプリ入手のほうが分かりやすいため、ラベルは「アプリ入手」、飛び先は事前登録）。
-- 法務ページ：`app/privacy`、`app/terms`、`app/tradelaw`（特商法）。特商法ページの中身は、法人化するかどうかが決まるまで保留。
+- 法務ページ：`app/privacy`、`app/terms`、`app/tradelaw`（特商法）。**利用規約とプライバシーポリシーの本文は、運営者（ユーザー）から受け取った正式な文面（`shift-mall-legal.pdf`、2026年10月4日版）をそのまま入れてある**（2026/10/5）。文言を勝手に変えない（変更はユーザーに確認）。問い合わせ先は公式LINE（メールではない）。公開URLは独自ドメイン取得後に `https://shift-mall.com/terms` と `/privacy`（アプリ側 `legal_links.dart` の `kTermsUrl` / `kPrivacyUrl` に入れる）。特商法ページの中身は、法人化するかどうかが決まるまで保留（仮の内容のまま、保護も解除しない）。規約・ポリシー本文の「仮想」は、ユーザーの指示（2026/10/5）でサイトの用語にそろえて「空想」に統一済み（最終更新日は、アプリ側の正式版に合わせて2026年10月4日のまま。アプリ側の2ファイル `lib/data/terms.dart` / `privacy_policy.dart` から書き出したPDFが正式版で、サイトの本文はそれに合わせる運用）。アプリ側（Flutter）の表記や、アプリ内の画面の文言も同じ用語にそろっているかは、別途確認が必要。プライバシーポリシーはアプリ向けで、サイトのVercel Analyticsには触れていない。
 - **事前登録**：メールアドレス入力フォーム（`/api/preregister`）はやめて、LINE公式アカウントの友だち追加（`siteConfig.lineUrl`）に切り替えた。
 - **暫定CTA（2026/9/17〜）**：`GetApp`セクションの「Google Play（準備中）」「App Store（対応予定）」ボタンは、本来`siteConfig.playUrl`（Google Play）等に飛ばす想定だが、ストア公開までは**両方ともLINE（`siteConfig.lineUrl`）に暫定的に誘導**している（コード中に`TODO`コメントあり）。**Google Play公開時は、ボタンのhrefとラベルを本来のものに戻すこと**（ユーザーから「アプリ登録次第、ちゃんとしたものに戻す」と指示あり、2026/10/3）。`DownloadFab`は事前登録セクション（`#preregister`）へのスクロールボタン（Heroのボタン・事前登録セクション・フッターが見えている間は隠れる）。
-- **屋号**：`siteConfig.tradeName` = 「プロメテウスドライバー」（2026/10/3確定）。`supportEmail` は仮の `support@example.com` のまま（未確定）。利用規約・プライバシーポリシー本文は、ユーザーから正式な文面をもらい次第差し替える（2026/10/3時点で待ち）。プライバシーポリシーにはVercel Analyticsの記載がまだない。
+- **屋号**：`siteConfig.tradeName` = 「プロメテウスドライバー」（2026/10/3確定）。`supportEmail` は仮の `support@example.com` のまま（未確定。規約・ポリシーは公式LINEで問い合わせを受けるのでメールを使わない。特商法ページだけが参照している）。
 - **パッケージマネージャー**：npm（`package-lock.json`）に統一。`pnpm-lock.yaml`は廃止（PR #2）。以前、両方が共存して`react-icons`の追加時に片方だけ更新漏れし、Vercelのpnpmビルドが失敗した。依存を追加したら`package-lock.json`をコミットすること。
 - **OGP画像**：`app/opengraph-image.tsx`（Next.jsの`opengraph-image`規約、`next/og`の`ImageResponse`で生成）。現行配色（red/yellow/blue/ink）で自動生成される静的画像。中身を変えたいときはこのファイルを編集する（別途画像ファイルは用意していない）。
 
@@ -101,7 +101,7 @@
 
 ## アプリ（シフトモール）の概要
 
-- シフト・時給・フリーランス/SESなど、収入が変動する働き方の人向けのFlutterアプリ。Androidを先に出し、iOSは後回し。
+- シフト・時給・フリーランス/SESなど、収入が変動する働き方の人向けのFlutterアプリ。**AndroidとiOSは同時リリースの方針**（iOSが若干遅れる可能性があるだけで、「Androidを先に」とは書かない。2026/10/6ユーザー確認。サイトの表記は「iOS/Androidで配信予定」）。
 - **何をするアプリか**：シフト管理（休みの日数と稼いだ給料がひと目でわかる）＋ 仮想通販（稼いだ給料を、罪悪感なく使える財布として扱う）。実際のお金は動かない。
 - **作った理由**：シフト計算をAIに聞いても信用できず、結局自分で計算し直すことになったため、計算し直さなくても信頼できる数字がひと目でわかるものが欲しかった。
 - **他との違い**：普通の買い物は「説得されて欲しくなる」順番だが、シフトモールは「もう稼いだお金だから使っていい」という逆の順番。

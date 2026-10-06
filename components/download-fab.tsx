@@ -6,7 +6,8 @@ import { SplitButtonLink } from "@/components/split-button"
 // 同じ導線がすでに見えている間（Heroのボタン・事前登録セクション・フッター）は隠す。
 const hideTargets = ['#top a[href="#preregister"]', "#preregister", "footer"]
 
-export function DownloadFab() {
+// href: トップページでは "#preregister"、規約などの別ページでは "/#preregister"（トップの事前登録セクションへ）。
+export function DownloadFab({ href = "#preregister" }: { href?: string }) {
   const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
@@ -30,7 +31,7 @@ export function DownloadFab() {
 
   return (
     <SplitButtonLink
-      href="#preregister"
+      href={href}
       compact
       aria-label="事前登録セクションへ移動"
       className={`fixed bottom-4 right-4 z-50 shadow-flat transition-all duration-300 sm:bottom-6 sm:right-6 ${

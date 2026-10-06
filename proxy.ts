@@ -36,9 +36,11 @@ export function proxy(request: NextRequest) {
   })
 }
 
-// 静的アセット（アイコンなど）は除外して、ページだけを保護対象にする
+// 静的アセット（アイコンなど）と、アプリ・ストアから参照される公開ページ
+// （利用規約 /terms、プライバシーポリシー /privacy）は除外して、それ以外のページを保護対象にする。
+// /tradelaw（特商法）は、内容が確定するまで保護したままにする。
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|icon.svg|icon-light-32x32.png|icon-dark-32x32.png|apple-icon.png).*)",
+    "/((?!_next/static|_next/image|favicon.ico|icon.svg|icon-light-32x32.png|icon-dark-32x32.png|apple-icon.png|terms$|privacy$).*)",
   ],
 }
