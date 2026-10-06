@@ -1,0 +1,3 @@
+# OGP画像は拡張子がないので、Content-Typeを明示する（静的ホスティング用）
+/opengraph-image
+  Content-Type: image/png

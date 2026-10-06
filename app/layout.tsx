@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { BIZ_UDPGothic } from 'next/font/google'
 import { siteConfig } from '@/lib/site-config'
@@ -17,7 +16,7 @@ const bizBody = BIZ_UDPGothic({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://shift-mall-site.vercel.app'),
+  metadataBase: new URL('https://shift-mall.com'),
   title: `${siteConfig.appName} | 公式サイト`,
   description: siteConfig.tagline,
   openGraph: {
@@ -64,7 +63,6 @@ export default function RootLayout({
     <html lang="ja" className={`light bg-background ${bizHeading.variable} ${bizBody.variable}`}>
       <body className="font-sans antialiased">
         {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )
