@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site-config"
 const legalLinks = [
   { href: "/terms", label: "利用規約" },
   { href: "/privacy", label: "プライバシーポリシー" },
+  { href: "/recommended-environment", label: "推奨環境" },
 ]
 
 export function SiteFooter() {
