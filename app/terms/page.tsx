@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 // 2026/10/5: 運営者の指示で、サイトの用語にそろえて「仮想」を「空想」に統一した。
 export default function TermsPage() {
   return (
-    <LegalLayout title="利用規約" updatedAt="2026年10月5日">
+    <LegalLayout title="利用規約" updatedAt="2026年10月4日">
       <p className="text-muted-foreground">運営者: {siteConfig.tradeName}</p>
 
       <LegalSection heading="第1条(はじめに)">

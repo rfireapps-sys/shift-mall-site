@@ -36,7 +36,7 @@ const externalServices = [
 
 export default function PrivacyPage() {
   return (
-    <LegalLayout title="プライバシーポリシー" updatedAt="2026年10月5日">
+    <LegalLayout title="プライバシーポリシー" updatedAt="2026年10月4日">
       <p className="text-muted-foreground">運営者: {siteConfig.tradeName}</p>
 
       <LegalSection heading="1. 運営者">
