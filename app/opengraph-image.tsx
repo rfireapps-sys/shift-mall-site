@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site-config"
 // 通常のNode.jsランタイムで静的生成させる。
 
 export const alt = `${siteConfig.appName} — ${siteConfig.tagline}`
+export const dynamic = "force-static"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 

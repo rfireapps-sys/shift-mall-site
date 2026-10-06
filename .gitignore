@@ -13,3 +13,5 @@ __v0_jsx-dev-runtime.ts
 node_modules
 .next/
 .DS_Store
+# 静的書き出しの出力
+/out/

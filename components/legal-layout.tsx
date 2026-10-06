@@ -47,9 +47,6 @@ export function LegalLayout({
             <Link href="/privacy" className="text-muted-foreground hover:text-foreground">
               プライバシーポリシー
             </Link>
-            <Link href="/tradelaw" className="text-muted-foreground hover:text-foreground">
-              特定商取引法に基づく表記
-            </Link>
           </div>
           <p className="mt-6 text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} {siteConfig.tradeName}
