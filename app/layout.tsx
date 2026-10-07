@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://shift-mall.com'),
   title: `${siteConfig.appName} | 公式サイト`,
   description: siteConfig.tagline,
+  alternates: { canonical: './' },
   openGraph: {
     title: `${siteConfig.appName} | 公式サイト`,
     description: siteConfig.tagline,
