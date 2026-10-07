@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: `${siteConfig.appName} のプライバシーポリシー`,
 }
 
-// 本文は、運営者から受け取った正式な文面（shift-mall-legal.pdf、2026年10月4日版）。
+// 本文は、運営者から受け取った正式な文面（shift-mall-legal.pdf、プライバシーポリシーは2026年10月7日版）。
 // 文言を勝手に変えないこと。変更するときは運営者に確認する。
 // 2026/10/5: 運営者の指示で、サイトの用語にそろえて「仮想」を「空想」に統一した。
 const externalServices = [
@@ -36,7 +36,7 @@ const externalServices = [
 
 export default function PrivacyPage() {
   return (
-    <LegalLayout title="プライバシーポリシー" updatedAt="2026年10月4日">
+    <LegalLayout title="プライバシーポリシー" updatedAt="2026年10月7日">
       <p className="text-muted-foreground">運営者: {siteConfig.tradeName}</p>
 
       <LegalSection heading="1. 運営者">
@@ -124,6 +124,12 @@ export default function PrivacyPage() {
       <LegalSection heading="10. 本ポリシーの変更">
         <p>
           運営者は、必要に応じて本ポリシーを変更することがあります。変更後の内容は、アプリ内および公式サイトに掲載した時点から効力を生じます。
+        </p>
+      </LegalSection>
+
+      <LegalSection heading="11. 公式サイトのアクセス解析">
+        <p>
+          公式サイト(https://shift-mall.com)では、アクセス状況を把握して改善に役立てるため、Cloudflare, Inc.のWeb Analyticsを利用しています。閲覧したページ、参照元、国や地域、ブラウザや端末の種類などの統計情報が、Cloudflare社で収集・集計されます。Cookieは使用せず、個々の訪問者を追跡・特定する情報は取得しません(Cloudflare社の説明による)。取り扱いの詳細は、Cloudflare社のプライバシーポリシーをご確認ください。
         </p>
       </LegalSection>
     </LegalLayout>
