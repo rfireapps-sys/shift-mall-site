@@ -1,4 +1,5 @@
-import { SiApple, SiGoogleplay } from "react-icons/si"
+import { SiApple } from "react-icons/si"
+import { GooglePlayIcon } from "@/components/google-play-icon"
 import { siteConfig } from "@/lib/site-config"
 import { Reveal } from "@/components/reveal"
 import { SplitButtonLink } from "@/components/split-button"
@@ -31,7 +32,7 @@ export function GetApp() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-4 py-3.5 text-sm font-bold text-white shadow-flat-sm transition-colors hover:bg-foreground/80"
               >
-                <SiGoogleplay className="h-4 w-4" aria-hidden="true" />
+                <GooglePlayIcon className="h-4 w-4" />
                 Google Play（準備中）
               </a>
               <a
