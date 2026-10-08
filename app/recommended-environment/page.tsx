@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = {
   title: `推奨環境について | ${siteConfig.appName}`,
-  description: `${siteConfig.appName} を快適にご利用いただくための推奨環境（対応OS）のご案内`,
+  description: `${siteConfig.appName}を快適にご利用いただくための推奨環境（対応OS）のご案内`,
 }
 
 // 対応OSの値は、アプリ側リポジトリ(work_simulator)の設定から確認したもの（2026/10/7時点）。
