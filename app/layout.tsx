@@ -17,19 +17,19 @@ const bizBody = BIZ_UDPGothic({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://shift-mall.com'),
-  title: `${siteConfig.appName} | 公式サイト`,
-  description: siteConfig.tagline,
+  title: siteConfig.seoTitle,
+  description: siteConfig.seoDescription,
   alternates: { canonical: './' },
   openGraph: {
-    title: `${siteConfig.appName} | 公式サイト`,
-    description: siteConfig.tagline,
+    title: siteConfig.seoTitle,
+    description: siteConfig.seoDescription,
     locale: 'ja_JP',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteConfig.appName} | 公式サイト`,
-    description: siteConfig.tagline,
+    title: siteConfig.seoTitle,
+    description: siteConfig.seoDescription,
   },
   icons: {
     icon: [
@@ -55,6 +55,23 @@ export const viewport: Viewport = {
   themeColor: '#f4f5f7',
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: siteConfig.appName,
+      url: 'https://shift-mall.com',
+      inLanguage: 'ja',
+    },
+    {
+      '@type': 'Organization',
+      name: siteConfig.tradeName,
+      url: 'https://shift-mall.com',
+    },
+  ],
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -63,6 +80,10 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`light bg-background ${bizHeading.variable} ${bizBody.variable}`}>
       <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>
