@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = {
   title: `プライバシーポリシー | ${siteConfig.appName}`,
-  description: `${siteConfig.appName} のプライバシーポリシー`,
+  description: `${siteConfig.appName}のプライバシーポリシー`,
 }
 
 // 本文は、運営者から受け取った正式な文面（shift-mall-legal.pdf、プライバシーポリシーは2026年10月7日版）。

@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = {
   title: `利用規約 | ${siteConfig.appName}`,
-  description: `${siteConfig.appName} の利用規約`,
+  description: `${siteConfig.appName}の利用規約`,
 }
 
 // 本文は、運営者から受け取った正式な文面（shift-mall-legal.pdf、2026年10月4日版）。
