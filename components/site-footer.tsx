@@ -38,7 +38,7 @@ export function SiteFooter() {
             className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-bold text-white shadow-flat-sm transition-colors hover:bg-blue"
           >
             <SiX className="h-4 w-4" aria-hidden="true" />
-            Xをフォロー
+            X（Twitter）
           </a>
           <a
             href={siteConfig.lineUrl}
@@ -47,7 +47,7 @@ export function SiteFooter() {
             className="inline-flex items-center gap-2 rounded-full bg-green-500 px-5 py-3 text-sm font-bold text-white shadow-flat-sm transition-colors hover:bg-green-600"
           >
             <SiLine className="h-4 w-4" aria-hidden="true" />
-            LINEで登録
+            LINE
           </a>
           <span className="text-foreground/70">Instagram（近日開設）</span>
         </div>
