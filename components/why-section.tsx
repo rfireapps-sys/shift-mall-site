@@ -43,13 +43,13 @@ export function WhySection() {
 
         <div className="lg:col-span-6 lg:col-start-1 lg:row-start-2">
           <Reveal delay={80} className="mt-8 lg:mt-10">
-            <p className="text-pretty leading-loose text-foreground/80 md:text-lg lg:text-balance">
+            <p className="text-pretty leading-loose text-foreground/80 md:text-lg">
               お金の計算ってすごく面倒ですよね？ 正直苦手です。だからAIに毎回給与計算をお願いしていましたが、<span className="text-red">全然信頼できませんでした</span>。ならば信頼できるアプリを作ろう。でもただ給与計算できるなんてつまらない。
             </p>
           </Reveal>
 
           <Reveal delay={160} className="mt-6">
-            <p className="text-pretty leading-loose text-foreground/80 md:text-lg lg:text-balance">
+            <p className="text-pretty leading-loose text-foreground/80 md:text-lg">
               お金ってすぐ無くなりませんか？ 税金や借金の返済で自分の給与を100%使えない。<span className="text-red">なのに欲しいものは無限にある。</span>だからとりあえず欲しいものを買いたい。それらを叶えるアプリです。
             </p>
           </Reveal>
