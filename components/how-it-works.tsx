@@ -6,7 +6,7 @@ const stepColors = ["bg-red text-white", "bg-yellow text-yellow-foreground", "bg
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="scroll-mt-20 border-t border-border bg-background px-6 py-28 md:py-40">
+    <section id="how-it-works" className="scroll-mt-20 border-t border-border bg-background px-6 py-12 md:py-18">
       <div className="mx-auto max-w-2xl lg:max-w-[69rem]">
         <Reveal>
           <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">How It Works</p>
