@@ -5,7 +5,7 @@ export function PhilosophySection() {
   const lines = siteConfig.philosophyBody.split("\n")
 
   return (
-    <section id="philosophy" className="scroll-mt-20 px-6 pb-8 pt-28 md:pb-12 md:pt-40">
+    <section id="philosophy" className="scroll-mt-20 px-6 pt-24 md:pt-36">
       <div className="mx-auto max-w-3xl lg:max-w-[69rem]">
         <Reveal>
           <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">Philosophy</p>
