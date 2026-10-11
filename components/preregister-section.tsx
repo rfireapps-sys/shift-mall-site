@@ -4,7 +4,7 @@ import { SplitButtonLink } from "@/components/split-button"
 
 export function PreregisterSection() {
   return (
-    <section id="preregister" className="scroll-mt-20 border-t border-border bg-red px-6 py-28 md:py-40">
+    <section id="preregister" className="scroll-mt-20 border-t border-border bg-red px-6 py-16 md:py-24">
       <div className="mx-auto max-w-xl lg:max-w-[69rem]">
         <Reveal>
           <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-white">Preregister</p>
