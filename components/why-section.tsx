@@ -2,7 +2,7 @@ import { Reveal } from "@/components/reveal"
 
 export function WhySection() {
   return (
-    <section id="story" className="scroll-mt-20 bg-background px-6 pb-28 pt-28 md:pb-40 md:pt-40">
+    <section id="story" className="scroll-mt-20 bg-background px-6 pb-12 pt-24 md:pb-18 md:pt-36">
       {/* PC（lg以上）は、見出しを上、その下を文章（左）と写真（右）の2カラムにする。
           写真は、1・3枚目の上端が本文の始まり、2枚目の下端が本文の終わりにそろうよう、本文と同じ高さに伸ばす。 */}
       <div className="mx-auto max-w-2xl lg:grid lg:max-w-[69rem] lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-16">
