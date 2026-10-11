@@ -27,7 +27,7 @@ export function PhilosophySection() {
         <Reveal delay={120} className="mt-16 lg:mt-24">
           <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">Vision</p>
           <h3 className="mt-2 font-heading text-2xl font-bold text-foreground md:text-3xl">目指す世界</h3>
-          <p className="mt-6 text-balance text-lg font-bold leading-loose text-foreground md:text-xl lg:mt-10 lg:text-3xl lg:leading-relaxed">
+          <p className="mt-6 text-balance text-lg leading-loose text-foreground/80 md:text-xl lg:mt-10 lg:text-3xl lg:leading-relaxed">
             {siteConfig.visionBody}
           </p>
         </Reveal>
