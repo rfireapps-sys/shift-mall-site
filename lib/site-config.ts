@@ -52,8 +52,8 @@ export const siteConfig = {
   // ヘッダーナビの項目（クリックでページ内スクロール）
   navItems: [
     { label: "お知らせ", href: "#news" },
-    { label: "理念", href: "#philosophy" },
     { label: "サービス", href: "#what" },
+    { label: "理念", href: "#philosophy" },
     { label: "ストーリー", href: "#story" },
     { label: "使い方", href: "#how-it-works" },
     { label: "アプリ入手", href: "#preregister" },
