@@ -6,10 +6,18 @@ const shifts = [
   { day: "9/28 (日)", hours: "12:00–20:00", amount: "¥10,000" },
 ]
 
-export function PhoneMockup({ className = "" }: { className?: string }) {
+// fill: 親の高さに合わせて、上から切り取って表示する（親は高さを持つ相対配置の枠）。幅は240px固定。
+// 指定なし: 上半分だけ見せる（高さ330px）。
+export function PhoneMockup({ className = "", fill = false }: { className?: string; fill?: boolean }) {
   return (
     // 全体だと大きすぎるため、上半分だけ見せる。PCではカードの下端にのぞかせる。
-    <div className={`h-[330px] shrink-0 overflow-hidden pl-[3px] pr-[6px] ${className}`}>
+    <div
+      className={
+        fill
+          ? `absolute inset-y-0 left-0 overflow-hidden pl-[3px] pr-[6px] ${className}`
+          : `h-[330px] shrink-0 overflow-hidden pl-[3px] pr-[6px] ${className}`
+      }
+    >
       <div className="relative w-[240px]">
         {/* サイドボタン */}
         <span aria-hidden="true" className="absolute -left-[3px] top-24 h-6 w-[3px] rounded-l-sm bg-ink" />
