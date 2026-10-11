@@ -3,7 +3,7 @@ import { SplitButtonLink } from "@/components/split-button"
 
 export function SiteHero() {
   return (
-    <section id="top" className="relative flex min-h-[92svh] w-full flex-col justify-end overflow-hidden px-6 pb-20 pt-32">
+    <section id="top" className="relative flex min-h-[80svh] w-full flex-col justify-end overflow-hidden px-6 pb-20 pt-24 md:min-h-[92svh] md:pt-32">
       {/* スマホは縦長の写真、PC（md以上）は横長の写真を使う（縦長の写真を横長に引き伸ばすと荒くなるため） */}
       <picture>
         <source media="(min-width: 768px)" srcSet="/images/hero-crossing-wide.webp" />
