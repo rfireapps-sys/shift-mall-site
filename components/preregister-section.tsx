@@ -9,7 +9,7 @@ export function PreregisterSection() {
         <Reveal>
           <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-white">Preregister</p>
         </Reveal>
-        <Reveal delay={40} className="mt-4">
+        <Reveal delay={40} className="mt-2">
           <h2 className="font-heading text-2xl font-bold text-white md:text-3xl">事前登録</h2>
         </Reveal>
         <Reveal delay={60} className="mt-6 lg:mt-10 lg:max-w-2xl">

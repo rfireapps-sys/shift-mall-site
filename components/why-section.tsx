@@ -34,7 +34,7 @@ export function WhySection() {
           <Reveal>
             <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">Story</p>
           </Reveal>
-          <Reveal delay={40} className="mt-4">
+          <Reveal delay={40} className="mt-2">
             <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">
               なぜ、シフトモールなのか
             </h2>

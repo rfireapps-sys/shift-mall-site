@@ -11,22 +11,22 @@ export function HowItWorks() {
         <Reveal>
           <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">How It Works</p>
         </Reveal>
-        <Reveal delay={40} className="mt-4">
+        <Reveal delay={40} className="mt-2">
           <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">かんたん4ステップ</h2>
         </Reveal>
 
         {/* スマホは縦1列のカード。PC（lg以上）は、ステップごとのカードを2×2に並べる。 */}
-        <div className="relative mt-16 rounded-sm border border-border bg-card px-6 py-14 shadow-flat-lg sm:px-10 lg:mt-12 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
-          <div className="relative flex flex-col gap-20 md:gap-28 lg:grid lg:grid-cols-2 lg:gap-6">
+        <div className="relative mt-10 rounded-sm border border-border bg-card px-6 py-8 shadow-flat-lg sm:px-10 md:mt-16 md:py-14 lg:mt-12 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none">
+          <div className="relative flex flex-col gap-8 md:gap-28 lg:grid lg:grid-cols-2 lg:gap-6">
             <div
               aria-hidden="true"
-              className="absolute left-[22px] top-11 bottom-11 w-px bg-border lg:hidden"
+              className="absolute left-[22px] top-5 bottom-5 w-px md:top-11 md:bottom-11 bg-border lg:hidden"
             />
             {siteConfig.steps.map((step, i) => (
               <Reveal
                 key={step.title}
                 delay={i * 80}
-                className="relative flex items-start gap-5 lg:rounded-sm lg:border lg:border-border lg:bg-card lg:p-8 lg:shadow-flat-sm"
+                className="relative flex items-start gap-4 md:gap-5 lg:rounded-sm lg:border lg:border-border lg:bg-card lg:p-8 lg:shadow-flat-sm"
               >
                 <span
                   className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-sm text-lg font-bold shadow-flat-sm ${stepColors[i]}`}
@@ -35,8 +35,8 @@ export function HowItWorks() {
                   {i + 1}
                 </span>
                 <div>
-                  <h3 className="font-heading text-xl font-bold text-foreground md:text-2xl">{step.title}</h3>
-                  <p className="mt-2 max-w-md leading-relaxed text-foreground/70">{step.body}</p>
+                  <h3 className="font-heading text-lg font-bold text-foreground md:text-2xl">{step.title}</h3>
+                  <p className="mt-1 max-w-md text-sm leading-relaxed text-foreground/70 md:mt-2 md:text-base">{step.body}</p>
                 </div>
               </Reveal>
             ))}
