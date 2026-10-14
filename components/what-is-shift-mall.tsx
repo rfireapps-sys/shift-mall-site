@@ -6,7 +6,7 @@ export function WhatIsShiftMall() {
   const lines = siteConfig.whatIsShiftMall.split("\n")
 
   return (
-    <section id="what" className="scroll-mt-20 px-6 pt-12 md:pt-20">
+    <section id="what" className="scroll-mt-20 px-6 pt-24 md:pt-36">
       <div className="mx-auto max-w-3xl lg:max-w-[69rem]">
         <Reveal>
           <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">Service</p>

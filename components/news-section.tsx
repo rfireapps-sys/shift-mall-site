@@ -3,7 +3,7 @@ import { Reveal } from "@/components/reveal"
 
 export function NewsSection() {
   return (
-    <section id="news" className="scroll-mt-20 px-6 py-12 md:py-16">
+    <section id="news" className="scroll-mt-20 px-6 pb-12 pt-24 md:pb-18 md:pt-36">
       <div className="mx-auto max-w-2xl rounded-sm border border-border bg-card px-6 py-8 shadow-flat-lg md:px-10 md:py-10 lg:max-w-[69rem] lg:px-12 lg:py-12">
         <Reveal>
           <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">News</p>
