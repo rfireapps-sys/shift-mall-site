@@ -20,7 +20,7 @@ export function PreregisterSection() {
 
         <Reveal delay={100} className="mt-10 flex flex-col items-start gap-4">
           <SplitButtonLink href={siteConfig.lineUrl} className="shadow-flat-lg">
-            LINEで登録する
+            LINEで友だち追加
           </SplitButtonLink>
           <p className="text-sm text-white">配信は不定期です。ブロックはいつでもできます。</p>
         </Reveal>

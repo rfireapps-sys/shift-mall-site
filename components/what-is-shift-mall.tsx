@@ -28,6 +28,9 @@ export function WhatIsShiftMall() {
                 ))}
               </p>
             </Reveal>
+            <Reveal delay={120} className="mt-4 lg:max-w-3xl">
+              <p className="text-pretty leading-loose text-foreground/80 md:text-lg lg:text-balance">{siteConfig.whoCanUse}</p>
+            </Reveal>
             <Reveal delay={160} className="mt-8 lg:max-w-3xl">
               {siteConfig.whatIsShiftMallDetail.split("\n\n").map((paragraph, idx) => (
                 <p key={idx} className={idx > 0 ? "mt-8 border-l-4 border-red pl-5 text-pretty leading-loose text-foreground/80 md:text-lg lg:text-balance" : "text-pretty leading-loose text-foreground/80 md:text-lg lg:text-balance"}>

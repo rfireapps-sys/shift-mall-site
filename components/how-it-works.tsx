@@ -6,7 +6,7 @@ const stepColors = ["bg-red text-white", "bg-yellow text-yellow-foreground", "bg
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="scroll-mt-20 border-t border-border bg-background px-6 py-12 md:py-18">
+    <section id="how-it-works" className="scroll-mt-20 px-6 pt-24 md:pt-36">
       <div className="mx-auto max-w-2xl lg:max-w-[69rem]">
         <Reveal>
           <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">How It Works</p>
@@ -43,9 +43,9 @@ export function HowItWorks() {
           </div>
         </div>
 
-        <Reveal delay={siteConfig.steps.length * 80} className="mt-8">
-          <p className="text-xs leading-relaxed text-foreground/60">
-            ※ アカウント登録は不要です。データはお使いの端末だけに保存されます。
+        <Reveal delay={siteConfig.steps.length * 80} className="mt-8 lg:max-w-3xl">
+          <p className="text-pretty text-sm leading-relaxed text-foreground/80 md:text-base">
+            {siteConfig.freeNote}。{siteConfig.noSignupNote}。{siteConfig.localDataNote}
           </p>
         </Reveal>
       </div>
