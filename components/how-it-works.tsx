@@ -44,8 +44,10 @@ export function HowItWorks() {
         </div>
 
         <Reveal delay={siteConfig.steps.length * 80} className="mt-8 lg:max-w-3xl">
-          <p className="text-pretty text-sm leading-relaxed text-foreground/80 md:text-base">
-            {siteConfig.freeNote}。{siteConfig.noSignupNote}。{siteConfig.localDataNote}
+          <p className="text-sm leading-relaxed text-foreground/80 md:text-base">
+            <span className="block">{siteConfig.freeNote}。</span>
+            <span className="block">{siteConfig.noSignupNote}。</span>
+            <span className="block text-balance">{siteConfig.localDataNote}</span>
           </p>
         </Reveal>
       </div>
