@@ -70,9 +70,7 @@ export function SiteHero() {
           {/* スマホ：本文の下から、アプリ画面の上の部分をのぞかせる（Heroの下端で切れる） */}
           <div className="hero-fade mt-10 lg:hidden" style={{ animationDelay: "0.76s" }}>
             <p className="mb-2 text-xs text-white">※ 画面はイメージです。</p>
-            <div className="h-[230px] overflow-hidden">
-              <PhoneMockup />
-            </div>
+            <PhoneMockup visibleHeight={230} />
           </div>
         </div>
       </div>
@@ -81,9 +79,7 @@ export function SiteHero() {
       <div className="hero-fade pointer-events-none absolute inset-x-6 bottom-0 hidden lg:block" style={{ animationDelay: "0.76s" }}>
         <div className="mx-auto flex max-w-[69rem] flex-col items-end">
           <p className="mb-2 mr-[6px] text-xs text-white">※ 画面はイメージです。</p>
-          <div className="h-[440px] overflow-hidden">
-            <PhoneMockup />
-          </div>
+          <PhoneMockup visibleHeight={400} />
         </div>
       </div>
     </section>
