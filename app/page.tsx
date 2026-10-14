@@ -18,9 +18,9 @@ export default function HomePage() {
         <SiteHero />
         <NewsSection />
         <WhatIsShiftMall />
+        <HowItWorks />
         <PhilosophySection />
         <WhySection />
-        <HowItWorks />
         <PreregisterSection />
         <GetApp />
         <SiteFooter />

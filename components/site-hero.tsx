@@ -58,6 +58,13 @@ export function SiteHero() {
             </SplitButtonLink>
             <p className="text-sm font-medium text-white">{siteConfig.releaseTiming}リリース予定</p>
           </div>
+          <p
+            className="hero-fade mt-5 flex flex-wrap gap-x-4 gap-y-1 text-sm text-white"
+            style={{ animationDelay: "0.66s" }}
+          >
+            <span>{siteConfig.freeNote}</span>
+            <span>{siteConfig.noSignupNote}</span>
+          </p>
         </div>
       </div>
     </section>

@@ -49,13 +49,19 @@ export const siteConfig = {
   xUrl: "https://x.com/shiftmall_jp",
   // リリース予定時期
   releaseTiming: "2026年11月",
+  // 無料・登録不要・データの保存先（Hero・使い方の注記で使う。v2でクラウドバックアップ等を入れるときは見直す）
+  freeNote: "無料で使えます（広告が表示されます）",
+  noSignupNote: "アカウント登録は不要です",
+  localDataNote: "入力した内容は、お使いの端末の中にだけ保存されます。",
+  // 「シフトモールとは？」で、対象を働き方で限定しないことを示す一文
+  whoCanUse: "アルバイトやパート、フリーランスや会社員の方も使えます。",
   // ヘッダーナビの項目（クリックでページ内スクロール）
   navItems: [
     { label: "お知らせ", href: "#news" },
     { label: "サービス", href: "#what" },
+    { label: "使い方", href: "#how-it-works" },
     { label: "理念", href: "#philosophy" },
     { label: "ストーリー", href: "#story" },
-    { label: "使い方", href: "#how-it-works" },
     { label: "アプリ入手", href: "#preregister" },
   ],
   // お知らせ欄（新しい情報が増えたら先頭に追加する）
