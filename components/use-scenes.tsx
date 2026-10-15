@@ -12,7 +12,11 @@ export function UseScenes() {
           <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">こんなとき</h2>
         </Reveal>
 
-        <ul className="mt-10 flex flex-col gap-4 lg:mt-12 lg:grid lg:grid-cols-3 lg:gap-6">
+        <Reveal delay={80} className="mt-4">
+          <p className="text-xs leading-relaxed text-foreground/70 md:text-sm">{siteConfig.useScenesNote}</p>
+        </Reveal>
+
+        <ul className="mt-6 flex flex-col gap-4 lg:mt-8 lg:grid lg:grid-cols-3 lg:gap-6">
           {siteConfig.useScenes.map((scene, i) => (
             <Reveal
               key={scene.title}
