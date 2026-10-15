@@ -1,5 +1,6 @@
 import { siteConfig } from "@/lib/site-config"
 import { Reveal } from "@/components/reveal"
+import { SceneIcon } from "@/components/scene-icons"
 
 export function UseScenes() {
   return (
@@ -24,7 +25,8 @@ export function UseScenes() {
               delay={i * 80}
               className="rounded-sm border border-border bg-card p-6 shadow-flat-sm lg:p-8"
             >
-              <h3 className="font-heading text-balance text-lg font-bold text-foreground md:text-xl">{scene.title}</h3>
+              <SceneIcon name={scene.icon} className="h-14 w-14 md:h-16 md:w-16" />
+              <h3 className="mt-4 font-heading text-balance text-lg font-bold text-foreground md:text-xl">{scene.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-foreground/70 md:text-base">{scene.body}</p>
             </Reveal>
           ))}
