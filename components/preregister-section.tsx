@@ -12,9 +12,13 @@ export function PreregisterSection() {
         <Reveal delay={40} className="mt-2">
           <h2 className="font-heading text-2xl font-bold text-white md:text-3xl">事前登録</h2>
         </Reveal>
-        <Reveal delay={60} className="mt-6 lg:mt-10 lg:max-w-2xl">
-          <p className="text-pretty leading-relaxed text-white md:text-lg">
-            {siteConfig.releaseTiming}リリース予定です。LINE公式アカウントを友だち追加すると、リリース時に一番早くお知らせが届きます。
+        <Reveal delay={60} className="mt-6 lg:mt-10 lg:max-w-3xl">
+          <p className="font-heading text-5xl font-bold leading-tight text-white md:text-6xl">先着100名</p>
+          <p className="mt-4 text-pretty text-xl font-bold leading-relaxed text-white md:text-2xl">
+            LINE公式アカウントの友だち追加と、Googleフォームからの申請で、あなたのニックネームが当サイトに載ります！
+          </p>
+          <p className="mt-4 text-pretty leading-relaxed text-white md:text-lg">
+            {siteConfig.releaseTiming}リリース予定です。LINEでは、最新情報をお届けします。
           </p>
         </Reveal>
 
