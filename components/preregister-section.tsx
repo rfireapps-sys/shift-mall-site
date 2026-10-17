@@ -1,5 +1,6 @@
 import { siteConfig } from "@/lib/site-config"
 import { Reveal } from "@/components/reveal"
+import Link from "next/link"
 import { SplitButtonLink } from "@/components/split-button"
 
 export function PreregisterSection() {
@@ -20,6 +21,12 @@ export function PreregisterSection() {
           <p className="mt-4 text-pretty leading-relaxed text-white md:text-lg">
             {siteConfig.releaseTiming}リリース予定です。LINEでは、最新情報をお届けします。
           </p>
+          <Link
+            href="/special-thanks"
+            className="mt-2 inline-flex min-h-11 items-center text-sm font-bold text-white underline underline-offset-4 md:text-base"
+          >
+            スペシャルサンクスを見る
+          </Link>
         </Reveal>
 
         <Reveal delay={100} className="mt-10 flex flex-col items-start gap-4">
