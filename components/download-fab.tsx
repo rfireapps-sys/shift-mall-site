@@ -38,7 +38,11 @@ export function DownloadFab({ href = "#preregister" }: { href?: string }) {
       <CampaignButton
         href={href}
         className={`fixed bottom-4 right-4 z-50 transition-all duration-300 sm:bottom-6 sm:right-6 lg:hidden ${visibility}`}
-      />
+      >
+        <span>先着100名限定</span>
+        <span>キャンペーン中！</span>
+        <span className="underline underline-offset-4">詳細を見る</span>
+      </CampaignButton>
 
       {/* PC：QRコードがそのままLINE友だち追加へのリンクになる */}
       <div
