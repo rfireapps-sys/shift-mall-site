@@ -16,7 +16,7 @@ export function PreregisterSection() {
         <Reveal delay={60} className="mt-6 lg:mt-10 lg:max-w-3xl">
           <p className="font-heading text-5xl font-bold leading-tight text-white md:text-6xl">先着100名</p>
           <p className="mt-4 text-pretty text-xl font-bold leading-relaxed text-white md:text-2xl">
-            LINE公式アカウントを友だち追加して、ニックネームを送ると、あなたのニックネームが当サイトに載ります！
+            LINE公式アカウントを友だち追加して、あることをすると、あなたのニックネームが当サイトに載ります！
           </p>
           <p className="mt-4 text-pretty leading-relaxed text-white md:text-lg">
             {siteConfig.releaseTiming}リリース予定です。LINEでは、最新情報をお届けします。

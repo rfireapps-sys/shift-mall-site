@@ -15,7 +15,7 @@ export function NewsSection() {
         <ul className="mt-8 flex flex-col divide-y divide-border border-t border-border">
           {siteConfig.newsItems.map((item, i) => (
             <Reveal key={item.date + item.body} delay={i * 60} as="li" className="flex flex-col gap-2 py-5 sm:flex-row sm:items-baseline sm:gap-6">
-              <div className="flex shrink-0 items-baseline gap-3">
+              <div className="flex shrink-0 items-baseline gap-3 sm:w-44">
                 <span className="font-heading text-sm tabular-nums text-foreground/60">{item.date}</span>
                 <span
                   className={`rounded-sm px-2 py-0.5 text-xs font-bold ${
