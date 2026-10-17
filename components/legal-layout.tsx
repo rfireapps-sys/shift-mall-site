@@ -10,7 +10,7 @@ export function LegalLayout({
   children,
 }: {
   title: string
-  updatedAt: string
+  updatedAt?: string
   children: ReactNode
 }) {
   return (
@@ -31,7 +31,7 @@ export function LegalLayout({
         <h1 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
           {title}
         </h1>
-        <p className="mt-3 text-sm text-muted-foreground">最終更新日: {updatedAt}</p>
+        {updatedAt && <p className="mt-3 text-sm text-muted-foreground">最終更新日: {updatedAt}</p>}
 
         <article className="mt-12 space-y-10 leading-relaxed text-foreground">
           {children}
@@ -49,6 +49,9 @@ export function LegalLayout({
             </Link>
             <Link href="/recommended-environment" className="text-muted-foreground hover:text-foreground">
               推奨環境
+            </Link>
+            <Link href="/special-thanks" className="text-muted-foreground hover:text-foreground">
+              スペシャルサンクス
             </Link>
           </div>
           <p className="mt-6 text-xs text-muted-foreground">

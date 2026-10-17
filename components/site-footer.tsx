@@ -6,6 +6,7 @@ const legalLinks = [
   { href: "/terms", label: "利用規約" },
   { href: "/privacy", label: "プライバシーポリシー" },
   { href: "/recommended-environment", label: "推奨環境" },
+  { href: "/special-thanks", label: "スペシャルサンクス" },
 ]
 
 export function SiteFooter() {
