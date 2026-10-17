@@ -54,7 +54,9 @@ export function SiteHero() {
           </p>
 
           <div className="hero-fade mt-10 flex flex-wrap items-center gap-5" style={{ animationDelay: "0.56s" }}>
-            <CampaignButton href="#preregister" />
+            <CampaignButton href="#preregister" className="min-h-12 px-8 text-base">
+              事前登録する
+            </CampaignButton>
             <p className="text-sm font-medium text-white">{siteConfig.releaseTiming}リリース予定</p>
           </div>
           <p

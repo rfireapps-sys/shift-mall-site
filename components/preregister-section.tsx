@@ -1,7 +1,7 @@
 import { siteConfig } from "@/lib/site-config"
 import { Reveal } from "@/components/reveal"
 import Link from "next/link"
-import { SplitButtonLink } from "@/components/split-button"
+import { CampaignButton } from "@/components/campaign-button"
 
 export function PreregisterSection() {
   return (
@@ -30,9 +30,9 @@ export function PreregisterSection() {
         </Reveal>
 
         <Reveal delay={100} className="mt-10 flex flex-col items-start gap-4">
-          <SplitButtonLink href={siteConfig.lineUrl} className="shadow-flat-lg">
+          <CampaignButton href={siteConfig.lineUrl} onRed className="min-h-12 px-8 text-base">
             LINEで友だち追加
-          </SplitButtonLink>
+          </CampaignButton>
           <p className="text-sm text-white">配信は不定期です。ブロックはいつでもできます。</p>
         </Reveal>
       </div>
