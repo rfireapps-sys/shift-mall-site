@@ -50,9 +50,11 @@ export function DownloadFab({ href = "#preregister" }: { href?: string }) {
       >
         <p className="font-heading text-2xl font-bold leading-tight text-[#B90101]">先着100名！</p>
         <p className="text-pretty text-sm font-bold leading-relaxed">
-          LINEを友だち追加して、ニックネームを送ると、サイトに載ります
+          LINEを友だち追加して、あることをすると
+          <br />
+          あなたのニックネームがサイトに載ります！
         </p>
-        <p className="text-sm font-bold leading-relaxed">QRコードを読み込んで友だち追加</p>
+        <p className="text-sm font-bold leading-relaxed">QRコードを読み込んで友だち追加する</p>
         <a
           href={siteConfig.lineUrl}
           target="_blank"
