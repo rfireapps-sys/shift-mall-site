@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { SplitButtonLink } from "@/components/split-button"
+import { siteConfig } from "@/lib/site-config"
 
 // 同じ導線がすでに見えている間（Heroのボタン・事前登録セクション・フッター）は隠す。
 const hideTargets = ['#top a[href="#preregister"]', "#preregister", "footer"]
@@ -29,16 +30,40 @@ export function DownloadFab({ href = "#preregister" }: { href?: string }) {
     return () => observer.disconnect()
   }, [])
 
+  const visibility = hidden ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"
+
   return (
-    <SplitButtonLink
-      href={href}
-      compact
-      aria-label="事前登録セクションへ移動"
-      className={`fixed bottom-4 right-4 z-50 shadow-flat transition-all duration-300 sm:bottom-6 sm:right-6 ${
-        hidden ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"
-      }`}
-    >
-      事前登録する
-    </SplitButtonLink>
+    <>
+      {/* スマホ：QRコードは同じ端末では読み込めないので、事前登録セクションへのボタンのまま */}
+      <SplitButtonLink
+        href={href}
+        compact
+        aria-label="事前登録セクションへ移動"
+        className={`fixed bottom-4 right-4 z-50 shadow-flat transition-all duration-300 sm:bottom-6 sm:right-6 lg:hidden ${visibility}`}
+      >
+        事前登録する
+      </SplitButtonLink>
+
+      {/* PC：QRコードがそのままLINE友だち追加へのリンクになる */}
+      <div
+        className={`fixed bottom-6 right-6 z-50 hidden w-72 flex-col gap-3 rounded-lg border-2 border-ink bg-yellow p-5 text-ink shadow-flat transition-all duration-300 lg:flex ${visibility}`}
+      >
+        <p className="font-heading text-2xl font-bold leading-tight">先着100名！</p>
+        <p className="text-pretty text-sm font-bold leading-relaxed">
+          LINEを友だち追加して、ニックネームを送ると、サイトに載ります
+        </p>
+        <p className="text-sm font-bold leading-relaxed">QRコードを読み込んで友だち追加</p>
+        <a
+          href={siteConfig.lineUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LINE公式アカウントを友だち追加"
+          className="mt-1 block w-fit rounded-md bg-white p-2"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/line-qr.svg" alt="LINE公式アカウントの友だち追加用QRコード" width={132} height={132} />
+        </a>
+      </div>
+    </>
   )
 }
