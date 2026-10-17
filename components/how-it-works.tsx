@@ -1,8 +1,14 @@
 import { siteConfig } from "@/lib/site-config"
 import { Reveal } from "@/components/reveal"
 
-// 赤・黄・青の3色のみを反復して使う。始点と終点で赤に戻ることで一巡した印象を出す。
-const stepColors = ["bg-red text-white", "bg-yellow text-yellow-foreground", "bg-blue text-white", "bg-red text-white"]
+// ブランドカラーのルビーレッド(#B90101)からピンクレッド(#FE6965)へ、4段階で少しずつ明るくする。
+// 明るい2つは、白文字だと読みにくい(コントラスト比がAAに届かない)ので、文字は黒にする。
+const stepColors = [
+  "bg-[#B90101] text-white",
+  "bg-[#D02422] text-white",
+  "bg-[#E74643] text-ink",
+  "bg-[#FE6965] text-ink",
+]
 
 export function HowItWorks() {
   return (
