@@ -1,5 +1,5 @@
 import { siteConfig } from "@/lib/site-config"
-import { SplitButtonLink } from "@/components/split-button"
+import { CampaignButton } from "@/components/campaign-button"
 import { PhoneMockup } from "@/components/phone-mockup"
 
 export function SiteHero() {
@@ -54,9 +54,7 @@ export function SiteHero() {
           </p>
 
           <div className="hero-fade mt-10 flex flex-wrap items-center gap-5" style={{ animationDelay: "0.56s" }}>
-            <SplitButtonLink href="#preregister" className="shadow-flat">
-              事前登録する
-            </SplitButtonLink>
+            <CampaignButton href="#preregister" />
             <p className="text-sm font-medium text-white">{siteConfig.releaseTiming}リリース予定</p>
           </div>
           <p

@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { CampaignButton } from "@/components/campaign-button"
 import { siteConfig } from "@/lib/site-config"
 
 // 同じ導線がすでに見えている間（Heroのボタン・事前登録セクション・フッター）は隠す。
@@ -34,13 +35,10 @@ export function DownloadFab({ href = "#preregister" }: { href?: string }) {
   return (
     <>
       {/* スマホ：QRコードは同じ端末では読み込めないので、事前登録セクションへのボタンのまま（色はPCのカードと同じブランドカラー） */}
-      <a
+      <CampaignButton
         href={href}
-        aria-label="事前登録セクションへ移動"
-        className={`fixed bottom-4 right-4 z-50 inline-flex min-h-11 items-center rounded-lg border-2 border-[#B90101] bg-white px-5 text-sm font-bold text-[#B90101] shadow-[4px_4px_0_#FE6965] transition-all duration-300 sm:bottom-6 sm:right-6 lg:hidden ${visibility}`}
-      >
-        事前登録する
-      </a>
+        className={`fixed bottom-4 right-4 z-50 transition-all duration-300 sm:bottom-6 sm:right-6 lg:hidden ${visibility}`}
+      />
 
       {/* PC：QRコードがそのままLINE友だち追加へのリンクになる */}
       <div
