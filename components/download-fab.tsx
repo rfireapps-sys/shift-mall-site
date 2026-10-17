@@ -65,7 +65,7 @@ export function DownloadFab({ href = "#preregister" }: { href?: string }) {
           className="mt-1 block w-fit leading-none"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="block" src="/line-qr.svg" alt="LINE公式アカウントの友だち追加用QRコード" width={132} height={132} />
+          <img className="block" src="/line-qr.png" alt="LINE公式アカウントの友だち追加用QRコード" width={132} height={132} />
         </a>
       </div>
     </>
