@@ -46,9 +46,9 @@ export function DownloadFab({ href = "#preregister" }: { href?: string }) {
 
       {/* PC：QRコードがそのままLINE友だち追加へのリンクになる */}
       <div
-        className={`fixed bottom-6 right-6 z-50 hidden w-72 flex-col gap-3 rounded-lg border-2 border-ink bg-yellow p-5 text-ink shadow-flat transition-all duration-300 lg:flex ${visibility}`}
+        className={`fixed bottom-6 right-6 z-50 hidden w-72 flex-col gap-3 rounded-lg border-2 border-[#B90101] bg-white p-5 text-ink shadow-[4px_4px_0_#FE6965] transition-all duration-300 lg:flex ${visibility}`}
       >
-        <p className="font-heading text-2xl font-bold leading-tight">先着100名！</p>
+        <p className="font-heading text-2xl font-bold leading-tight text-[#B90101]">先着100名！</p>
         <p className="text-pretty text-sm font-bold leading-relaxed">
           LINEを友だち追加して、ニックネームを送ると、サイトに載ります
         </p>
@@ -58,7 +58,7 @@ export function DownloadFab({ href = "#preregister" }: { href?: string }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LINE公式アカウントを友だち追加"
-          className="mt-1 block w-fit rounded-md bg-white p-2"
+          className="mt-1 block w-fit"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/line-qr.svg" alt="LINE公式アカウントの友だち追加用QRコード" width={132} height={132} />
