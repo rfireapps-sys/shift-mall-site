@@ -6,7 +6,6 @@ import { WhySection } from "@/components/why-section"
 import { PreregisterSection } from "@/components/preregister-section"
 import { NewsSection } from "@/components/news-section"
 import { HowItWorks } from "@/components/how-it-works"
-import { UseScenes } from "@/components/use-scenes"
 import { GetApp } from "@/components/get-app"
 import { SiteFooter } from "@/components/site-footer"
 import { DownloadFab } from "@/components/download-fab"
@@ -19,7 +18,6 @@ export default function HomePage() {
         <SiteHero />
         <WhatIsShiftMall />
         <HowItWorks />
-        <UseScenes />
         <PhilosophySection />
         <WhySection />
         <NewsSection />
