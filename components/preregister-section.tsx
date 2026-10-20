@@ -1,6 +1,7 @@
 import { siteConfig } from "@/lib/site-config"
 import { Reveal } from "@/components/reveal"
-import { SplitButtonLink } from "@/components/split-button"
+import Link from "next/link"
+import { CampaignButton } from "@/components/campaign-button"
 
 export function PreregisterSection() {
   return (
@@ -12,16 +13,26 @@ export function PreregisterSection() {
         <Reveal delay={40} className="mt-2">
           <h2 className="font-heading text-2xl font-bold text-white md:text-3xl">事前登録</h2>
         </Reveal>
-        <Reveal delay={60} className="mt-6 lg:mt-10 lg:max-w-2xl">
-          <p className="text-pretty leading-relaxed text-white md:text-lg">
-            {siteConfig.releaseTiming}リリース予定です。LINE公式アカウントを友だち追加すると、リリース時に一番早くお知らせが届きます。
+        <Reveal delay={60} className="mt-6 lg:mt-10 lg:max-w-3xl">
+          <p className="font-heading text-5xl font-bold leading-tight text-white md:text-6xl">先着100名</p>
+          <p className="mt-4 text-pretty text-xl font-bold leading-relaxed text-white md:text-2xl">
+            LINE公式アカウントを友だち追加して、あることをすると、あなたのニックネームが当サイトに載ります！
           </p>
+          <p className="mt-4 text-pretty leading-relaxed text-white md:text-lg">
+            {siteConfig.releaseTiming}リリース予定です。LINEでは、最新情報をお届けします。
+          </p>
+          <Link
+            href="/special-thanks"
+            className="mt-2 inline-flex min-h-11 items-center text-sm font-bold text-white underline underline-offset-4 md:text-base"
+          >
+            スペシャルサンクスを見る
+          </Link>
         </Reveal>
 
         <Reveal delay={100} className="mt-10 flex flex-col items-start gap-4">
-          <SplitButtonLink href={siteConfig.lineUrl} className="shadow-flat-lg">
-            LINEで登録する
-          </SplitButtonLink>
+          <CampaignButton href={siteConfig.lineUrl} onRed className="min-h-12 px-8 text-base">
+            LINEで友だち追加
+          </CampaignButton>
           <p className="text-sm text-white">配信は不定期です。ブロックはいつでもできます。</p>
         </Reveal>
       </div>

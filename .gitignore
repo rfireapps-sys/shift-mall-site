@@ -15,3 +15,6 @@ node_modules
 .DS_Store
 # 静的書き出しの出力
 /out/
+
+# yomiyasu（文章推敲スキル）の作業用フォルダ
+.yomiyasu/

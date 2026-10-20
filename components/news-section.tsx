@@ -3,7 +3,7 @@ import { Reveal } from "@/components/reveal"
 
 export function NewsSection() {
   return (
-    <section id="news" className="scroll-mt-20 px-6 py-12 md:py-16">
+    <section id="news" className="scroll-mt-20 px-6 pb-12 pt-24 md:pb-18 md:pt-36">
       <div className="mx-auto max-w-2xl rounded-sm border border-border bg-card px-6 py-8 shadow-flat-lg md:px-10 md:py-10 lg:max-w-[69rem] lg:px-12 lg:py-12">
         <Reveal>
           <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">News</p>
@@ -15,7 +15,7 @@ export function NewsSection() {
         <ul className="mt-8 flex flex-col divide-y divide-border border-t border-border">
           {siteConfig.newsItems.map((item, i) => (
             <Reveal key={item.date + item.body} delay={i * 60} as="li" className="flex flex-col gap-2 py-5 sm:flex-row sm:items-baseline sm:gap-6">
-              <div className="flex shrink-0 items-baseline gap-3">
+              <div className="flex shrink-0 items-baseline gap-3 sm:w-44">
                 <span className="font-heading text-sm tabular-nums text-foreground/60">{item.date}</span>
                 <span
                   className={`rounded-sm px-2 py-0.5 text-xs font-bold ${

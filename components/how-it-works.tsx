@@ -1,12 +1,18 @@
 import { siteConfig } from "@/lib/site-config"
 import { Reveal } from "@/components/reveal"
 
-// 赤・黄・青の3色のみを反復して使う。始点と終点で赤に戻ることで一巡した印象を出す。
-const stepColors = ["bg-red text-white", "bg-yellow text-yellow-foreground", "bg-blue text-white", "bg-red text-white"]
+// ブランドカラーのルビーレッド(#B90101)からピンクレッド(#FE6965)へ、4段階で少しずつ明るくする。
+// 明るい2つは、白文字だと読みにくい(コントラスト比がAAに届かない)ので、文字は黒にする。
+const stepColors = [
+  "bg-[#B90101] text-white",
+  "bg-[#D02422] text-white",
+  "bg-[#E74643] text-ink",
+  "bg-[#FE6965] text-ink",
+]
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="scroll-mt-20 border-t border-border bg-background px-6 py-12 md:py-18">
+    <section id="how-it-works" className="scroll-mt-20 px-6 pt-24 md:pt-36">
       <div className="mx-auto max-w-2xl lg:max-w-[69rem]">
         <Reveal>
           <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">How It Works</p>
@@ -43,9 +49,11 @@ export function HowItWorks() {
           </div>
         </div>
 
-        <Reveal delay={siteConfig.steps.length * 80} className="mt-8">
-          <p className="text-xs leading-relaxed text-foreground/60">
-            ※ アカウント登録は不要です。データはお使いの端末だけに保存されます。
+        <Reveal delay={siteConfig.steps.length * 80} className="mt-8 lg:max-w-3xl">
+          <p className="text-sm leading-relaxed text-foreground/80 md:text-base">
+            <span className="block">{siteConfig.freeNote}。</span>
+            <span className="block">{siteConfig.noSignupNote}。</span>
+            <span className="block text-balance">{siteConfig.localDataNote}</span>
           </p>
         </Reveal>
       </div>

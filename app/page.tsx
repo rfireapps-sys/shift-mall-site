@@ -16,11 +16,11 @@ export default function HomePage() {
       <SiteHeader />
       <main>
         <SiteHero />
-        <NewsSection />
         <WhatIsShiftMall />
+        <HowItWorks />
         <PhilosophySection />
         <WhySection />
-        <HowItWorks />
+        <NewsSection />
         <PreregisterSection />
         <GetApp />
         <SiteFooter />

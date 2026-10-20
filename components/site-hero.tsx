@@ -1,9 +1,10 @@
 import { siteConfig } from "@/lib/site-config"
-import { SplitButtonLink } from "@/components/split-button"
+import { CampaignButton } from "@/components/campaign-button"
+import { PhoneMockup } from "@/components/phone-mockup"
 
 export function SiteHero() {
   return (
-    <section id="top" className="relative flex min-h-[80svh] w-full flex-col justify-end overflow-hidden px-6 pb-20 pt-24 md:min-h-[92svh] md:pt-32">
+    <section id="top" className="relative flex min-h-[80svh] w-full flex-col justify-end overflow-hidden px-6 pb-0 pt-24 md:min-h-[92svh] md:pb-20 md:pt-32">
       {/* スマホは縦長の写真、PC（md以上）は横長の写真を使う（縦長の写真を横長に引き伸ばすと荒くなるため） */}
       <picture>
         <source media="(min-width: 768px)" srcSet="/images/hero-crossing-wide.webp" />
@@ -53,11 +54,32 @@ export function SiteHero() {
           </p>
 
           <div className="hero-fade mt-10 flex flex-wrap items-center gap-5" style={{ animationDelay: "0.56s" }}>
-            <SplitButtonLink href="#preregister" className="shadow-flat">
+            <CampaignButton href="#preregister" className="min-h-12 px-8 text-base">
               事前登録する
-            </SplitButtonLink>
+            </CampaignButton>
             <p className="text-sm font-medium text-white">{siteConfig.releaseTiming}リリース予定</p>
           </div>
+          <p
+            className="hero-fade mt-5 flex flex-wrap gap-x-4 gap-y-1 text-sm text-white"
+            style={{ animationDelay: "0.66s" }}
+          >
+            <span>{siteConfig.freeNote}</span>
+            <span>{siteConfig.noSignupNote}</span>
+          </p>
+
+          {/* スマホ：本文の下から、アプリ画面の上の部分をのぞかせる（Heroの下端で切れる） */}
+          <div className="hero-fade mt-10 lg:hidden" style={{ animationDelay: "0.76s" }}>
+            <p className="mb-2 text-xs text-white">※ 画面はイメージです。</p>
+            <PhoneMockup visibleHeight={230} />
+          </div>
+        </div>
+      </div>
+
+      {/* PC：右側に、アプリ画面の上の部分をHeroの下端からのぞかせる */}
+      <div className="hero-fade pointer-events-none absolute inset-x-6 bottom-0 hidden lg:block" style={{ animationDelay: "0.76s" }}>
+        <div className="mx-auto flex max-w-[69rem] flex-col items-end">
+          <p className="mb-2 mr-[6px] text-xs text-white">※ 画面はイメージです。</p>
+          <PhoneMockup visibleHeight={400} />
         </div>
       </div>
     </section>

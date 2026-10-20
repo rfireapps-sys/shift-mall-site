@@ -6,7 +6,7 @@ export function WhatIsShiftMall() {
   const lines = siteConfig.whatIsShiftMall.split("\n")
 
   return (
-    <section id="what" className="scroll-mt-20 px-6 pt-12 md:pt-20">
+    <section id="what" className="scroll-mt-20 px-6 pt-24 md:pt-36">
       <div className="mx-auto max-w-3xl lg:max-w-[69rem]">
         <Reveal>
           <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">Service</p>
@@ -28,12 +28,15 @@ export function WhatIsShiftMall() {
                 ))}
               </p>
             </Reveal>
+            <Reveal delay={120} className="mt-4 lg:max-w-3xl">
+              <p className="text-pretty leading-loose text-foreground/80 md:text-lg lg:text-balance">{siteConfig.whoCanUse}</p>
+            </Reveal>
             <Reveal delay={160} className="mt-8 lg:max-w-3xl">
               {siteConfig.whatIsShiftMallDetail.split("\n\n").map((paragraph, idx) => (
                 <p key={idx} className={idx > 0 ? "mt-8 border-l-4 border-red pl-5 text-pretty leading-loose text-foreground/80 md:text-lg lg:text-balance" : "text-pretty leading-loose text-foreground/80 md:text-lg lg:text-balance"}>
                   {paragraph.includes("空想のお金") ? (
                     <>
-                      シフトモールは勤務表と空想通販という二つの機能があります。まずは日々働いてあなたの勤怠を入力しましょう。すると締日には<span className="text-red">空想のお金がアプリ内のお財布に入金されます</span>。そこからはあなたの自由。好きなものを買ってください。ただし実際のお金は消費されません。商品も届きません。<span className="text-red">もし本当に欲しいと思ったら、アプリ内から買いに行けます</span>。
+                      日々の勤務を入力すると、締日に<span className="text-red">空想のお金がアプリ内のお財布に入金されます</span>。そのお金で好きなものを買えますが、実際のお金は使われず、商品も届きません。<span className="text-red">もし本当に欲しいと思ったら、アプリ内から買いに行けます</span>。
                     </>
                   ) : (
                     paragraph
