@@ -50,7 +50,6 @@ export function SiteFooter() {
             <SiLine className="h-4 w-4" aria-hidden="true" />
             LINE
           </a>
-          <span className="text-foreground/70">Instagram（近日開設）</span>
         </div>
 
         <p className="text-xs text-foreground/65">
