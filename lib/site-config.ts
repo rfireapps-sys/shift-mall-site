@@ -40,7 +40,7 @@ export const siteConfig = {
   // 有料注記（小さめに表示）
   paidNote: "一部機能は有料 / サブスクリプション対応",
   // サポートメール
-  supportEmail: "support@example.com",
+  supportEmail: "support@shift-mall.com",
   // Google Play URL（未定なら "#"）
   playUrl: "#",
   // LINE公式アカウント 友だち追加URL
