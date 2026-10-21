@@ -18,3 +18,6 @@ node_modules
 
 # yomiyasu（文章推敲スキル）の作業用フォルダ
 .yomiyasu/
+
+# デザイン本の要約（著作物の派生メモなので公開リポジトリには上げない）
+.claude/skills/design-references/references/

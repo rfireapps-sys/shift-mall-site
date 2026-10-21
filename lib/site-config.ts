@@ -84,8 +84,8 @@ export const siteConfig = {
   // お知らせ欄（新しい情報が増えたら先頭に追加する）
   newsItems: [
     { date: "2026.11", tag: "予定", body: "iOS/Android版のリリースを予定しています。" },
-    { date: "2026.09", tag: "お知らせ", body: "公式LINEアカウントで事前登録の受付を開始しました。" },
-    { date: "2026.09", tag: "お知らせ", body: "X（旧Twitter）で発信を始めました。" },
+    { date: "2026.10", tag: "お知らせ", body: "公式LINEアカウントで事前登録の受付を開始しました。" },
+    { date: "2026.10", tag: "お知らせ", body: "X（旧Twitter）で発信を始めました。" },
   ],
   // 4ステップ
   steps: [
