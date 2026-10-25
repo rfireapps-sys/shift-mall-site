@@ -1,0 +1,44 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push origin stg)"
+    ],
+    "ask": [
+      "Bash(git push origin main*)",
+      "Bash(git push origin HEAD:main*)",
+      "Bash(gh pr merge *)",
+      "Bash(gh api -X *)",
+      "Bash(gh api * -X *)",
+      "Bash(gh api --method *)",
+      "Bash(gh api * --method *)",
+      "Bash(gh api * -f *)",
+      "Bash(gh api * -F *)",
+      "Bash(gh api * --field *)",
+      "Bash(gh api * --raw-field *)",
+      "Bash(gh api * --input *)",
+      "Bash(git reset --hard *)",
+      "Bash(git clean *)",
+      "Bash(git branch -D *)",
+      "Bash(git stash drop *)",
+      "Bash(git stash clear)",
+      "Bash(rm -rf *)"
+    ],
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git push --force-with-lease *)",
+      "Bash(git push * --force *)",
+      "Bash(git push * -f *)",
+      "Bash(git push * --force-with-lease *)",
+      "Bash(git push --delete *)",
+      "Bash(git push * --delete *)",
+      "Bash(git push origin :*)",
+      "Bash(git push * +*)",
+      "Bash(gh repo delete *)",
+      "Bash(gh api -X DELETE *)",
+      "Bash(gh api * -X DELETE *)",
+      "Bash(gh api --method DELETE *)",
+      "Bash(gh api * --method DELETE *)"
+    ]
+  }
+}
