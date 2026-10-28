@@ -83,10 +83,16 @@ export function SiteHero() {
             ※ 画面はイメージです。
           </p>
           <div className="relative h-[440px] w-[400px]">
-            <div className="hero-phone absolute right-0 top-0" style={{ animationDelay: "0.76s" }}>
+            <div
+              className="hero-phone absolute right-0 top-0"
+              style={{ animationDelay: "0.76s", "--tilt": "10deg" } as React.CSSProperties}
+            >
               <PhoneMockup screen="calendar" visibleHeight={540} />
             </div>
-            <div className="hero-phone absolute left-0 top-16 z-10" style={{ animationDelay: "0.9s" }}>
+            <div
+              className="hero-phone absolute left-0 top-16 z-10"
+              style={{ animationDelay: "0.9s", "--tilt": "6deg" } as React.CSSProperties}
+            >
               <PhoneMockup visibleHeight={540} />
             </div>
           </div>
