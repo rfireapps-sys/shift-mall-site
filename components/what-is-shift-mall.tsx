@@ -48,11 +48,11 @@ export function WhatIsShiftMall() {
 
           <Reveal delay={200} className="mt-10 lg:mt-0">
             <div className="relative hidden h-full lg:block">
-              <PhoneMockup fill />
+              <PhoneMockup fill screen="calendar" />
               <p className="absolute left-[3px] top-full mt-3 text-xs text-foreground/60">※ 画面はイメージです。</p>
             </div>
             <div className="lg:hidden">
-              <PhoneMockup />
+              <PhoneMockup screen="calendar" />
               <p className="mt-3 text-xs text-foreground/60">※ 画面はイメージです。</p>
             </div>
           </Reveal>

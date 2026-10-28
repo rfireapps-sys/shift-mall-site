@@ -75,11 +75,27 @@ export function SiteHero() {
         </div>
       </div>
 
-      {/* PC：右側に、アプリ画面の上の部分をHeroの下端からのぞかせる */}
-      <div className="hero-fade pointer-events-none absolute inset-x-6 bottom-0 hidden lg:block" style={{ animationDelay: "0.76s" }}>
+      {/* PC：右側に、ホーム（手前）とカレンダー（奥）を傾けて重ね、Heroの下端で切る。
+          読み込み時に1回だけ、下からせり上がりながら傾く（globals.css の .hero-phone）。 */}
+      <div className="pointer-events-none absolute inset-x-6 bottom-0 hidden lg:block">
         <div className="mx-auto flex max-w-[69rem] flex-col items-end">
-          <p className="mb-2 mr-[6px] text-xs text-white">※ 画面はイメージです。</p>
-          <PhoneMockup visibleHeight={400} />
+          <p className="hero-fade mb-4 mr-[6px] text-xs text-white" style={{ animationDelay: "0.76s" }}>
+            ※ 画面はイメージです。
+          </p>
+          <div className="relative h-[440px] w-[400px]">
+            <div
+              className="hero-phone absolute right-0 top-0"
+              style={{ animationDelay: "0.76s", "--tilt": "10deg" } as React.CSSProperties}
+            >
+              <PhoneMockup screen="calendar" visibleHeight={540} />
+            </div>
+            <div
+              className="hero-phone absolute left-0 top-16 z-10"
+              style={{ animationDelay: "0.9s", "--tilt": "6deg" } as React.CSSProperties}
+            >
+              <PhoneMockup visibleHeight={540} />
+            </div>
+          </div>
         </div>
       </div>
     </section>
