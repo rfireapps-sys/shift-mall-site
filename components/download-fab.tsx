@@ -48,7 +48,10 @@ export function DownloadFab({ href = "#preregister" }: { href?: string }) {
       <div
         className={`fixed bottom-6 right-6 z-50 hidden w-72 flex-col gap-3 rounded-lg border-2 border-[#B90101] bg-white p-5 text-ink shadow-[4px_4px_0_#FE6965] transition-all duration-300 lg:flex ${visibility}`}
       >
-        <p className="font-heading text-2xl font-bold leading-tight text-[#B90101]">先着100名！</p>
+        <div>
+          <p className="font-heading text-sm font-bold text-[#B90101]">ニックネーム掲載キャンペーン</p>
+          <p className="mt-0.5 font-heading text-2xl font-bold leading-tight text-[#B90101]">先着100名！</p>
+        </div>
         <p className="text-pretty text-sm font-bold leading-relaxed">
           <span className="inline-block">LINEを友だち追加して、</span>
           <span className="inline-block">あることをすると</span>
