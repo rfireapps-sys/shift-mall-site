@@ -14,7 +14,8 @@ export function PreregisterSection() {
           <h2 className="font-heading text-2xl font-bold text-white md:text-3xl">事前登録</h2>
         </Reveal>
         <Reveal delay={60} className="mt-6 lg:mt-10 lg:max-w-3xl">
-          <p className="font-heading text-5xl font-bold leading-tight text-white md:text-6xl">先着100名</p>
+          <p className="font-heading text-lg font-bold text-white md:text-xl">ニックネーム掲載キャンペーン</p>
+          <p className="mt-1 font-heading text-5xl font-bold leading-tight text-white md:text-6xl">先着100名</p>
           <p className="mt-4 text-pretty text-xl font-bold leading-relaxed text-white md:text-2xl">
             LINE公式アカウントを友だち追加して、あることをすると、あなたのニックネームが当サイトに載ります！
           </p>
