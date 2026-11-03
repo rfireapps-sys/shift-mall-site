@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 //   iOS: IPHONEOS_DEPLOYMENT_TARGET = 15.0 / Android: minSdk 24 (= Android 7.0)
 // アプリのリリースや、Flutterのバージョンを上げたときは、値が変わっていないか確認して更新すること。
 const supportedOs = [
-  { os: "iOS（iPhone）", version: "iOS 15.0 以上" },
-  { os: "Android", version: "Android 7.0 以上" },
+  { os: "iOS（iPhone）", version: "iOS 15.0 以上", recommended: "最新のiOS" },
+  { os: "Android", version: "Android 7.0 以上", recommended: "最新のAndroid" },
 ]
 
 const faqs = [
@@ -32,7 +32,7 @@ const faqs = [
 
 export default function RecommendedEnvironmentPage() {
   return (
-    <LegalLayout title="推奨環境について" updatedAt="2026年10月7日">
+    <LegalLayout title="推奨環境について" updatedAt="2026年11月3日">
       <p className="text-muted-foreground">
         {siteConfig.appName}をより快適にご利用いただくために、以下の環境でのご利用を推奨しております。推奨環境以外でのご利用の場合、一部の機能が正常に動作しない可能性がありますので、あらかじめご了承ください。
       </p>
@@ -44,6 +44,7 @@ export default function RecommendedEnvironmentPage() {
               <tr>
                 <th scope="col" className="px-4 py-3 font-bold">OS</th>
                 <th scope="col" className="px-4 py-3 font-bold">対応バージョン</th>
+                <th scope="col" className="px-4 py-3 font-bold">推奨</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border text-foreground/80">
@@ -51,6 +52,7 @@ export default function RecommendedEnvironmentPage() {
                 <tr key={row.os}>
                   <th scope="row" className="px-4 py-3 font-medium text-foreground">{row.os}</th>
                   <td className="px-4 py-3">{row.version}</td>
+                  <td className="px-4 py-3">{row.recommended}</td>
                 </tr>
               ))}
             </tbody>

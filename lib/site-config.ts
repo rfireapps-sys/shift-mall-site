@@ -41,8 +41,9 @@ export const siteConfig = {
   paidNote: "一部機能は有料 / サブスクリプション対応",
   // サポートメール
   supportEmail: "support@shift-mall.com",
-  // Google Play URL（未定なら "#"）
+  // ストアのURL（未定なら "#"）。URLを入れると、アプリ入手のボタンがLINEからそのストアに切り替わる。
   playUrl: "#",
+  appStoreUrl: "#",
   // LINE公式アカウント 友だち追加URL
   lineUrl: "https://line.me/R/ti/p/@589mmvmv",
   // X（旧Twitter）公式アカウント
