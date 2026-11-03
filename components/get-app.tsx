@@ -5,8 +5,13 @@ import { Reveal } from "@/components/reveal"
 import { SplitButtonLink } from "@/components/split-button"
 import { PhoneMockup } from "@/components/phone-mockup"
 
-// TODO: Google Playでの配信が始まったら、ボタンのhrefを siteConfig.playUrl に、
-// ラベルを「Google Play で入手」に戻す。それまではLINE事前登録に誘導する。
+// ストアのURLが未定（"#"）の間は、ボタンをLINE事前登録に誘導し、ラベルに「（準備中）」を付ける。
+// 配信が始まったら、siteConfig.playUrl / appStoreUrl にURLを入れるだけで、そのストアのボタンが切り替わる。
+const stores = [
+  { name: "Google Play", url: siteConfig.playUrl, icon: <GooglePlayIcon className="h-4 w-4" /> },
+  { name: "App Store", url: siteConfig.appStoreUrl, icon: <SiApple className="h-4 w-4" aria-hidden="true" /> },
+]
+
 export function GetApp() {
   return (
     <section id="get" className="scroll-mt-20 px-6 py-4 md:py-8">
@@ -26,24 +31,21 @@ export function GetApp() {
               公開まではLINE公式アカウントや各種SNSでお知らせします。
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={siteConfig.lineUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-4 py-3.5 text-sm font-bold text-white shadow-flat-sm transition-colors hover:bg-foreground/80"
-              >
-                <GooglePlayIcon className="h-4 w-4" />
-                Google Play（準備中）
-              </a>
-              <a
-                href={siteConfig.lineUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-4 py-3.5 text-sm font-bold text-white shadow-flat-sm transition-colors hover:bg-foreground/80"
-              >
-                <SiApple className="h-4 w-4" aria-hidden="true" />
-                App Store（準備中）
-              </a>
+              {stores.map((store) => {
+                const released = store.url !== "#"
+                return (
+                  <a
+                    key={store.name}
+                    href={released ? store.url : siteConfig.lineUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-sm bg-foreground px-4 py-3.5 text-sm font-bold text-white shadow-flat-sm transition-colors hover:bg-foreground/80"
+                  >
+                    {store.icon}
+                    {released ? `${store.name} で入手` : `${store.name}（準備中）`}
+                  </a>
+                )
+              })}
             </div>
           </div>
         </Reveal>
