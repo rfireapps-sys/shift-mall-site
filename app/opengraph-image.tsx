@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og"
-import { siteConfig } from "@/lib/site-config"
+import { siteConfig, isReleased } from "@/lib/site-config"
 
 // 内容は完全に静的（リクエストごとに変わらない）なので、edgeランタイムは使わず
 // 通常のNode.jsランタイムで静的生成させる。
@@ -88,7 +88,7 @@ export default async function Image() {
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <div style={{ display: "flex", width: 56, height: 10, backgroundColor: "#B90101" }} />
           <div style={{ display: "flex", fontSize: 26, fontWeight: 700, color: "#B90101" }}>
-            {siteConfig.releaseTiming}リリース予定
+            {siteConfig.releaseTiming}{isReleased ? "配信開始" : "リリース予定"}
           </div>
         </div>
       </div>

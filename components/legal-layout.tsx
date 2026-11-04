@@ -60,7 +60,7 @@ export function LegalLayout({
         </div>
       </footer>
 
-      <DownloadFab href="/#preregister" />
+      <DownloadFab base="/" />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { siteConfig } from "@/lib/site-config"
+import { siteConfig, isReleased } from "@/lib/site-config"
 import { CampaignButton } from "@/components/campaign-button"
 import { PhoneMockup } from "@/components/phone-mockup"
 
@@ -30,7 +30,7 @@ export function SiteHero() {
             className="hero-fade mt-8 text-base font-bold tracking-wide text-white"
             style={{ animationDelay: "0.1s" }}
           >
-            {siteConfig.appName} 事前登録受付中
+            {siteConfig.appName} {isReleased ? "配信中" : "事前登録受付中"}
           </p>
 
           {/* 文節（inline-block）単位で改行させ、「しあわせ」「決められる」が途中で割れないようにする。
@@ -54,10 +54,13 @@ export function SiteHero() {
           </p>
 
           <div className="hero-fade mt-10 flex flex-wrap items-center gap-5" style={{ animationDelay: "0.56s" }}>
-            <CampaignButton href="#preregister" className="min-h-12 px-8 text-base">
-              事前登録する
+            <CampaignButton href={isReleased ? "#get" : "#preregister"} className="min-h-12 px-8 text-base">
+              {isReleased ? "アプリを入手する" : "事前登録する"}
             </CampaignButton>
-            <p className="text-sm font-medium text-white">{siteConfig.releaseTiming}リリース予定</p>
+            <p className="text-sm font-medium text-white">
+              {siteConfig.releaseTiming}
+              {isReleased ? "配信開始" : "リリース予定"}
+            </p>
           </div>
           <p
             className="hero-fade mt-5 flex flex-wrap gap-x-4 gap-y-1 text-sm text-white"

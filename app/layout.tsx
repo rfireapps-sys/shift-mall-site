@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { BIZ_UDPGothic } from 'next/font/google'
-import { siteConfig } from '@/lib/site-config'
+import { siteConfig, isReleased } from '@/lib/site-config'
 import './globals.css'
 
 const bizHeading = BIZ_UDPGothic({
@@ -15,21 +15,23 @@ const bizBody = BIZ_UDPGothic({
   variable: '--font-body',
 })
 
+const seoDescription = isReleased ? siteConfig.seoDescriptionReleased : siteConfig.seoDescription
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://shift-mall.com'),
   title: siteConfig.seoTitle,
-  description: siteConfig.seoDescription,
+  description: seoDescription,
   alternates: { canonical: './' },
   openGraph: {
     title: siteConfig.seoTitle,
-    description: siteConfig.seoDescription,
+    description: seoDescription,
     locale: 'ja_JP',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.seoTitle,
-    description: siteConfig.seoDescription,
+    description: seoDescription,
   },
   icons: {
     icon: [

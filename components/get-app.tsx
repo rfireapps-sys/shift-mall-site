@@ -1,6 +1,6 @@
 import { SiApple } from "react-icons/si"
 import { GooglePlayIcon } from "@/components/google-play-icon"
-import { siteConfig } from "@/lib/site-config"
+import { siteConfig, isReleased, isOnStore } from "@/lib/site-config"
 import { Reveal } from "@/components/reveal"
 import { SplitButtonLink } from "@/components/split-button"
 import { PhoneMockup } from "@/components/phone-mockup"
@@ -11,6 +11,18 @@ const stores = [
   { name: "Google Play", url: siteConfig.playUrl, icon: <GooglePlayIcon className="h-4 w-4" /> },
   { name: "App Store", url: siteConfig.appStoreUrl, icon: <SiApple className="h-4 w-4" aria-hidden="true" /> },
 ]
+
+const playReleased = isOnStore(siteConfig.playUrl)
+const appStoreReleased = isOnStore(siteConfig.appStoreUrl)
+// 片方のストアだけ先に公開されたときも、見出しが事実と食い違わないようにする。
+const heading =
+  playReleased && appStoreReleased
+    ? "iOS/Androidで配信中"
+    : playReleased
+      ? "Androidで配信中（iOSは準備中）"
+      : appStoreReleased
+        ? "iOSで配信中（Androidは準備中）"
+        : "iOS/Androidで配信予定"
 
 export function GetApp() {
   return (
@@ -26,13 +38,15 @@ export function GetApp() {
         <Reveal delay={80} className="mt-6 flex flex-col items-start gap-8 overflow-hidden rounded-sm border border-border bg-card px-6 pt-10 text-left shadow-flat-sm md:mt-10 md:flex-row-reverse md:items-end md:justify-between md:gap-12 md:px-12 md:pt-12 lg:px-20">
           <PhoneMockup className="self-center md:self-auto" />
           <div className="pb-10 md:self-center md:py-16">
-            <h3 className="font-heading text-xl font-bold text-foreground">iOS/Androidで配信予定</h3>
+            <h3 className="font-heading text-xl font-bold text-foreground">{heading}</h3>
             <p className="mt-2 text-sm leading-relaxed text-foreground/70">
-              公開まではLINE公式アカウントや各種SNSでお知らせします。
+              {isReleased
+                ? "お使いのスマホのストアから、無料でインストールできます。"
+                : "公開まではLINE公式アカウントや各種SNSでお知らせします。"}
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               {stores.map((store) => {
-                const released = store.url !== "#"
+                const released = isOnStore(store.url)
                 return (
                   <a
                     key={store.name}

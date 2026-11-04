@@ -2,13 +2,16 @@
 
 import { useEffect, useState } from "react"
 import { CampaignButton } from "@/components/campaign-button"
-import { siteConfig } from "@/lib/site-config"
+import { siteConfig, isReleased } from "@/lib/site-config"
 
-// 同じ導線がすでに見えている間（Heroのボタン・事前登録セクション・フッター）は隠す。
-const hideTargets = ['#top a[href="#preregister"]', "#preregister", "footer"]
+// 配信開始までは事前登録セクションへ、開始後はアプリ入手のセクションへの導線にする。
+const target = isReleased ? "#get" : "#preregister"
+// 同じ導線がすでに見えている間（Heroのボタン・飛び先のセクション・フッター）は隠す。
+const hideTargets = [`#top a[href="${target}"]`, target, "footer"]
 
-// href: トップページでは "#preregister"、規約などの別ページでは "/#preregister"（トップの事前登録セクションへ）。
-export function DownloadFab({ href = "#preregister" }: { href?: string }) {
+// base: トップページでは ""、規約などの別ページでは "/"（トップの飛び先のセクションへ）。
+export function DownloadFab({ base = "" }: { base?: string }) {
+  const href = base + target
   const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
@@ -31,6 +34,18 @@ export function DownloadFab({ href = "#preregister" }: { href?: string }) {
   }, [])
 
   const visibility = hidden ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"
+
+  // 配信開始後は、スマホもPCも「アプリを入手」のボタンだけにする（キャンペーンのカードは外す）。
+  if (isReleased) {
+    return (
+      <CampaignButton
+        href={href}
+        className={`fixed bottom-4 right-4 z-50 min-h-12 transition-all duration-300 sm:bottom-6 sm:right-6 ${visibility}`}
+      >
+        アプリを入手
+      </CampaignButton>
+    )
+  }
 
   return (
     <>

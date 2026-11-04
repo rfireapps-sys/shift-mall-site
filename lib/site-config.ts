@@ -14,6 +14,9 @@ export const siteConfig = {
   seoTitle: "シフトモール | 給与計算と空想通販のアプリ",
   seoDescription:
     "給与計算ができて、空想のお金で買い物ができるアプリ「シフトモール」の公式サイト。2026年11月リリース予定。事前登録はLINEで受け付けています。",
+  // 配信開始後の検索の説明文（isReleased のときに使う）
+  seoDescriptionReleased:
+    "給与計算ができて、空想のお金で買い物ができるアプリ「シフトモール」の公式サイト。2026年11月に配信を開始しました。",
   // 世界観セクション（理念の背景にある問題意識）
   philosophyBody:
     "他人に流されず、自分だけの幸せを、自分で見つけられるように。",
@@ -82,6 +85,8 @@ export const siteConfig = {
     { label: "お知らせ", href: "#news" },
     { label: "アプリ入手", href: "#preregister" },
   ],
+  // 配信開始後に、お知らせ欄の「予定」の項目と置き換えるお知らせ（isReleased のときに使う）
+  releasedNewsItem: { date: "2026.11", tag: "お知らせ", body: "配信を開始しました。" },
   // お知らせ欄（新しい情報が増えたら先頭に追加する）
   newsItems: [
     { date: "2026.11", tag: "予定", body: "iOS/Android版のリリースを予定しています。" },
@@ -96,3 +101,10 @@ export const siteConfig = {
     { title: "本当に欲しいものを見つける", body: "あなたが本当に欲しいものを見つけましょう。" },
   ],
 } as const
+
+// ストアのURLが入っていれば、そのストアで配信中とみなす（未定は "#"）。
+export const isOnStore = (url: string) => url !== "#"
+
+// どちらかのストアのURLが入ったら、配信中とみなす。
+// Hero・ヘッダー・FAB・事前登録セクション・アプリ入手・お知らせ・検索の説明文・OGP画像が、配信開始後の表示に切り替わる。
+export const isReleased = isOnStore(siteConfig.playUrl) || isOnStore(siteConfig.appStoreUrl)

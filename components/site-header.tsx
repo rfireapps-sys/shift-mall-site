@@ -1,4 +1,4 @@
-import { siteConfig } from "@/lib/site-config"
+import { siteConfig, isReleased } from "@/lib/site-config"
 
 export function SiteHeader() {
   return (
@@ -17,7 +17,8 @@ export function SiteHeader() {
             {siteConfig.navItems.map((item) => (
               <li key={item.href}>
                 <a
-                  href={item.href}
+                  // 「アプリ入手」は、配信開始までは事前登録セクション、開始後はアプリ入手のセクションへ飛ばす。
+                  href={isReleased && item.href === "#preregister" ? "#get" : item.href}
                   className="inline-block border-b-2 border-transparent px-1 py-3.5 transition-colors hover:border-red hover:text-foreground sm:px-0 sm:py-2"
                 >
                   {item.label}
