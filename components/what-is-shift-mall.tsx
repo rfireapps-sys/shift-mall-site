@@ -34,9 +34,9 @@ export function WhatIsShiftMall() {
             <Reveal delay={160} className="mt-8 lg:max-w-3xl">
               {siteConfig.whatIsShiftMallDetail.split("\n\n").map((paragraph, idx) => (
                 <p key={idx} className={idx > 0 ? "mt-8 border-l-4 border-red pl-5 text-pretty leading-loose text-foreground/80 md:text-lg lg:text-balance" : "text-pretty leading-loose text-foreground/80 md:text-lg lg:text-balance"}>
-                  {paragraph.includes("空想のお金") ? (
+                  {paragraph.includes("架空のお金") ? (
                     <>
-                      日々の勤務を入力すると、締日に<span className="text-red">空想のお金がアプリ内のお財布に入金されます</span>。そのお金で好きなものを買えますが、実際のお金は使われず、商品も届きません。<span className="text-red">もし本当に欲しいと思ったら、アプリ内から買いに行けます</span>。
+                      日々の勤務を入力すると、締日に<span className="text-red">架空のお金がアプリ内のお財布に入金されます</span>。そのお金で好きなものを買えますが、実際のお金は使われず、商品も届きません。<span className="text-red">もし本当に欲しいと思ったら、アプリ内から買いに行けます</span>。
                     </>
                   ) : (
                     paragraph

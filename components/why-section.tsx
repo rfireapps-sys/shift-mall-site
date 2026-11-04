@@ -51,7 +51,7 @@ export function WhySection() {
 
           <Reveal delay={160} className="mt-6">
             <p className="text-justify [word-break:normal] leading-loose text-foreground/80 [text-wrap:pretty] md:text-lg">
-              お金ってすぐ無くなりませんか？税金や借金の返済で自分の給与を100%使えない。<span className="text-red">なのに欲しいものは無限にある。</span>だからとりあえず欲しいものを買いたい。それらを叶えるアプリです。
+              お金ってすぐ無くなりませんか？税金や借金の返済で自分の収入を100%使えない。<span className="text-red">なのに欲しいものは無限にある。</span>だからとりあえず欲しいものを買いたい。それらを叶えるアプリです。
             </p>
           </Reveal>
         </div>
