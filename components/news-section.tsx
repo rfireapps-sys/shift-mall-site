@@ -1,5 +1,10 @@
-import { siteConfig } from "@/lib/site-config"
+import { siteConfig, isReleased } from "@/lib/site-config"
 import { Reveal } from "@/components/reveal"
+
+// 配信開始後は、「予定」の項目を外し、配信開始のお知らせを先頭に置く。
+const newsItems = isReleased
+  ? [siteConfig.releasedNewsItem, ...siteConfig.newsItems.filter((item) => item.tag !== "予定")]
+  : siteConfig.newsItems
 
 export function NewsSection() {
   return (
@@ -13,7 +18,7 @@ export function NewsSection() {
         </Reveal>
 
         <ul className="mt-8 flex flex-col divide-y divide-border border-t border-border">
-          {siteConfig.newsItems.map((item, i) => (
+          {newsItems.map((item, i) => (
             <Reveal key={item.date + item.body} delay={i * 60} as="li" className="flex flex-col gap-2 py-5 sm:flex-row sm:items-baseline sm:gap-6">
               <div className="flex shrink-0 items-baseline gap-3 sm:w-44">
                 <span className="font-heading text-sm tabular-nums text-foreground/60">{item.date}</span>
