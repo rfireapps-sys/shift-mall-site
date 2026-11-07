@@ -30,7 +30,7 @@ export function PreregisterSection() {
               LINE公式アカウントを友だち追加して、あることをすると、あなたのニックネームが当サイトに載ります！
             </p>
             <p className="mt-4 text-pretty leading-relaxed text-white md:text-lg">
-              {siteConfig.releaseTiming}リリース予定です。LINEでは、最新情報をお届けします。
+              {siteConfig.releaseTiming}に検証版を公開する予定です。LINEでは、最新情報をお届けします。
             </p>
             <Link
               href="/special-thanks"
