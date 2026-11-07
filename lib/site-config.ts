@@ -108,3 +108,16 @@ export const isOnStore = (url: string) => url !== "#"
 // どちらかのストアのURLが入ったら、配信中とみなす。
 // Hero・ヘッダー・FAB・事前登録セクション・アプリ入手・お知らせ・検索の説明文・OGP画像が、配信開始後の表示に切り替わる。
 export const isReleased = isOnStore(siteConfig.playUrl) || isOnStore(siteConfig.appStoreUrl)
+
+// 配信中のストアに合わせた一言（アプリ入手の見出しと、PCのFABのカードで使う）。
+// 片方のストアだけ先に公開されたときも、事実と食い違わないようにする。
+const playReleased = isOnStore(siteConfig.playUrl)
+const appStoreReleased = isOnStore(siteConfig.appStoreUrl)
+export const releaseLabel =
+  playReleased && appStoreReleased
+    ? "iOS/Androidで配信中"
+    : playReleased
+      ? "Androidで配信中（iOSは準備中）"
+      : appStoreReleased
+        ? "iOSで配信中（Androidは準備中）"
+        : "iOS/Androidで配信予定"
