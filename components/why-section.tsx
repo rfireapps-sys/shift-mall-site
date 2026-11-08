@@ -51,7 +51,7 @@ export function WhySection() {
 
           <Reveal delay={160} className="mt-6">
             <p className="text-justify [word-break:normal] leading-loose text-foreground/80 [text-wrap:pretty] md:text-lg">
-              それと、欲しいものを試しに買ってみたくなることはありませんか？ 空想通販なら、買いたいものを買いたいだけ買えます。<span className="text-red">実際のお金は使わず、手元にも届きませんが、購入意欲を満たせます。</span>
+              それと、欲しいものを試しに買ってみたくなることはありませんか？ 空想通販なら、買いたいものを買いたいだけ買えます。<span className="text-red">実際のお金は使わず、手元にも届きませんが、購買意欲を満たせます。</span>
             </p>
           </Reveal>
         </div>
