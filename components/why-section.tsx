@@ -45,13 +45,13 @@ export function WhySection() {
           <Reveal delay={80} className="mt-8 lg:mt-10">
             {/* 右端をそろえる（日本トレカセンターの文章と同じ見せ方）。文ごとの改行はやめ、文節単位で折り返しながら両端揃えにする */}
             <p className="text-justify [word-break:normal] leading-loose text-foreground/80 [text-wrap:pretty] md:text-lg">
-              お金の計算ってすごく面倒ですよね？正直苦手です。だからAIに収入の計算をお願いしていましたが、<span className="text-red">全然信頼できませんでした</span>。ならば信頼できるアプリを作ろう。でもただ収入の計算ができるなんてつまらない。
+              掛け持ちしていると、<span className="text-red">収入の合計はなかなか見えません。</span>私もそれで困りました。だから、複数の仕事を合わせた収入の見込みが分かるアプリにしました。
             </p>
           </Reveal>
 
           <Reveal delay={160} className="mt-6">
             <p className="text-justify [word-break:normal] leading-loose text-foreground/80 [text-wrap:pretty] md:text-lg">
-              お金ってすぐ無くなりませんか？税金や借金の返済で自分の収入を100%使えない。<span className="text-red">なのに欲しいものは無限にある。</span>だからとりあえず欲しいものを買いたい。それらを叶えるアプリです。
+              それと、欲しいものを試しに買ってみたくなることはありませんか？ 空想通販なら、買いたいものを買いたいだけ買えます。<span className="text-red">実際のお金は使わず、手元にも届きませんが、購入意欲を満たせます。</span>
             </p>
           </Reveal>
         </div>
