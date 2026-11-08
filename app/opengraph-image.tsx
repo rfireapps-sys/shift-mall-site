@@ -88,7 +88,7 @@ export default async function Image() {
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <div style={{ display: "flex", width: 56, height: 10, backgroundColor: "#B90101" }} />
           <div style={{ display: "flex", fontSize: 26, fontWeight: 700, color: "#B90101" }}>
-            {siteConfig.releaseTiming}{isReleased ? "配信開始" : "リリース予定"}
+            {siteConfig.releaseTiming}{isReleased ? " 検証版公開" : " 検証版公開予定"}
           </div>
         </div>
       </div>

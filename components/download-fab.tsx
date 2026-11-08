@@ -1,13 +1,20 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { QRCodeSVG } from "qrcode.react"
 import { CampaignButton } from "@/components/campaign-button"
-import { siteConfig, isReleased } from "@/lib/site-config"
+import { siteConfig, isReleased, isOnStore, releaseLabel } from "@/lib/site-config"
 
 // 配信開始までは事前登録セクションへ、開始後はアプリ入手のセクションへの導線にする。
 const target = isReleased ? "#get" : "#preregister"
 // 同じ導線がすでに見えている間（Heroのボタン・飛び先のセクション・フッター）は隠す。
 const hideTargets = [`#top a[href="${target}"]`, target, "footer"]
+
+// 配信開始後のPCのカードに並べるストアのQRコード（URLが入っていないストアは「準備中」）。
+const stores = [
+  { name: "Google Play", url: siteConfig.playUrl },
+  { name: "App Store", url: siteConfig.appStoreUrl },
+]
 
 // base: トップページでは ""、規約などの別ページでは "/"（トップの飛び先のセクションへ）。
 export function DownloadFab({ base = "" }: { base?: string }) {
@@ -35,15 +42,52 @@ export function DownloadFab({ base = "" }: { base?: string }) {
 
   const visibility = hidden ? "pointer-events-none translate-y-4 opacity-0" : "opacity-100"
 
-  // 配信開始後は、スマホもPCも「アプリを入手」のボタンだけにする（キャンペーンのカードは外す）。
+  // 配信開始後は、スマホは「アプリを入手」のボタン、PCは同じ白いカードのまま、ストアのQRコードを並べる。
   if (isReleased) {
     return (
-      <CampaignButton
-        href={href}
-        className={`fixed bottom-4 right-4 z-50 min-h-12 transition-all duration-300 sm:bottom-6 sm:right-6 ${visibility}`}
-      >
-        アプリを入手
-      </CampaignButton>
+      <>
+        <CampaignButton
+          href={href}
+          className={`fixed bottom-4 right-4 z-50 min-h-12 transition-all duration-300 sm:bottom-6 sm:right-6 lg:hidden ${visibility}`}
+        >
+          アプリを入手
+        </CampaignButton>
+
+        <div
+          className={`fixed bottom-6 right-6 z-50 hidden w-72 flex-col gap-3 rounded-lg border-2 border-[#B90101] bg-white p-5 text-ink shadow-[4px_4px_0_#FE6965] transition-all duration-300 lg:flex ${visibility}`}
+        >
+          <div>
+            <p className="font-heading text-sm font-bold text-[#B90101]">{releaseLabel}</p>
+            <p className="mt-0.5 font-heading text-2xl font-bold leading-tight text-[#B90101]">アプリを入手</p>
+          </div>
+          <p className="text-pretty text-sm font-bold leading-relaxed">
+            スマホでQRコードを読み込むと、アプリの入手先が開きます。
+          </p>
+          <p className="text-sm font-bold leading-relaxed">QRコードを読み込んで入手する</p>
+          <div className="mt-1 flex gap-3">
+            {stores.map((store) => (
+              <div key={store.name} className="flex flex-col items-center gap-1.5">
+                {isOnStore(store.url) ? (
+                  <a
+                    href={store.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${store.name}で${siteConfig.appName}を開く`}
+                    className="block leading-none"
+                  >
+                    <QRCodeSVG value={store.url} size={104} title={`${store.name}のQRコード`} />
+                  </a>
+                ) : (
+                  <div className="flex size-[104px] items-center justify-center rounded-sm border border-dashed border-ink/40 text-sm font-bold text-ink/70">
+                    準備中
+                  </div>
+                )}
+                <span className="text-sm font-bold">{store.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </>
     )
   }
 

@@ -59,7 +59,7 @@ export function SiteHero() {
             </CampaignButton>
             <p className="text-sm font-medium text-white">
               {siteConfig.releaseTiming}
-              {isReleased ? "配信開始" : "リリース予定"}
+              {isReleased ? "に検証版を公開" : "に検証版を公開予定"}
             </p>
           </div>
           <p

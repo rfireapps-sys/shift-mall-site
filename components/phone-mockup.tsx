@@ -3,7 +3,7 @@
 const screens = {
   home: {
     src: "/images/app-home.webp",
-    alt: "シフトモールのホーム画面。今日までの実績額と、財布の残高（架空のお金）が表示されている。",
+    alt: "シフトモールのホーム画面。今日までの実績額と、財布の残高（空想のお金）が表示されている。",
   },
   calendar: {
     src: "/images/app-calendar.webp",
