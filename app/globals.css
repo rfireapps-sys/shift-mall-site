@@ -1,8 +1,4 @@
 @import 'tailwindcss';
-@import 'tw-animate-css';
-@import 'shadcn/tailwind.css';
-
-@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
@@ -145,20 +141,6 @@ html {
 
 @utility shadow-flat-lg {
   box-shadow: 6px 6px 0 var(--ink);
-}
-
-/* CTAボタンの装飾テール（本体は常に黄地でテキストの可読性を確保し、
-   青はテキストと重ならない右端の帯に限定する。青の両脇は ink で挟む） */
-@utility btn-split-tail {
-  background: linear-gradient(
-    115deg,
-    var(--ink) 0%,
-    var(--ink) 12%,
-    var(--blue) 12%,
-    var(--blue) 75%,
-    var(--ink) 75%,
-    var(--ink) 100%
-  );
 }
 
 /* 写真の彩度・コントラストを揃えて、出どころの違う写真でも

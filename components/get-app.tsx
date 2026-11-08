@@ -2,7 +2,6 @@ import { SiApple } from "react-icons/si"
 import { GooglePlayIcon } from "@/components/google-play-icon"
 import { siteConfig, isReleased, isOnStore, releaseLabel } from "@/lib/site-config"
 import { Reveal } from "@/components/reveal"
-import { SplitButtonLink } from "@/components/split-button"
 import { PhoneMockup } from "@/components/phone-mockup"
 
 // ストアのURLが未定（"#"）の間は、ボタンをLINE事前登録に誘導し、ラベルに「（準備中）」を付ける。
