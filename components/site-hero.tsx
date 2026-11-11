@@ -41,7 +41,8 @@ export function SiteHero() {
               <span className="inline-block">しあわせを、</span>
             </span>
             <span className="hero-fade block" style={{ animationDelay: "0.32s" }}>
-              <span className="inline-block text-red">自分で</span>
+              {/* 写真の上ではルビーの文字が読めない（コントラスト比 約1.7〜2.2:1）ので、Xの固定ツイート画像と同じく、白い箱に墨の文字にする（傾けない。ユーザー判断、2026/11/11） */}
+              <span className="inline-block rounded-sm bg-white px-[0.12em] text-ink">自分で</span>
               <span className="inline-block">決められるように。</span>
             </span>
           </h1>

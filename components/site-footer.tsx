@@ -45,7 +45,7 @@ export function SiteFooter() {
             href={siteConfig.lineUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-green-500 px-5 py-3 text-sm font-bold text-white shadow-flat-sm transition-colors hover:bg-green-600"
+            className="inline-flex items-center gap-2 rounded-full bg-green-700 px-5 py-3 text-sm font-bold text-white shadow-flat-sm transition-colors hover:bg-green-800"
           >
             <SiLine className="h-4 w-4" aria-hidden="true" />
             LINE

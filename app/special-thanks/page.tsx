@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function SpecialThanksPage() {
   return (
-    <LegalLayout title="スペシャルサンクス">
+    <LegalLayout title="スペシャルサンクス" showFab>
       <p className="text-muted-foreground">
         {siteConfig.appName}の事前登録をしてくださった方のニックネームを、感謝をこめて載せています。
       </p>
