@@ -7,6 +7,7 @@ const legalLinks = [
   { href: "/privacy", label: "プライバシーポリシー" },
   { href: "/recommended-environment", label: "推奨環境" },
   { href: "/special-thanks", label: "スペシャルサンクス" },
+  { href: "/income-walls", label: "税金・年収の壁について" },
 ]
 
 export function SiteFooter() {
@@ -28,7 +29,6 @@ export function SiteFooter() {
               {link.label}
             </Link>
           ))}
-          <span className="py-3 text-foreground/70">税金・年収の壁について（近日公開）</span>
         </nav>
 
         <div className="flex flex-wrap items-center gap-3">
