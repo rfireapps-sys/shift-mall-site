@@ -150,9 +150,32 @@ export default function IncomeWallsPage() {
           「年収の壁」は、収入がある金額を超えると、税金や社会保険料がかかり始めたり、家族の扶養から外れたりする境目のことです。このページでは、2026年の収入にあてはまる金額を中心にまとめます。掛け持ちで働く人が迷いやすい「収入を合算するのか、勤め先ごとに見るのか」も書きます。
         </p>
         <p className="rounded-sm border border-border bg-white px-4 py-3 text-sm text-foreground/80">
-          金額は、収入が給与だけで、ひとり暮らしの場合の目安です。このページは一般的な説明なので、自分の場合どうなるかは、ページの最後の相談先で確認してください。
+          金額は、収入が給与だけで、扶養している家族がいない場合の目安です。このページは一般的な説明なので、自分の場合どうなるかは、ページの最後の相談先で確認してください。
         </p>
       </div>
+
+      <section aria-labelledby="words-heading" className="space-y-4">
+        <h2 id="words-heading" className="font-heading text-lg font-bold text-foreground md:text-xl">
+          このページで使う言葉
+        </h2>
+        <dl className="grid gap-3 sm:grid-cols-2">
+          {[
+            {
+              term: "扶養に入る",
+              desc: "親や配偶者に養われている家族として扱われることです。税金と健康保険では、扶養に入れる収入の上限が別々に決まっています。",
+            },
+            {
+              term: "控除",
+              desc: "税金を計算するときに、収入から差し引ける金額です。控除が多いほど、税金は少なくなります。",
+            },
+          ].map((w) => (
+            <div key={w.term} className="rounded-sm border border-border bg-white px-4 py-3">
+              <dt className="font-bold text-foreground">{w.term}</dt>
+              <dd className="mt-1 text-sm text-foreground/80">{w.desc}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
 
       {/* 早見図：スマホで読みやすいよう、縦の数直線にする */}
       <section aria-labelledby="timeline-heading" className="space-y-4">
@@ -187,7 +210,7 @@ export default function IncomeWallsPage() {
       >
         <Row label="だれに関係？">収入があるすべての人</Row>
         <Row label="どうなる？">
-          東京23区などでひとり暮らしなら、2026年の給与が約119万円以下で住民税がかかりません。この住民税は、2027年度に払うものです。
+          東京23区などで、扶養している家族がいなければ、2026年の給与が約119万円以下で住民税がかかりません。この住民税は、2027年度に払うものです。
         </Row>
         <Row label="気をつけること">
           金額は、住んでいる市区町村や家族構成で変わります。正確な金額は、お住まいの市区町村で確認してください。
@@ -203,10 +226,10 @@ export default function IncomeWallsPage() {
       >
         <Row label="だれに関係？">親や配偶者の健康保険の扶養に入っている人</Row>
         <Row label="どうなる？">
-          これからの1年間の収入の見込みが130万円以上になると、扶養から外れ、自分で国民健康保険と国民年金に入るか、勤め先の社会保険に入ることになります。19〜22歳の人（配偶者を除く）は、2025年10月から150万円未満になりました。
+          これからの1年間の収入の見込みが130万円以上になると、扶養から外れます。そのあとは、自分で国民健康保険に入るか、勤め先の社会保険に入って、保険料を自分で払います。配偶者の扶養に入っていた人は、国民年金の保険料も自分で払うことになります。19〜22歳の人は、2025年10月から150万円未満になりました（配偶者として扶養に入っている人は除きます）。
         </Row>
         <Row label="2026年4月から">
-          収入が給与だけの人は、労働契約に書かれた賃金で見込みを判定できるようになりました。契約にない残業代で一時的に超えても、すぐには扶養から外れません。ただし、シフト制で労働時間が契約に書かれていない場合などは、この方法を使えません。
+          収入が給与だけの人は、労働契約に書かれた賃金をもとに、収入の見込みを判定できるようになりました。契約に書かれていない残業代は、この見込みに入りません。ただし、シフト制で労働時間が契約に書かれていない場合などは、この方法を使えません。
         </Row>
         <Row label="掛け持ちのとき">
           <SumChip mode="sum" /> 収入は合算して見るのが基本です。細かい扱いは、家族が加入している健康保険に確認してください。
@@ -223,7 +246,7 @@ export default function IncomeWallsPage() {
       >
         <Row label="だれに関係？">親や配偶者の税金の扶養に入っている人</Row>
         <Row label="どうなる？">
-          給与が136万円以下なら、親や配偶者は、あなたを扶養にして控除を受けられます。この壁で変わるのは、あなたの税金ではなく、家族の税金です。
+          給与が136万円以下なら、親や配偶者は、あなたを扶養にして控除を受けられます。この壁で変わるのは、あなたの税金ではなく、家族の税金です。配偶者の場合は、136万円を超えても、収入に応じて減っていく「配偶者特別控除」があります。
         </Row>
         <Row label="掛け持ちのとき">
           <SumChip mode="sum" /> すべての収入を合算します。
@@ -279,7 +302,7 @@ export default function IncomeWallsPage() {
               "週の労働時間が20時間以上",
               "2か月を超えて働く見込みがある",
               "学生ではない（休学中・定時制・通信制の人は対象）",
-              "勤め先の会社が51人以上",
+              "勤め先の会社で、厚生年金に入っている人が51人以上",
             ].map((c) => (
               <li key={c} className="flex items-start gap-2">
                 <Check className="mt-0.5 h-5 w-5 shrink-0 text-red" aria-hidden="true" />
@@ -290,7 +313,7 @@ export default function IncomeWallsPage() {
           <span className="mt-3 block">会社の人数の条件は、2027年10月から段階的に下がり、2035年10月になくなります。</span>
         </Row>
         <Row label="掛け持ちのとき">
-          <SumChip mode="each" /> 加入するかどうかは、勤め先ごとに判定します。2か所の労働時間を足して週20時間にはなりません。詳しくは勤め先に確認してください。
+          <SumChip mode="each" /> 加入するかどうかは、勤め先ごとに判定します。2か所の労働時間を足して、週20時間以上かどうかを見ることはしません。詳しくは勤め先に確認してください。
         </Row>
       </WallCard>
 
@@ -327,7 +350,7 @@ export default function IncomeWallsPage() {
 
         <div className="rounded-sm border border-ink bg-white p-5 shadow-flat md:p-7">
           <h3 className="font-heading text-base font-bold text-foreground md:text-lg">確定申告が必要になるとき</h3>
-          <p className="mt-3 text-foreground/80">メインの勤め先以外の給与は、ふつう年末調整されません。次の合計が20万円を超えると、確定申告が必要です。</p>
+          <p className="mt-3 text-foreground/80">メインの勤め先以外の給与は、ふつう年末調整されません。次の合計が20万円を超えると、確定申告が必要です。給与の合計が少ないときなど、必要ない場合もあります。</p>
           <div className="mt-4 flex flex-wrap items-center gap-2 text-sm font-bold text-foreground">
             <span className="rounded-sm border border-ink px-3 py-2">年末調整されなかった給与</span>
             <span aria-hidden="true">＋</span>
