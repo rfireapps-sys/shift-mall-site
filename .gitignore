@@ -21,3 +21,5 @@ node_modules
 
 # デザイン本の要約（著作物の派生メモなので公開リポジトリには上げない）
 .claude/skills/design-references/references/
+# yomiyasu v3 の作業用フォルダ（v3 は名前が点で始まるフォルダのファイルを読まないため）
+yomiyasu-work/
