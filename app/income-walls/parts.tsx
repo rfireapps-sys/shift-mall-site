@@ -42,6 +42,8 @@ export const sources = {
   mhlwPart: { label: "厚生労働省「パート・アルバイトの方への社会保険の適用について」", href: "https://www.mhlw.go.jp/tekiyoukakudai/seido/tanjikan" },
   nenkinMulti: { label: "日本年金機構「複数の事業所に雇用されるようになったときの手続き」", href: "https://www.nenkin.go.jp/service/kounen/tekiyo/hihokensha1/20131022.html" },
   egovKoyou: { label: "e-Gov法令検索「雇用保険法」（第6条）", href: "https://laws.e-gov.go.jp/law/349AC0000000116" },
+  // 2か所で働く人は、主たる賃金を受ける1か所で入ることの根拠（法6条には書かれていない。2026/11/16、Q6の本文で確認）
+  mhlwKoyouQa: { label: "厚生労働省「雇用保険制度 Q＆A～事業主の皆様へ」（Q6）", href: "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000140565.html" },
   nta1900: { label: "国税庁 No.1900 給与所得者で確定申告が必要な人", href: "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1900.htm" },
   nta2520: { label: "国税庁 No.2520 2か所以上から給与をもらっている人の源泉徴収", href: "https://www.nta.go.jp/taxes/shiraberu/taxanswer/gensen/2520.htm" },
   yokohamaShinkoku: { label: "横浜市「市民税・県民税の申告について」", href: "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/zeikin/y-shizei/kojin-shiminzei-kenminzei/kojin-shiminzei-shosai/shiminzei-shinkoku.html" },

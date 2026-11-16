@@ -38,14 +38,14 @@ export function SinglePanel() {
         amount="約119万円"
         title="住民税がかかり始める（目安）"
         before="2025年の収入なら、目安は110万円です。"
-        sourceItems={[sources.chuoResident, sources.chuoHikazei, sources.nta1175, sources.mofTaikou, sources.egovChihouzei]}
+        sourceItems={[sources.chuoResident, sources.chuoHikazei, sources.nta1175, sources.yokohamaShinkoku, sources.mofTaikou, sources.egovChihouzei]}
       >
         <Row label="だれに関係？">収入があるすべての人</Row>
         <Row label="どうなる？">
           東京23区などで、扶養している家族がいなければ、2026年の給与が<Em>約119万円以下で住民税がかかりません。</Em>この住民税は、2027年度に払うものです。
         </Row>
         <Row label="学生の人">
-          <Em>2026年の給与が163万円以下なら、勤労学生控除で住民税が少なくなります。</Em>控除を受けるには、<Em>勤め先に出す扶養控除等申告書の勤労学生の欄に書きます。</Em>対象は、大学や高校、一定の専修学校などの学生です。
+          <Em>2026年の給与が163万円以下なら、勤労学生控除で住民税が少なくなります。</Em><Em>勤め先に出す扶養控除等申告書の勤労学生の欄に書くと、控除を受けられます。</Em>申告書に書かなかったときも、確定申告や住民税の申告で受けられます。対象は、大学や高校、一定の専修学校などの学生です。
         </Row>
         <Row label="気をつけること">
           金額は、<Em>住んでいる市区町村や家族構成で変わります。</Em>正確な金額は、お住まいの市区町村で確認してください。2027年1月1日の時点で18歳未満の人には別の基準があり、2026年の合計所得が135万円以下（給与だけなら約209万円以下）なら住民税がかかりません。
@@ -80,7 +80,7 @@ export function SinglePanel() {
           残業などで一時的に収入が増えたときは、勤め先の証明があれば、扶養のままでいられる場合があります（原則として連続2回まで）。
         </Row>
         <Row label="国民年金">
-          20歳以上60歳未満の人は、家族の扶養に入っていても、国民年金の保険料がかかります。保険料がかからない第3号は、配偶者の扶養に入っている人だけです。<Em>学生は、申請すると、在学中の保険料の納付を猶予してもらえます</Em>（学生納付特例。本人の前年の所得に条件があります）。申請が遅れると、障害基礎年金を受けられない場合があります。
+          20歳以上60歳未満の人は、家族の扶養に入っていても、国民年金の保険料がかかります。保険料がかからない第3号は、配偶者の扶養に入っている人だけです。<Em>学生は、年度ごとに申請すると、保険料の納付を猶予してもらえます</Em>（学生納付特例。本人の前年の所得に条件があります）。<Em>猶予された期間は、10年以内に追納しないと、将来の年金が減ります。</Em>申請が遅れると、障害基礎年金を受けられない場合があります。
         </Row>
         <Row label="フリーランスの収入">フリーランスや業務委託の収入は、売上から経費を引いた額で見ます。</Row>
         <Row label="掛け持ちのとき">
@@ -154,7 +154,7 @@ export function SinglePanel() {
         kind="insurance"
         amount={<><s className="text-foreground/50">106万円</s><span className="ml-3 align-middle rounded-sm bg-ink px-2 py-1 text-base text-white md:text-lg">なくなりました</span></>}
         title="勤め先の社会保険に入る条件"
-        sourceItems={[sources.nenkinWage, sources.mhlwPart, sources.nenkinTanjikan, sources.nenkinQaKakudai, sources.nenkinMulti, sources.egovKoyou]}
+        sourceItems={[sources.nenkinWage, sources.mhlwPart, sources.nenkinTanjikan, sources.nenkinQaKakudai, sources.nenkinMulti, sources.egovKoyou, sources.mhlwKoyouQa]}
       >
         <Row label="何が変わった？">
           以前は、条件の一つが「月8.8万円（年収で約106万円）以上」でした。この条件は、<Em>2026年10月1日になくなりました。</Em>
@@ -175,7 +175,7 @@ export function SinglePanel() {
             ))}
           </ul>
           <span className="mt-3 block">
-            51人未満でも、労使の合意で申し出て、対象になっている会社があります。国や自治体の職場は、人数にかかわらず対象です。会社の人数の条件は、2027年10月から段階的に下がり、2035年10月になくなります。残業などで、実際の労働時間が2か月続けて週20時間以上になり、その後も続く見込みのときは、3か月目の初日から加入します。
+            51人未満でも、労使の合意で申し出て、対象になっている会社があります。国や自治体の職場は、人数にかかわらず対象です。会社の人数の条件は、2027年10月から段階的に下がり、2035年10月になくなります。契約で決まった労働時間が週20時間未満でも、残業などで実際の労働時間が2か月続けて週20時間以上になり、その後も続く見込みのときは、ほかの3つの条件を満たしていれば、3か月目の初日から加入します。
           </span>
         </Row>
         <Row label="4分の3以上働く人">

@@ -164,7 +164,7 @@ export function FamilyPanel() {
         kind="insurance"
         amount={<><s className="text-foreground/50">106万円</s><span className="ml-3 align-middle rounded-sm bg-ink px-2 py-1 text-base text-white md:text-lg">なくなりました</span></>}
         title="勤め先の社会保険に入る条件"
-        sourceItems={[sources.nenkinWage, sources.mhlwPart, sources.nenkinTanjikan, sources.nenkinQaKakudai, sources.nenkinHokenryoChosei, sources.nenkinChoseiJigyosho, sources.nenkinChoseiHihokensha, sources.nenkinMulti, sources.egovKoyou]}
+        sourceItems={[sources.nenkinWage, sources.mhlwPart, sources.nenkinTanjikan, sources.nenkinQaKakudai, sources.nenkinHokenryoChosei, sources.nenkinChoseiJigyosho, sources.nenkinChoseiHihokensha, sources.nenkinMulti, sources.egovKoyou, sources.mhlwKoyouQa]}
       >
         <Row label="何が変わった？">
           以前は、条件の一つが「月8.8万円（年収で約106万円）以上」でした。この条件は、<Em>2026年10月1日になくなりました。</Em>
@@ -185,7 +185,7 @@ export function FamilyPanel() {
             ))}
           </ul>
           <span className="mt-3 block">
-            51人未満でも、労使の合意で申し出て、対象になっている会社があります。国や自治体の職場は、人数にかかわらず対象です。会社の人数の条件は、2027年10月から段階的に下がり、2035年10月になくなります。残業などで、実際の労働時間が2か月続けて週20時間以上になり、その後も続く見込みのときは、3か月目の初日から加入します。
+            51人未満でも、労使の合意で申し出て、対象になっている会社があります。国や自治体の職場は、人数にかかわらず対象です。会社の人数の条件は、2027年10月から段階的に下がり、2035年10月になくなります。契約で決まった労働時間が週20時間未満でも、残業などで実際の労働時間が2か月続けて週20時間以上になり、その後も続く見込みのときは、ほかの3つの条件を満たしていれば、3か月目の初日から加入します。
           </span>
         </Row>
         <Row label="4分の3以上働く人">
