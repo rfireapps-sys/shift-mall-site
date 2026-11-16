@@ -74,7 +74,7 @@ export function FamilyPanel() {
         kind="insurance"
         amount={<>130万円<span className="mt-1 block text-lg md:text-xl">60歳以上などは180万円</span></>}
         title="配偶者の健康保険の扶養から外れる"
-        sourceItems={[sources.nenkinDependent, sources.nenkinContract, sources.mhlwContractQa, sources.nenkin3goGuide, sources.nenkinSpouseJob, sources.nenkin3go, sources.egovKokuminNenkin, sources.egovKokuminNenkinKisoku, sources.egovKokuhoKisoku, sources.mhlwKabe]}
+        sourceItems={[sources.nenkinDependent, sources.nenkinContract, sources.mhlwContractQa, sources.nenkinSpouse65, sources.nenkinSpouseJob, sources.nenkin3go, sources.egovKokuminNenkin, sources.egovKokuminNenkinKisoku, sources.egovKokuhoKisoku, sources.mhlwKabe]}
       >
         <Row label="だれに関係？">
           配偶者が勤め先の健康保険に入っていて、その扶養に入っている人。配偶者が国民健康保険のときは、扶養の仕組みがないので、この壁は関係ありません。
@@ -164,7 +164,7 @@ export function FamilyPanel() {
         kind="insurance"
         amount={<><s className="text-foreground/50">106万円</s><span className="ml-3 align-middle rounded-sm bg-ink px-2 py-1 text-base text-white md:text-lg">なくなりました</span></>}
         title="勤め先の社会保険に入る条件"
-        sourceItems={[sources.nenkinWage, sources.mhlwPart, sources.nenkinHokenryoChosei, sources.nenkinChoseiJigyosho, sources.nenkinChoseiHihokensha, sources.nenkinMulti, sources.egovKoyou]}
+        sourceItems={[sources.nenkinWage, sources.mhlwPart, sources.nenkinTanjikan, sources.nenkinQaKakudai, sources.nenkinHokenryoChosei, sources.nenkinChoseiJigyosho, sources.nenkinChoseiHihokensha, sources.nenkinMulti, sources.egovKoyou]}
       >
         <Row label="何が変わった？">
           以前は、条件の一つが「月8.8万円（年収で約106万円）以上」でした。この条件は、<Em>2026年10月1日になくなりました。</Em>
@@ -185,7 +185,7 @@ export function FamilyPanel() {
             ))}
           </ul>
           <span className="mt-3 block">
-            51人未満でも、労使の合意で申し出て、対象になっている会社があります。会社の人数の条件は、2027年10月から段階的に下がり、2035年10月になくなります。残業で週20時間を超える状態が続くときは、対象になることがあります。
+            51人未満でも、労使の合意で申し出て、対象になっている会社があります。国や自治体の職場は、人数にかかわらず対象です。会社の人数の条件は、2027年10月から段階的に下がり、2035年10月になくなります。残業などで、実際の労働時間が2か月続けて週20時間以上になり、その後も続く見込みのときは、3か月目の初日から加入します。
           </span>
         </Row>
         <Row label="4分の3以上働く人">
@@ -201,7 +201,7 @@ export function FamilyPanel() {
           <SumChip mode="each" /> 加入するかどうかは、勤め先ごとに判定します。2か所の労働時間を足して、週20時間以上かどうかを見ることはしません。2か所とも条件を満たしたときは、本人が10日以内に届け出をして、2か所の給与を合わせた額で保険料が決まります。
         </Row>
         <Row label="雇用保険">
-          雇用保険は、週20時間以上で、31日以上働く見込みがあると入ります。雇用保険に入っても、配偶者の健康保険の扶養には関係しません。
+          雇用保険は、週20時間以上で、31日以上働く見込みがあると入ります。2か所で働く人は、原則として主な1か所で入ります。雇用保険に入っても、配偶者の健康保険の扶養には関係しません。
         </Row>
       </WallCard>
 
