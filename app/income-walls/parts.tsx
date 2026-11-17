@@ -4,19 +4,22 @@ import { ArrowDown, ArrowUpRight, ChevronDown } from "lucide-react"
 // 税金・年収の壁のページの部品と出典。タブごとの中身（single-panel.tsx・family-panel.tsx）から使う。
 
 export type Source = { label: string; href: string }
-export type Kind = "self-tax" | "family" | "insurance"
+export type Kind = "self-tax" | "family" | "insurance" | "company"
 
 export const kindLabel: Record<Kind, string> = {
   "self-tax": "自分の税金",
   family: "家族の扶養",
   insurance: "保険",
+  company: "会社の制度",
 }
 
-// 自分の税金＝墨、家族の扶養＝黄、保険＝白地に墨の枠。黄の上は墨の文字（CLAUDE.mdの配色）
+// 自分の税金＝墨、家族の扶養＝黄、保険＝白地に墨の枠、会社の制度＝白地に墨の枠（保険と同じ）。黄の上は墨の文字（CLAUDE.mdの配色）。
+// 家族手当は税金や健康保険の扶養ではなく、会社が決める制度なので、「家族の扶養」とは別の名前にする（2026/11/17）
 export const kindClass: Record<Kind, string> = {
   "self-tax": "bg-ink text-white",
   family: "bg-yellow text-ink",
   insurance: "border border-ink bg-white text-ink",
+  company: "border border-ink bg-white text-ink",
 }
 
 // 早見図。税は「〜を超える」、健康保険の扶養は「〜以上」で、境目の数え方が違う
@@ -80,15 +83,20 @@ export function Em({ children }: { children: ReactNode }) {
   return <strong className="font-bold text-red">{children}</strong>
 }
 
-// トップページと同じ「英字ラベル＋日本語の見出し」（web-mihoncho-4 PART7-03、CLAUDE.mdの「反復」）
-export function EnLabel({ children }: { children: ReactNode }) {
-  return <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] text-red md:text-sm">{children}</p>
+// 「英字ラベル＋日本語の見出し」（web-mihoncho-4 PART7-03、CLAUDE.mdの「反復」）。
+// セクションの見出しでは、トップページと同じ大きさ（PCで20px）にする。カードの中のラベルは小さいまま
+export function EnLabel({ children, large = false }: { children: ReactNode; large?: boolean }) {
+  return (
+    <p className={`font-heading text-xs font-bold uppercase tracking-[0.2em] text-red md:text-sm ${large ? "lg:text-xl" : ""}`}>
+      {children}
+    </p>
+  )
 }
 
 export function SectionHeading({ id, en, children }: { id: string; en: string; children: ReactNode }) {
   return (
     <div className="space-y-2">
-      <EnLabel>{en}</EnLabel>
+      <EnLabel large>{en}</EnLabel>
       <h2 id={id} className="font-heading text-2xl font-bold text-balance text-foreground md:text-3xl">
         {children}
       </h2>
@@ -142,7 +150,7 @@ export function Row({ label, children }: { label: string; children: ReactNode })
   return (
     // 文字を大きくしても横にはみ出さないよう、列を最小0にし、入りきらない語はその中で折る
     <div className="grid grid-cols-[minmax(0,1fr)] gap-1 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-4">
-      <dt className="text-sm font-bold text-foreground wrap-anywhere">{label}</dt>
+      <dt className="font-bold text-foreground wrap-anywhere">{label}</dt>
       <dd className="text-foreground/80 wrap-anywhere">{children}</dd>
     </div>
   )
@@ -216,6 +224,18 @@ export function WordsSection({ id, extra = [] }: { id: string; extra?: { term: s
             term: "控除",
             desc: "税金を計算するときに、収入から差し引ける金額です。控除が多いほど、税金は少なくなります。",
           },
+          {
+            term: "年末調整",
+            desc: "勤め先が、毎月の給与から引いた所得税を、1年分の正しい税額に合わせて精算する手続きです。毎年12月ごろにします。",
+          },
+          {
+            term: "合計所得",
+            desc: "1年間の所得を合計した額です。給与の場合は、収入から給与所得控除を引いた額が所得になります。",
+          },
+          {
+            term: "国民年金の第1号",
+            desc: "自営業の人や学生などが、自分で保険料を払って入る国民年金の区分です。",
+          },
           ...extra,
         ].map((w) => (
           <div key={w.term} className="rounded-sm border border-border bg-white px-4 py-3 sm:last:odd:col-span-2">
@@ -236,7 +256,7 @@ export function TimelineSection({ id, items, children }: { id: string; items: Ti
         年収の壁の早見図<span className="inline-block">（2026年の収入）</span>
       </SectionHeading>
       <p className="text-sm text-foreground/70">項目を押すと、それぞれの説明に移ります。</p>
-      <ol className="relative ml-2 border-l-2 border-ink">
+      <ol className="relative ml-2 border-l-2 border-ink lg:max-w-3xl">
         {items.map((t) => (
           <li key={t.amount + t.label} className="relative">
             <span className="absolute -left-[7px] top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-red" aria-hidden="true" />

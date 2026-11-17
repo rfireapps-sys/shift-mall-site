@@ -8,7 +8,7 @@ import { FamilyPanel } from "./family-panel"
 export const metadata: Metadata = {
   title: `年収の壁はいくらから？税金・扶養・社会保険の早見ガイド | ${siteConfig.appName}`,
   description:
-    "2026年の収入にあてはまる「年収の壁」（住民税・所得税・扶養・社会保険）を、掛け持ちで働く人と、家族がいてパート・アルバイトで働く人に分けて、国税庁・厚生労働省・日本年金機構などの公表資料をもとにまとめました。",
+    "2026年の収入にあてはまる「年収の壁」（住民税・所得税・扶養・社会保険）を、ひとりで働く人（親の扶養に入っている人を含む）と、配偶者がいてパート・アルバイトで働く人に分けて、国税庁・厚生労働省・日本年金機構などの公表資料をもとにまとめました。",
 }
 
 // 金額と制度は、国の一次情報（国税庁・財務省・厚生労働省・日本年金機構・e-Govの法令）で確かめたもの。
@@ -24,8 +24,8 @@ export default function IncomeWallsPage() {
     <LegalLayout title="年収の壁はいくらから？税金・扶養・社会保険の早見ガイド" updatedAt="2026年11月16日">
       <IncomeWallsTabs
         tabs={[
-          { id: "single", label: "ひとりで働く人・家族の扶養に入っている人", panel: <SinglePanel /> },
-          { id: "family", label: "家族がいてパート・アルバイトで働く人", panel: <FamilyPanel /> },
+          { id: "single", label: "ひとりで働く人・親の扶養に入っている人", panel: <SinglePanel /> },
+          { id: "family", label: "配偶者がいてパート・アルバイトで働く人", panel: <FamilyPanel /> },
         ]}
       />
     </LegalLayout>
