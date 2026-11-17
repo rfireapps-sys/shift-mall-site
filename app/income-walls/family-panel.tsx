@@ -116,7 +116,7 @@ export function FamilyPanel() {
         id="family-spouse-tax"
         en="Spouse Tax"
         kind="family"
-        amount={<>136万円<span className="inline-block max-w-full"><span className="mx-2 text-2xl md:text-3xl">・</span>169万円</span><span className="inline-block max-w-full"><span className="mx-2 text-2xl md:text-3xl">・</span>207万円</span></>}
+        amount={<><span className="inline-block max-w-full">136万円<span className="mx-2 text-2xl md:text-3xl">・</span></span><span className="inline-block max-w-full">169万円<span className="mx-2 text-2xl md:text-3xl">・</span></span><span className="inline-block max-w-full">207万円</span></>}
         title="配偶者の税金が変わる"
         before="2025年の収入なら、配偶者控除は123万円以下、38万円の控除は160万円まで、控除がなくなるのは201万5,999円を超えたときです。"
         sourceItems={[sources.nta1191, sources.nta1195, sources.ntaKaisei2026, sources.chuoResident, sources.egovChihouzeiKoujo]}

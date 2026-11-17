@@ -1,5 +1,5 @@
 import type { ReactNode } from "react"
-import { ArrowUpRight, ChevronDown } from "lucide-react"
+import { ArrowDown, ArrowUpRight, ChevronDown } from "lucide-react"
 
 // 税金・年収の壁のページの部品と出典。タブごとの中身（single-panel.tsx・family-panel.tsx）から使う。
 
@@ -124,8 +124,11 @@ export function SourceList({ items }: { items: Source[] }) {
               rel="noopener noreferrer"
               className={`inline-flex min-h-11 max-w-full items-center gap-1 py-2 text-sm text-foreground/80 wrap-anywhere underline decoration-border underline-offset-4 hover:text-foreground ${focusRing}`}
             >
-              {s.label}
-              <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+              {/* 名前が2行に折れても、アイコンが右端に浮かないよう、文字の後ろに続ける */}
+              <span>
+                {s.label}
+                <ArrowUpRight className="ml-1 inline h-3.5 w-3.5 align-[-0.125em]" aria-hidden="true" />
+              </span>
               <span className="sr-only">（新しいタブで開きます）</span>
             </a>
           </li>
@@ -179,9 +182,11 @@ export function WallCard({
         <KindBadge kind={kind} />
       </div>
       {/* 金額は見出しの中に入れる（読み上げで見出しから見出しへ移ったときに、金額も読まれるようにするため） */}
-      <h2 id={`${id}-title`} className="mt-3 font-heading font-bold">
+      <h2 className="mt-3 font-heading font-bold">
         <span className="block text-4xl tabular-nums text-red wrap-anywhere md:text-5xl">{amount}</span>
-        <span className="mt-2 block text-xl text-balance text-foreground md:text-2xl">{title}</span>
+        {/* 読み上げで、金額と題名がつながらないよう、区切りを入れる */}
+        <span className="sr-only">、</span>
+        <span id={`${id}-title`} className="mt-2 block text-xl text-balance text-foreground md:text-2xl">{title}</span>
       </h2>
       <dl className="mt-6 space-y-5">{children}</dl>
       {before && (
@@ -235,7 +240,8 @@ export function TimelineSection({ id, items, children }: { id: string; items: Ti
         {items.map((t) => (
           <li key={t.amount + t.label} className="relative">
             <span className="absolute -left-[7px] top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-red" aria-hidden="true" />
-            <a href={t.href} className={`group block min-h-14 py-2 pl-6 hover:bg-white sm:flex sm:items-center sm:gap-3 ${focusRing}`}>
+            {/* リングは内側に描き、左を8px空けて、墨の縦線と赤い点に重ならないようにする */}
+            <a href={t.href} className="group ml-2 block min-h-14 py-2 pl-4 hover:bg-white sm:flex sm:items-center sm:gap-3 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-red">
               <span className="block font-heading font-bold tabular-nums text-red sm:w-36 sm:shrink-0">
                 <span className="text-lg">{t.amount}</span>
                 <span className="ml-0.5 text-sm">{t.edge}</span>
@@ -245,8 +251,8 @@ export function TimelineSection({ id, items, children }: { id: string; items: Ti
                 <span className="min-w-0 grow basis-40 text-sm text-foreground underline-offset-4 group-hover:underline">{t.label}</span>
                 <span className="flex shrink-0 items-center gap-1">
                   <KindBadge kind={t.kind} />
-                  {/* 押すと説明へ移ることを示す */}
-                  <ChevronDown className="h-4 w-4 text-foreground/70" aria-hidden="true" />
+                  {/* 押すと下の説明へ移ることを示す（出典の「開く」の印は、折りたたみの山形なので、矢印にして分ける） */}
+                  <ArrowDown className="h-4 w-4 text-foreground/70" aria-hidden="true" />
                 </span>
               </span>
             </a>

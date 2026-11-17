@@ -6,7 +6,7 @@ import { SinglePanel } from "./single-panel"
 import { FamilyPanel } from "./family-panel"
 
 export const metadata: Metadata = {
-  title: `税金・年収の壁について | ${siteConfig.appName}`,
+  title: `年収の壁はいくらから？税金・扶養・社会保険の早見ガイド | ${siteConfig.appName}`,
   description:
     "2026年の収入にあてはまる「年収の壁」（住民税・所得税・扶養・社会保険）を、掛け持ちで働く人と、家族がいてパート・アルバイトで働く人に分けて、国税庁・厚生労働省・日本年金機構などの公表資料をもとにまとめました。",
 }
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function IncomeWallsPage() {
   return (
-    <LegalLayout title="税金・年収の壁について" updatedAt="2026年11月16日">
+    <LegalLayout title="年収の壁はいくらから？税金・扶養・社会保険の早見ガイド" updatedAt="2026年11月16日">
       <IncomeWallsTabs
         tabs={[
           { id: "single", label: "ひとりで働く人・家族の扶養に入っている人", panel: <SinglePanel /> },

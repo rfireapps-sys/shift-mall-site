@@ -113,7 +113,7 @@ export function SinglePanel() {
         id="age-19-22"
         en="Age 19–22"
         kind="family"
-        amount={<>159万円<span className="inline-block max-w-full"><span className="mx-2 text-2xl md:text-3xl">と</span>197万円</span></>}
+        amount={<><span className="inline-block max-w-full">159万円<span className="mx-2 text-2xl md:text-3xl">と</span></span><span className="inline-block max-w-full">197万円</span></>}
         title="19〜22歳の人と、親の控除"
         before="2025年の収入なら、それぞれ150万円と188万円です。"
         sourceItems={[sources.nta1177, sources.ntaKaisei2026, sources.ntaQa2026]}

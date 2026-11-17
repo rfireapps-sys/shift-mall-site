@@ -1,7 +1,7 @@
 "use client"
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent, type ReactNode } from "react"
-import { ArrowUp, Circle, CircleCheck } from "lucide-react"
+import { ArrowUp, Check } from "lucide-react"
 import { focusRing } from "./parts"
 
 // ページ内のタブ。W3C の WAI-ARIA Authoring Practices の「Tabs」の例（自動で切り替わる型）の考え方で作った。
@@ -30,9 +30,15 @@ export function IncomeWallsTabs({ tabs }: { tabs: TabItem[] }) {
     [tabs],
   )
 
-  const openFromHash = useCallback(() => {
+  // moveFocus は、ページを開いたあとにリンクで # が変わったときだけ true にする。
+  // 元のパネルが hidden になるとフォーカスが body に落ちるので、移った先の見出しへ移す
+  const openFromHash = useCallback((moveFocus: boolean) => {
     const hash = decodeURIComponent(window.location.hash.slice(1))
-    if (!hash) return
+    if (!hash) {
+      // 戻る操作で # のないURLに戻ったときは、1つ目のタブに戻す（読み込み時は、もともと1つ目のタブ）
+      if (moveFocus) setActive(tabs[0].id)
+      return
+    }
     const tab = tabs.find((t) => t.id === hash)
     if (tab) {
       setActive(tab.id)
@@ -43,19 +49,26 @@ export function IncomeWallsTabs({ tabs }: { tabs: TabItem[] }) {
     if (target && panel?.dataset.tabPanel) {
       setActive(panel.dataset.tabPanel)
       // hidden が外れてから移る
-      requestAnimationFrame(() => target.scrollIntoView())
+      requestAnimationFrame(() => {
+        target.scrollIntoView()
+        if (moveFocus) {
+          if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1")
+          target.focus({ preventScroll: true })
+        }
+      })
     }
   }, [tabs])
 
   // 読み込んだときの # は、描画の前に読む（#family で開いたとき、1つ目のタブが見える時間を短くするため）。
   // 書き出したHTMLは1つ目のタブなので、JSが読み込まれるまでの間は、1つ目のタブが見える
   useLayoutEffect(() => {
-    openFromHash()
+    openFromHash(false)
   }, [openFromHash])
 
   useEffect(() => {
-    window.addEventListener("hashchange", openFromHash)
-    return () => window.removeEventListener("hashchange", openFromHash)
+    const onHashChange = () => openFromHash(true)
+    window.addEventListener("hashchange", onHashChange)
+    return () => window.removeEventListener("hashchange", onHashChange)
   }, [openFromHash])
 
   const onKeyDown = (e: KeyboardEvent<HTMLButtonElement>, index: number) => {
@@ -90,7 +103,6 @@ export function IncomeWallsTabs({ tabs }: { tabs: TabItem[] }) {
         >
           {tabs.map((t, i) => {
             const selected = t.id === active
-            const Icon = selected ? CircleCheck : Circle
             return (
               <button
                 key={t.id}
@@ -105,14 +117,17 @@ export function IncomeWallsTabs({ tabs }: { tabs: TabItem[] }) {
                 tabIndex={selected ? 0 : -1}
                 onClick={() => select(t.id, { updateHash: true })}
                 onKeyDown={(e) => onKeyDown(e, i)}
-                className={`flex min-h-12 items-start gap-2 rounded-sm border px-3 py-3 text-left text-sm sm:px-4 font-bold transition-colors md:text-base ${focusRing} ${
+                className={`flex min-h-12 items-start gap-2 rounded-sm border px-3 py-3 text-left text-sm sm:px-4 font-bold transition-[background-color,border-color,color] md:text-base ${focusRing} ${
                   selected
                     ? "border-ink bg-ink text-white"
                     : "border-ink bg-white text-foreground hover:bg-background"
                 }`}
               >
-                {/* 色の反転のほかに、選んでいるかどうかを形でも示す（チェックつきの丸／空の丸） */}
-                <Icon className="mt-px h-5 w-5 shrink-0" aria-hidden="true" />
+                {/* 色の反転のほかに、選んでいるかどうかを形でも示す（選んでいるタブだけチェック）。
+                    丸は選択肢（ラジオボタン）に見えるので使わず、文字の位置がそろうよう同じ幅の枠を残す */}
+                <span className="mt-px h-5 w-5 shrink-0" aria-hidden="true">
+                  {selected && <Check className="h-5 w-5" strokeWidth={3} />}
+                </span>
                 <span className="text-balance">{t.label}</span>
               </button>
             )
@@ -138,7 +153,7 @@ export function IncomeWallsTabs({ tabs }: { tabs: TabItem[] }) {
               <button
                 type="button"
                 onClick={() => openOther(otherIndex)}
-                className={`flex min-h-12 w-full items-start gap-2 rounded-sm border border-ink bg-white px-4 py-3 text-left transition-colors hover:bg-background ${focusRing}`}
+                className={`flex min-h-12 w-full items-start gap-2 rounded-sm border border-ink bg-white px-4 py-3 text-left transition-[background-color,border-color,color] hover:bg-background ${focusRing}`}
               >
                 <ArrowUp className="mt-0.5 h-5 w-5 shrink-0 text-red" aria-hidden="true" />
                 <span>

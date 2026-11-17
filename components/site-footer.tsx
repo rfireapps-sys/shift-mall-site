@@ -7,7 +7,7 @@ const legalLinks = [
   { href: "/privacy", label: "プライバシーポリシー" },
   { href: "/recommended-environment", label: "推奨環境" },
   { href: "/special-thanks", label: "スペシャルサンクス" },
-  { href: "/income-walls", label: "税金・年収の壁について" },
+  { href: "/income-walls", label: "年収の壁の早見ガイド" },
 ]
 
 export function SiteFooter() {
