@@ -1,5 +1,5 @@
 import type { ReactNode } from "react"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, ChevronDown } from "lucide-react"
 
 // 税金・年収の壁のページの部品と出典。タブごとの中身（single-panel.tsx・family-panel.tsx）から使う。
 
@@ -70,6 +70,10 @@ export const sources = {
   mhlwHaigushaTeate: { label: "厚生労働省「『配偶者手当』の在り方の検討をお願いします」", href: "https://www.mhlw.go.jp/content/11200000/001496664.pdf" },
 } satisfies Record<string, Source>
 
+// キーボードで操作したときの枠。赤の実色を外側に離して出し、墨のタブの上でも背景（#f4f5f7）の上に見えるようにする（6.28:1）。
+// サイト全体の設定（globals.css の outline-ring/50）は変えず、このページのタブ・リンク・早見図だけに付ける
+export const focusRing = "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red"
+
 // 赤い太字。赤い文字だけを拾い読みすると、要点がひととおり分かるように使う（ユーザー判断、2026/11/14）。
 // 赤は白地の上で6.85:1（CLAUDE.mdの配色）
 export function Em({ children }: { children: ReactNode }) {
@@ -85,7 +89,7 @@ export function SectionHeading({ id, en, children }: { id: string; en: string; c
   return (
     <div className="space-y-2">
       <EnLabel>{en}</EnLabel>
-      <h2 id={id} className="font-heading text-2xl font-bold text-foreground md:text-3xl">
+      <h2 id={id} className="font-heading text-2xl font-bold text-balance text-foreground md:text-3xl">
         {children}
       </h2>
     </div>
@@ -102,9 +106,15 @@ export function KindBadge({ kind }: { kind: Kind }) {
 
 export function SourceList({ items }: { items: Source[] }) {
   return (
-    <div className="border-t border-border pt-3">
-      <p className="text-xs font-bold text-foreground/70">出典</p>
-      <ul className="mt-1">
+    // 出典は畳んでおき、件数を見せる（カードを読み終えたあと、次のカードへ進みやすくするため）
+    <details className="group border-t border-border pt-1">
+      <summary
+        className={`inline-flex min-h-11 cursor-pointer list-none items-center gap-1 text-sm font-bold text-foreground/80 hover:text-foreground [&::-webkit-details-marker]:hidden ${focusRing}`}
+      >
+        出典（{items.length}件）
+        <ChevronDown className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180" aria-hidden="true" />
+      </summary>
+      <ul className="pb-1">
         {items.map((s) => (
           <li key={s.href}>
             {/* 押せる高さを44px近くにする（実装チェックリスト①） */}
@@ -112,7 +122,7 @@ export function SourceList({ items }: { items: Source[] }) {
               href={s.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center gap-1 py-2 text-sm text-foreground/80 underline decoration-border underline-offset-4 hover:text-foreground"
+              className={`inline-flex min-h-11 max-w-full items-center gap-1 py-2 text-sm text-foreground/80 wrap-anywhere underline decoration-border underline-offset-4 hover:text-foreground ${focusRing}`}
             >
               {s.label}
               <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
@@ -121,15 +131,16 @@ export function SourceList({ items }: { items: Source[] }) {
           </li>
         ))}
       </ul>
-    </div>
+    </details>
   )
 }
 
 export function Row({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <div className="grid gap-1 sm:grid-cols-[9rem_1fr] sm:gap-4">
-      <dt className="text-sm font-bold text-foreground">{label}</dt>
-      <dd className="text-foreground/80">{children}</dd>
+    // 文字を大きくしても横にはみ出さないよう、列を最小0にし、入りきらない語はその中で折る
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-1 sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-4">
+      <dt className="text-sm font-bold text-foreground wrap-anywhere">{label}</dt>
+      <dd className="text-foreground/80 wrap-anywhere">{children}</dd>
     </div>
   )
 }
@@ -138,7 +149,7 @@ export function SumChip({ mode }: { mode: "sum" | "each" }) {
   return mode === "sum" ? (
     <span className="mr-1 inline-block rounded-sm bg-red px-2 py-0.5 text-xs font-bold text-white">合算</span>
   ) : (
-    <span className="mr-1 inline-block rounded-sm border border-red bg-white px-2 py-0.5 text-xs font-bold text-red">勤め先ごと</span>
+    <span className="mr-1 inline-block max-w-full rounded-sm border border-red bg-white px-2 py-0.5 text-xs font-bold text-red">勤め先ごと</span>
   )
 }
 
@@ -167,8 +178,11 @@ export function WallCard({
         <EnLabel>{en}</EnLabel>
         <KindBadge kind={kind} />
       </div>
-      <p className="mt-3 font-heading text-4xl font-bold tabular-nums text-red md:text-5xl">{amount}</p>
-      <h2 id={`${id}-title`} className="mt-2 font-heading text-xl font-bold text-foreground md:text-2xl">{title}</h2>
+      {/* 金額は見出しの中に入れる（読み上げで見出しから見出しへ移ったときに、金額も読まれるようにするため） */}
+      <h2 id={`${id}-title`} className="mt-3 font-heading font-bold">
+        <span className="block text-4xl tabular-nums text-red wrap-anywhere md:text-5xl">{amount}</span>
+        <span className="mt-2 block text-xl text-balance text-foreground md:text-2xl">{title}</span>
+      </h2>
       <dl className="mt-6 space-y-5">{children}</dl>
       {before && (
         <p className="mt-6 rounded-sm bg-background px-3 py-2 text-sm text-foreground/80">{before}</p>
@@ -199,7 +213,7 @@ export function WordsSection({ id, extra = [] }: { id: string; extra?: { term: s
           },
           ...extra,
         ].map((w) => (
-          <div key={w.term} className="rounded-sm border border-border bg-white px-4 py-3">
+          <div key={w.term} className="rounded-sm border border-border bg-white px-4 py-3 sm:last:odd:col-span-2">
             <dt className="font-bold text-foreground">{w.term}</dt>
             <dd className="mt-1 text-sm text-foreground/80">{w.desc}</dd>
           </div>
@@ -213,26 +227,33 @@ export function WordsSection({ id, extra = [] }: { id: string; extra?: { term: s
 export function TimelineSection({ id, items, children }: { id: string; items: TimelineItem[]; children: ReactNode }) {
   return (
     <section aria-labelledby={id} className="space-y-5">
-      <SectionHeading id={id} en="Overview">年収の壁の早見図（2026年の収入）</SectionHeading>
+      <SectionHeading id={id} en="Overview">
+        年収の壁の早見図<span className="inline-block">（2026年の収入）</span>
+      </SectionHeading>
+      <p className="text-sm text-foreground/70">項目を押すと、それぞれの説明に移ります。</p>
       <ol className="relative ml-2 border-l-2 border-ink">
         {items.map((t) => (
           <li key={t.amount + t.label} className="relative">
             <span className="absolute -left-[7px] top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-red" aria-hidden="true" />
-            <a href={t.href} className="block min-h-14 py-2 pl-6 hover:bg-white sm:flex sm:items-center sm:gap-3">
+            <a href={t.href} className={`group block min-h-14 py-2 pl-6 hover:bg-white sm:flex sm:items-center sm:gap-3 ${focusRing}`}>
               <span className="block font-heading font-bold tabular-nums text-red sm:w-36 sm:shrink-0">
                 <span className="text-lg">{t.amount}</span>
-                <span className="ml-0.5 text-xs">{t.edge}</span>
+                <span className="ml-0.5 text-sm">{t.edge}</span>
               </span>
-              <span className="mt-0.5 flex flex-1 items-center justify-between gap-3 sm:mt-0">
-                <span className="text-sm text-foreground">{t.label}</span>
-                <KindBadge kind={t.kind} />
+              {/* 文字を大きくして幅が足りないときは、バッジを次の行へ送る（横にはみ出さないようにするため） */}
+              <span className="mt-0.5 flex flex-1 flex-wrap items-center justify-between gap-x-3 gap-y-1 sm:mt-0">
+                <span className="min-w-0 grow basis-40 text-sm text-foreground underline-offset-4 group-hover:underline">{t.label}</span>
+                <span className="flex shrink-0 items-center gap-1">
+                  <KindBadge kind={t.kind} />
+                  {/* 押すと説明へ移ることを示す */}
+                  <ChevronDown className="h-4 w-4 text-foreground/70" aria-hidden="true" />
+                </span>
               </span>
             </a>
           </li>
         ))}
       </ol>
       <p className="text-sm text-foreground/80">{children}</p>
-      <p className="text-sm text-foreground/70">項目を押すと、それぞれの説明に移ります。</p>
     </section>
   )
 }

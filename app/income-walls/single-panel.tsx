@@ -113,7 +113,7 @@ export function SinglePanel() {
         id="age-19-22"
         en="Age 19–22"
         kind="family"
-        amount={<>159万円<span className="mx-2 text-2xl md:text-3xl">と</span>197万円</>}
+        amount={<>159万円<span className="inline-block max-w-full"><span className="mx-2 text-2xl md:text-3xl">と</span>197万円</span></>}
         title="19〜22歳の人と、親の控除"
         before="2025年の収入なら、それぞれ150万円と188万円です。"
         sourceItems={[sources.nta1177, sources.ntaKaisei2026, sources.ntaQa2026]}
@@ -191,13 +191,18 @@ export function SinglePanel() {
       </WallCard>
 
       <section aria-labelledby="multi-heading" className="space-y-5">
-        <SectionHeading id="multi-heading" en="Multiple Jobs">掛け持ちで働く人が気をつけること</SectionHeading>
-        <div className="overflow-hidden rounded-sm border border-ink bg-white">
-          <table className="w-full text-left text-sm">
+        <SectionHeading id="multi-heading" en="Multiple Jobs">
+          <span className="inline-block">掛け持ちで</span>
+          <span className="inline-block">働く人が</span>
+          <span className="inline-block">気をつけること</span>
+        </SectionHeading>
+        {/* 文字を大きくしても枠からはみ出さないよう、列の幅を固定し、セルの中で折り返す */}
+        <div className="rounded-sm border border-ink bg-white">
+          <table className="w-full table-fixed text-left text-sm">
             <thead className="bg-foreground/5 text-foreground">
               <tr>
-                <th scope="col" className="px-4 py-3 font-bold">壁</th>
-                <th scope="col" className="px-4 py-3 font-bold">収入の数え方</th>
+                <th scope="col" className="w-[45%] px-3 py-3 font-bold wrap-anywhere sm:px-4">壁</th>
+                <th scope="col" className="px-3 py-3 font-bold wrap-anywhere sm:px-4">収入の数え方</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-border text-foreground">
@@ -208,8 +213,8 @@ export function SinglePanel() {
                 { name: "勤め先の社会保険への加入", mode: "each" as const },
               ].map((r) => (
                 <tr key={r.name}>
-                  <th scope="row" className="px-4 py-3 font-medium">{r.name}</th>
-                  <td className="px-4 py-3">
+                  <th scope="row" className="px-3 py-3 font-medium wrap-anywhere sm:px-4">{r.name}</th>
+                  <td className="px-3 py-3 wrap-anywhere sm:px-4">
                     <SumChip mode={r.mode} />
                     {r.note && <span className="ml-1 text-foreground/70">（{r.note}）</span>}
                   </td>
@@ -220,16 +225,22 @@ export function SinglePanel() {
         </div>
 
         <div className="rounded-sm border border-ink bg-white p-5 shadow-flat md:p-7">
-          <h3 className="font-heading text-lg font-bold text-foreground md:text-xl">確定申告が必要になるとき</h3>
+          {/* 2つ目のタブからリンクしている（#tax-return） */}
+          <h3 id="tax-return" className="scroll-mt-8 font-heading text-lg font-bold text-foreground md:text-xl">確定申告が必要になるとき</h3>
           <p className="mt-3 text-foreground/80">
             <Em>扶養控除等申告書を出せるのは、メインの勤め先1か所だけです。</Em>メイン以外の勤め先の給与は、ふつう年末調整されません。<Em>次の合計が20万円を超えると、確定申告が必要です（払いすぎた税金が戻るだけの人は、申告の義務はありません）。</Em>給与の合計が少ないときなど、必要ない場合もあります。
           </p>
+          {/* 折れるときは記号の前で折り、記号が次の項目と同じ行の頭に来るようにする */}
           <div className="mt-4 flex flex-wrap items-center gap-2 text-sm font-bold text-foreground">
-            <span className="rounded-sm border border-ink px-3 py-2">年末調整されなかった給与</span>
-            <span aria-hidden="true">＋</span>
-            <span className="rounded-sm border border-ink px-3 py-2">給与以外の所得</span>
-            <span aria-hidden="true">＞</span>
-            <span className="rounded-sm bg-red px-3 py-2 text-white">20万円</span>
+            <span className="max-w-full rounded-sm border border-ink px-3 py-2 wrap-anywhere">年末調整されなかった給与</span>
+            <span className="flex max-w-full items-center gap-2">
+              <span aria-hidden="true">＋</span>
+              <span className="min-w-0 rounded-sm border border-ink px-3 py-2 wrap-anywhere">給与以外の所得</span>
+            </span>
+            <span className="flex max-w-full items-center gap-2">
+              <span aria-hidden="true">＞</span>
+              <span className="rounded-sm bg-red px-3 py-2 text-white">20万円</span>
+            </span>
           </div>
           <p className="mt-4 text-sm text-foreground/80">
             給与以外の所得は、売上から経費を引いた額です。メイン以外の勤め先では、給与が少なくても所得税が引かれ、<Em>引かれすぎた分は確定申告で戻ることがあります。</Em>所得税の確定申告が要らない場合でも、住民税の申告が必要なことがあるので、お住まいの市区町村で確認してください。
@@ -251,7 +262,7 @@ export function SinglePanel() {
             { topic: "健康保険の扶養", place: "家族の勤め先（家族が協会けんぽに入っているときは年金事務所）" },
             { topic: "国民健康保険・国民年金", place: "お住まいの市区町村" },
           ].map((c) => (
-            <div key={c.topic} className="rounded-sm border border-border bg-white px-4 py-3">
+            <div key={c.topic} className="rounded-sm border border-border bg-white px-4 py-3 sm:last:odd:col-span-2">
               <dt className="text-sm font-bold text-foreground">{c.topic}</dt>
               <dd className="mt-1 text-foreground/80">{c.place}</dd>
             </div>

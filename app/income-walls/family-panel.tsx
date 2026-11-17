@@ -1,5 +1,5 @@
 import { Check } from "lucide-react"
-import { type TimelineItem, sources, Em, SectionHeading, Row, SumChip, WallCard, WordsSection, TimelineSection } from "./parts"
+import { type TimelineItem, sources, focusRing, Em, SectionHeading, Row, SumChip, WallCard, WordsSection, TimelineSection } from "./parts"
 
 // 2つ目のタブ：家族（配偶者）がいてパート・アルバイトで働く人（2026/11/16追加、ユーザーが推奨案を採用）。
 // 金額は、調査メモ（共有メモのフォルダ research_notes/配偶者がいるパートの年収の壁/）で一次情報と照らしたもの。
@@ -116,7 +116,7 @@ export function FamilyPanel() {
         id="family-spouse-tax"
         en="Spouse Tax"
         kind="family"
-        amount={<>136万円<span className="mx-2 text-2xl md:text-3xl">・</span>169万円<span className="mx-2 text-2xl md:text-3xl">・</span>207万円</>}
+        amount={<>136万円<span className="inline-block max-w-full"><span className="mx-2 text-2xl md:text-3xl">・</span>169万円</span><span className="inline-block max-w-full"><span className="mx-2 text-2xl md:text-3xl">・</span>207万円</span></>}
         title="配偶者の税金が変わる"
         before="2025年の収入なら、配偶者控除は123万円以下、38万円の控除は160万円まで、控除がなくなるのは201万5,999円を超えたときです。"
         sourceItems={[sources.nta1191, sources.nta1195, sources.ntaKaisei2026, sources.chuoResident, sources.egovChihouzeiKoujo]}
@@ -154,7 +154,7 @@ export function FamilyPanel() {
           2026年の収入全体に、この金額があてはまります。毎月の給与から引かれる所得税は11月まで前のままで、メインの勤め先の給与の差は、12月の年末調整で戻ります。年末調整を受けない人（11月までに仕事を辞めた人など）や、メイン以外の勤め先の給与は、確定申告で精算します。
         </Row>
         <Row label="掛け持ちのとき">
-          <SumChip mode="sum" /> すべての勤め先の収入を合算します。メイン以外の勤め先では、給与が少なくても所得税が引かれ、<Em>引かれすぎた分は確定申告で戻ることがあります。</Em>確定申告が必要になる条件は、1つ目のタブの「確定申告が必要になるとき」にまとめています。
+          <SumChip mode="sum" /> すべての勤め先の収入を合算します。メイン以外の勤め先では、給与が少なくても所得税が引かれ、<Em>引かれすぎた分は確定申告で戻ることがあります。</Em>確定申告が必要になる条件は、1つ目のタブの「<a href="#tax-return" className={`text-foreground underline decoration-red underline-offset-4 hover:decoration-2 ${focusRing}`}>確定申告が必要になるとき</a>」にまとめています。
         </Row>
       </WallCard>
 
@@ -233,7 +233,7 @@ export function FamilyPanel() {
             { topic: "国民健康保険・国民年金の第1号", place: "お住まいの市区町村" },
             { topic: "配偶者の家族手当", place: "配偶者の勤め先" },
           ].map((c) => (
-            <div key={c.topic} className="rounded-sm border border-border bg-white px-4 py-3">
+            <div key={c.topic} className="rounded-sm border border-border bg-white px-4 py-3 sm:last:odd:col-span-2">
               <dt className="text-sm font-bold text-foreground">{c.topic}</dt>
               <dd className="mt-1 text-foreground/80">{c.place}</dd>
             </div>
