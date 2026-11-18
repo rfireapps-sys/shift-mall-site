@@ -186,24 +186,36 @@ export function WallCard({
 }) {
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-8 rounded-sm border border-ink bg-white p-5 shadow-flat md:p-7">
-      <div className="flex flex-wrap items-center gap-3">
-        <EnLabel>{en}</EnLabel>
-        <KindBadge kind={kind} />
-      </div>
-      {/* 金額は見出しの中に入れる（読み上げで見出しから見出しへ移ったときに、金額も読まれるようにするため） */}
-      <h2 className="mt-3 font-heading font-bold">
-        <span className="block text-4xl tabular-nums text-red wrap-anywhere md:text-5xl">{amount}</span>
-        {/* 読み上げで、金額と題名がつながらないよう、区切りを入れる */}
-        <span className="sr-only">、</span>
-        <span id={`${id}-title`} className="mt-2 block text-xl text-balance text-foreground md:text-2xl">{title}</span>
-      </h2>
-      <dl className="mt-6 space-y-5">{children}</dl>
-      {before && (
-        <p className="mt-6 rounded-sm bg-background px-3 py-2 text-sm text-foreground/80">{before}</p>
-      )}
-      <div className="mt-5">
-        <SourceList items={sourceItems} />
-      </div>
+      {/* ページが長いので、カードは閉じておき、見出し（金額と題名）だけ見せる（2026/11/18、ユーザー判断）。
+          早見図や # で移るときは、tabs.tsx が data-wall-card のカードを開く。出典の details とは別の group 名にする */}
+      <details data-wall-card className="group/card">
+        <summary className={`cursor-pointer list-none [&::-webkit-details-marker]:hidden ${focusRing}`}>
+          <div className="flex flex-wrap items-center gap-3">
+            <EnLabel>{en}</EnLabel>
+            <KindBadge kind={kind} />
+          </div>
+          {/* 金額は見出しの中に入れる（読み上げで見出しから見出しへ移ったときに、金額も読まれるようにするため） */}
+          <h2 className="mt-3 font-heading font-bold">
+            <span className="block text-4xl tabular-nums text-red wrap-anywhere md:text-5xl">{amount}</span>
+            {/* 読み上げで、金額と題名がつながらないよう、区切りを入れる */}
+            <span className="sr-only">、</span>
+            <span id={`${id}-title`} className="mt-2 block text-xl text-balance text-foreground md:text-2xl">{title}</span>
+          </h2>
+          {/* 押すと開くことが分かるよう、「くわしく見る」と矢印を見せる（開いているときは「閉じる」） */}
+          <span className="mt-4 flex min-h-11 items-center gap-1 text-sm font-bold text-red">
+            <span className="group-open/card:hidden">くわしく見る</span>
+            <span className="hidden group-open/card:inline">閉じる</span>
+            <ChevronDown className="h-4 w-4 shrink-0 transition-transform group-open/card:rotate-180" aria-hidden="true" />
+          </span>
+        </summary>
+        <dl className="mt-2 space-y-5">{children}</dl>
+        {before && (
+          <p className="mt-6 rounded-sm bg-background px-3 py-2 text-sm text-foreground/80">{before}</p>
+        )}
+        <div className="mt-5">
+          <SourceList items={sourceItems} />
+        </div>
+      </details>
     </section>
   )
 }
