@@ -202,7 +202,7 @@ export function WallCard({
             <span id={`${id}-title`} className="mt-2 block text-xl text-balance text-foreground md:text-2xl">{title}</span>
           </h2>
           {/* 押すと開くことが分かるよう、「くわしく見る」と矢印を見せる（開いているときは「閉じる」） */}
-          <span className="mt-4 flex min-h-11 items-center gap-1 text-sm font-bold text-foreground">
+          <span className="mt-4 flex min-h-11 items-center gap-1 text-sm font-bold text-red">
             <span className="group-open/card:hidden">くわしく見る</span>
             <span className="hidden group-open/card:inline">閉じる</span>
             <ChevronDown className="h-4 w-4 shrink-0 transition-transform group-open/card:rotate-180" aria-hidden="true" />
