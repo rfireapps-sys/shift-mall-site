@@ -159,7 +159,7 @@ export function FamilyPanel() {
         id="family-social-insurance"
         en="Social Insurance"
         kind="insurance"
-        amount={<><s className="text-foreground/50">106万円</s><span className="ml-3 align-middle text-base text-foreground md:text-lg">なくなりました</span></>}
+        amount={<><s className="text-foreground/50">106万円</s><span className="ml-3 align-middle text-base text-foreground md:text-lg">なくなりました</span><span className="mt-1 block text-lg md:text-xl">週20時間以上などで加入</span></>}
         title="勤め先の社会保険に入る条件"
         sourceItems={[sources.nenkinWage, sources.mhlwPart, sources.nenkinTanjikan, sources.nenkinQaKakudai, sources.nenkinHokenryoChosei, sources.nenkinChoseiJigyosho, sources.nenkinChoseiHihokensha, sources.nenkinMulti, sources.egovKoyou, sources.mhlwKoyouQa]}
       >
