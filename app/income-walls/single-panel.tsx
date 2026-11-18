@@ -94,7 +94,7 @@ export function SinglePanel() {
       <div id="national-pension" className="scroll-mt-8 rounded-sm border border-ink bg-white p-5 shadow-flat md:p-7">
         <h3 className="font-heading text-lg font-bold text-foreground md:text-xl">20歳以上で、国民年金の保険料がかかる人</h3>
         <p className="mt-3 text-foreground/80">
-          20歳以上60歳未満の人は勤め先の厚生年金に入っていなければ、家族の扶養に入っていても、国民年金の保険料がかかります。保険料がかからない第3号は、厚生年金に入っている配偶者の扶養に入っている人だけです。<Em>学生は年度ごとに申請すると、保険料の納付を猶予してもらえます</Em>（学生納付特例。本人の前年の所得に条件があります）。学生ではない人は前年の所得が少ないときに、免除（世帯主の所得も見ます）や、50歳未満なら納付猶予を申請できます。免除や猶予を受けた期間は<Em>10年以内に追納しないと、将来の年金が減ります。</Em>申請が遅れると、障害基礎年金を受けられない場合があります。
+          20歳以上60歳未満の人は勤め先の厚生年金に入っていなければ、家族の扶養に入っていても、国民年金の保険料がかかります。保険料がかからない第3号は、厚生年金に入っている配偶者の扶養に入っている人だけです。<Em>学生は年度ごとに申請すると、保険料の納付を猶予してもらえます</Em>（学生納付特例。本人の前年の所得に条件があります）。学生ではない人は前年の所得が少ないときに、免除（世帯主や配偶者の所得も見ます）や、50歳未満なら納付猶予を申請できます。免除や猶予を受けた期間は<Em>10年以内に追納しないと、将来の年金が減ります。</Em>申請が遅れると、障害基礎年金を受けられない場合があります。
         </p>
         <div className="mt-5">
           <SourceList items={[sources.nenkinGakusei, sources.nenkinMenjo, sources.egovKokuminNenkin]} />
@@ -165,7 +165,7 @@ export function SinglePanel() {
         id="social-insurance"
         en="Social Insurance"
         kind="insurance"
-        amount={<><s className="text-foreground/50">106万円</s><span className="ml-3 align-middle text-base text-foreground md:text-lg">なくなりました</span></>}
+        amount={<><s className="text-foreground/50">106万円</s><span className="ml-3 align-middle text-base text-foreground md:text-lg">なくなりました</span><span className="mt-1 block text-lg md:text-xl">週20時間以上などで加入</span></>}
         title="勤め先の社会保険に入る条件"
         sourceItems={[sources.nenkinWage, sources.mhlwPart, sources.nenkinTanjikan, sources.nenkinQaKakudai, sources.nenkinMulti, sources.egovKoyou, sources.mhlwKoyouQa]}
       >
