@@ -55,7 +55,8 @@ export const sources = {
   edogawaHikazei: { label: "江戸川区「住民税の非課税」", href: "https://www.city.edogawa.tokyo.jp/e013/kurashi/zeikin/juminzei/zei_gaiyo/hikazei.html" },
   nenkinSpouseJob: { label: "日本年金機構「配偶者が転職・退職したときの手続き」", href: "https://www.nenkin.go.jp/service/kokunen/kanyu/20120712.html" },
   nenkin3go: { label: "日本年金機構「3号不整合期間があると、将来の年金はどうなるのですか」", href: "https://www.nenkin.go.jp/section/faq/kokunen/seido/3go-fuseigou/20121203-02.html" },
-  egovKokuminNenkin: { label: "e-Gov法令検索「国民年金法」（第7条、第12条、附則第3条）", href: "https://laws.e-gov.go.jp/law/334AC0000000141" },
+  nenkinMenjo: { label: "日本年金機構「国民年金保険料の免除制度・納付猶予制度」", href: "https://www.nenkin.go.jp/service/kokunen/menjo/20150428.html" },
+  egovKokuminNenkin: { label: "e-Gov法令検索「国民年金法」（第7条、第12条、第94条の6、附則第3条）", href: "https://laws.e-gov.go.jp/law/334AC0000000141" },
   nenkinHokenryoChosei: { label: "日本年金機構「保険料調整制度とは」", href: "https://www.nenkin.go.jp/service/kounen/hokenryo/hokenryochosei/gaiyo.html" },
   nenkinChoseiJigyosho: { label: "日本年金機構「保険料調整制度の対象となる事業所・申出期限」", href: "https://www.nenkin.go.jp/service/kounen/hokenryo/hokenryochosei/jigyosho.html" },
   nenkinChoseiHihokensha: { label: "日本年金機構「保険料調整制度の対象となる被保険者」", href: "https://www.nenkin.go.jp/service/kounen/hokenryo/hokenryochosei/hihokensha.html" },
@@ -234,7 +235,11 @@ export function WordsSection({ id, extra = [] }: { id: string; extra?: { term: s
           },
           {
             term: "国民年金の第1号",
-            desc: "自営業の人や学生などが、自分で保険料を払って入る国民年金の区分です。",
+            desc: "自営業の人、学生、勤め先の社会保険に入っていないパートの人などが、自分で保険料を払う国民年金の区分です（配偶者の扶養に入っている人は、第3号になります）。",
+          },
+          {
+            term: "国民年金の第3号",
+            desc: "厚生年金（公務員などの共済組合を含む）に加入している配偶者の扶養に入っている、20歳以上60歳未満の人のことです。配偶者は、原則65歳未満の人に限ります。自分で保険料を払わずに、国民年金に入っていることになります。",
           },
           ...extra,
         ].map((w) => (
