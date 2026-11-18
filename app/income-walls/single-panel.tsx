@@ -1,4 +1,5 @@
 import { Check } from "lucide-react"
+import { ExpandAll } from "./expand-all"
 import { type TimelineItem, sources, Em, SectionHeading, SourceList, Row, SumChip, WallCard, WordsSection, TimelineSection } from "./parts"
 
 const timeline: TimelineItem[] = [
@@ -32,6 +33,8 @@ export function SinglePanel() {
       </TimelineSection>
 
       <WordsSection id="words-heading" />
+
+      <ExpandAll />
 
       <WallCard
         id="resident-tax"

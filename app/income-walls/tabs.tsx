@@ -47,6 +47,14 @@ export function IncomeWallsTabs({ tabs }: { tabs: TabItem[] }) {
     const target = document.getElementById(hash)
     const panel = target?.closest<HTMLElement>("[data-tab-panel]")
     if (target && panel?.dataset.tabPanel) {
+      // 移り先のカードが閉じていると、中身が見えないので、先に開く（カード自身と、入れ子の details の両方）
+      const card = target.querySelector<HTMLDetailsElement>(":scope > details[data-wall-card]")
+      if (card) card.open = true
+      let parent = target.closest("details")
+      while (parent) {
+        parent.open = true
+        parent = parent.parentElement?.closest("details") ?? null
+      }
       setActive(panel.dataset.tabPanel)
       // hidden が外れてから移る
       requestAnimationFrame(() => {

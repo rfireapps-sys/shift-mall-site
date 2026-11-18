@@ -1,4 +1,5 @@
 import { Check } from "lucide-react"
+import { ExpandAll } from "./expand-all"
 import { type TimelineItem, sources, focusRing, Em, SectionHeading, Row, SumChip, WallCard, WordsSection, TimelineSection } from "./parts"
 
 // 2つ目のタブ：配偶者がいてパート・アルバイトで働く人（2026/11/16追加、ユーザーが推奨案を採用。2026/11/17にタブ名を「配偶者がいて」に変えた）。
@@ -39,6 +40,8 @@ export function FamilyPanel() {
       </TimelineSection>
 
       <WordsSection id="family-words-heading" />
+
+      <ExpandAll />
 
       <WallCard
         id="family-resident-tax"
