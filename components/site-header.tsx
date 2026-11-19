@@ -6,10 +6,11 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-2 px-3 sm:gap-4 sm:px-6">
         <a
           href="#top"
-          className="hidden shrink-0 overflow-hidden rounded-sm text-xs font-bold tracking-wide shadow-flat-sm sm:inline-flex"
+          aria-label={`${siteConfig.appName} トップへ`}
+          className="hidden shrink-0 sm:inline-flex"
         >
-          <span className="bg-yellow px-2.5 py-1 text-yellow-foreground">SHIFT</span>
-          <span className="bg-ink px-2.5 py-1 text-white">MALL</span>
+          {/* 確定ロゴ（2026/11/18）。うさぎの線画に「S」が耳のようにつく形 */}
+          <img src="/logo.png" alt="" width={600} height={396} className="h-11 w-auto" />
         </a>
 
         <nav aria-label="サイト内" className="no-scrollbar min-w-0 flex-1 overflow-x-auto">

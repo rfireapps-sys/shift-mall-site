@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     description: seoDescription,
   },
   icons: {
-    // 仮ロゴのうさぎ（XのアイコンのスクショからClaudeが切り出したもの。2026/11/13、ユーザー指示）。
-    // 白い円に乗せてあるので、タブが明るくても暗くても同じ画像でよい。ロゴが決まったら差し替える。
+    // 確定ロゴ（2026/11/18、ユーザー決定。元画像は ~/Documents/ロゴ関係/02_サイト）。
+    // icon は透過、apple-icon は白背景。
     icon: [
       { url: '/icon-32x32.png', sizes: '32x32', type: 'image/png' },
       { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },

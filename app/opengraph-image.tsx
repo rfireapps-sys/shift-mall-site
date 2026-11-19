@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og"
+import { readFile } from "node:fs/promises"
+import { join } from "node:path"
 import { siteConfig, isReleased } from "@/lib/site-config"
 
 // 内容は完全に静的（リクエストごとに変わらない）なので、edgeランタイムは使わず
@@ -13,6 +15,8 @@ export const contentType = "image/png"
 // ぼかしなしのオフセット影（shadow-flat）もCSS任せにできないため、
 // ここでは同じ視覚効果をボーダー2枚の重ねで再現している。
 export default async function Image() {
+  const logo = await readFile(join(process.cwd(), "public", "logo.png"))
+  const logoSrc = `data:image/png;base64,${logo.toString("base64")}`
   return new ImageResponse(
     (
       <div
@@ -26,52 +30,10 @@ export default async function Image() {
           backgroundColor: "#FFFFFF",
         }}
       >
-        {/* バッジ: SHIFT / MALL の二色分割 */}
+        {/* 確定ロゴ（2026/11/18） */}
         <div style={{ display: "flex" }}>
-          <div
-            style={{
-              display: "flex",
-              position: "relative",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                position: "absolute",
-                top: 6,
-                left: 6,
-                width: "100%",
-                height: "100%",
-                backgroundColor: "#111418",
-              }}
-            />
-            <div style={{ display: "flex", position: "relative" }}>
-              <div
-                style={{
-                  display: "flex",
-                  backgroundColor: "#FFD400",
-                  color: "#111418",
-                  fontSize: 28,
-                  fontWeight: 700,
-                  padding: "10px 22px",
-                }}
-              >
-                SHIFT
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  backgroundColor: "#111418",
-                  color: "#FFFFFF",
-                  fontSize: 28,
-                  fontWeight: 700,
-                  padding: "10px 22px",
-                }}
-              >
-                MALL
-              </div>
-            </div>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={logoSrc} width={227} height={150} alt="" />
         </div>
 
         {/* タグライン */}
