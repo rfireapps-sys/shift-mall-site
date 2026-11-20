@@ -1,3 +1,4 @@
+import { Wordmark } from "@/components/wordmark"
 import type { ReactNode } from "react"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
@@ -15,7 +16,7 @@ export function LegalLayout({
   updatedAt?: string
   // キャンペーンの追従ボタン・カードを出すか。規約などを読む間は邪魔になるので、スペシャルサンクスだけで出す（ユーザー判断、2026/11/11）。
   showFab?: boolean
-  // ヘッダーにサイトのバッジ（SHIFT MALL）を出すか。検索から来た人にサイト名を見せるため、年収の壁のページだけで出す（規約・ポリシーには出さない。ユーザー判断、2026/11/19）。
+  // ヘッダーにサイトのロゴ（うさぎ＋「シフトモール」の文字）を出すか。検索から来た人にサイト名を見せるため、年収の壁のページだけで出す（規約・ポリシーには出さない。ユーザー判断、2026/11/19）。
   brandHeader?: boolean
   children: ReactNode
 }) {
@@ -26,10 +27,8 @@ export function LegalLayout({
           {/* 押せる高さを44px以上にする（実装チェックリスト①）。上下の余白はリンク側に持たせる */}
           {brandHeader ? (
             <Link href="/" aria-label={`${siteConfig.appName}のトップページ`} className="inline-flex items-center py-3">
-              <span className="inline-flex overflow-hidden rounded-sm text-xs font-bold tracking-wide shadow-flat-sm">
-                <span className="bg-yellow px-2.5 py-1 text-yellow-foreground">SHIFT</span>
-                <span className="bg-ink px-2.5 py-1 text-white">MALL</span>
-              </span>
+              <img src="/logo.png" alt="" width={600} height={396} className="h-9 w-auto" />
+              <Wordmark className="ml-2 text-xl leading-none tracking-wide text-ink" />
             </Link>
           ) : (
             <Link
