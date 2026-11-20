@@ -15,10 +15,11 @@ const chars = [
   { c: "ル", y: -0.24, r: -10, maru: true },
 ]
 
+// 右に少し余白を付けるのは、ルが右上がりに傾いて上の角が張り出し、次の文字と詰まって見えるため（2026/11/20、ユーザーの指摘）。
 // 文字で描いた「シフトモール」のロゴタイプ。ヘッダーと、見出しの中の「シフトモール」で使う。
 export function Wordmark({ className = "" }: { className?: string }) {
   return (
-    <span aria-label="シフトモール" className={`inline-block whitespace-nowrap ${className}`}>
+    <span aria-label="シフトモール" className={`mr-[0.12em] inline-block whitespace-nowrap ${className}`}>
       {chars.map((g) => (
         <span
           key={g.c}
