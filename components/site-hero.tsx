@@ -1,3 +1,4 @@
+import { Wordmark } from "@/components/wordmark"
 import { siteConfig, isReleased } from "@/lib/site-config"
 import { CampaignButton } from "@/components/campaign-button"
 import { PhoneMockup } from "@/components/phone-mockup"
@@ -19,11 +20,12 @@ export function SiteHero() {
       <div className="relative mx-auto w-full max-w-3xl lg:max-w-[69rem]">
         <div className="lg:max-w-2xl">
           <div
-            className="hero-fade inline-flex overflow-hidden rounded-sm text-xs font-bold tracking-wide shadow-flat-sm sm:hidden"
+            className="hero-fade inline-flex items-center rounded-sm bg-white py-1 pl-2 pr-3 shadow-flat-sm sm:hidden"
             style={{ animationDelay: "0s" }}
           >
-            <span className="bg-yellow px-3 py-1.5 text-yellow-foreground">SHIFT</span>
-            <span className="bg-ink px-3 py-1.5 text-white">MALL</span>
+            {/* スマホはヘッダーにロゴを出さないので、ここでロゴを見せる。写真の上で墨の文字が読めるよう、白い箱に乗せる（私の判断、2026/11/20） */}
+            <img src="/logo.png" alt="" width={600} height={396} className="h-8 w-auto" />
+            <Wordmark className="ml-2 text-lg leading-none tracking-wide text-ink" />
           </div>
 
           <p

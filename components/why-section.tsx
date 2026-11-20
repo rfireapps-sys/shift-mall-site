@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/reveal"
+import { Wordmark } from "@/components/wordmark"
 
 export function WhySection() {
   return (
@@ -37,7 +38,7 @@ export function WhySection() {
           </Reveal>
           <Reveal delay={40} className="mt-2">
             <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">
-              なぜ、シフトモールなのか
+              なぜ、<Wordmark />なのか
             </h2>
           </Reveal>
         </div>

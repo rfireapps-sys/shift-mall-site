@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function IncomeWallsPage() {
   return (
-    <LegalLayout title="年収の壁はいくらから？税金・扶養・社会保険の早見ガイド" updatedAt="2026年11月18日">
+    <LegalLayout title="年収の壁はいくらから？税金・扶養・社会保険の早見ガイド" updatedAt="2026年11月18日" brandHeader>
       <IncomeWallsTabs
         tabs={[
           { id: "single", label: "ひとりで働く人・親の扶養に入っている人", panel: <SinglePanel /> },

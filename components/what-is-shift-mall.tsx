@@ -1,5 +1,6 @@
 import { siteConfig } from "@/lib/site-config"
 import { Reveal } from "@/components/reveal"
+import { Wordmark } from "@/components/wordmark"
 import { PhoneMockup } from "@/components/phone-mockup"
 
 export function WhatIsShiftMall() {
@@ -12,7 +13,7 @@ export function WhatIsShiftMall() {
           <p className="font-heading text-xs font-bold uppercase tracking-[0.2em] lg:text-xl text-red">Service</p>
         </Reveal>
         <Reveal delay={40} className="mt-2">
-          <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl">シフトモールとは？</h2>
+          <h2 className="font-heading text-2xl font-bold text-foreground md:text-3xl"><Wordmark />とは？</h2>
         </Reveal>
         {/* PC（lg以上）は、文章を左・スマホモックを右に置き、モックは文章（冒頭の一文〜最後の段落）と同じ高さにする。
             スマホは文章の下に、上半分だけ見せる。 */}
