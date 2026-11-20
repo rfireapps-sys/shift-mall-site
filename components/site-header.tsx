@@ -1,4 +1,5 @@
 import { siteConfig, isReleased } from "@/lib/site-config"
+import { SiteLogo } from "@/components/site-logo"
 
 export function SiteHeader() {
   return (
@@ -9,8 +10,7 @@ export function SiteHeader() {
           aria-label={`${siteConfig.appName} トップへ`}
           className="hidden shrink-0 sm:inline-flex"
         >
-          {/* 確定ロゴ（2026/11/18）。うさぎの線画に「S」が耳のようにつく形 */}
-          <img src="/logo.png" alt="" width={600} height={396} className="h-11 w-auto" />
+          <SiteLogo />
         </a>
 
         <nav aria-label="サイト内" className="no-scrollbar min-w-0 flex-1 overflow-x-auto">
