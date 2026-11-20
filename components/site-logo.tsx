@@ -22,7 +22,7 @@ export function SiteLogo() {
       <img src="/logo.png" alt="" width={600} height={396} className="h-11 w-auto" />
       <span
         aria-label="シフトモール"
-        className="ml-2.5 inline-flex items-center whitespace-nowrap text-lg md:text-xl lg:text-[1.625rem] leading-none tracking-wide text-ink"
+        className="ml-2.5 hidden items-center whitespace-nowrap text-[1.5rem] md:inline-flex lg:text-[2.4375rem] leading-none tracking-wide text-ink"
       >
         {chars.map((g) => (
           <span
