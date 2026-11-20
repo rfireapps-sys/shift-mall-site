@@ -1,7 +1,7 @@
-import { Zen_Maru_Gothic } from "next/font/google"
+import { M_PLUS_Rounded_1c } from "next/font/google"
 
-// 「モール」用の丸ゴシック極太（遊びのある側）。「シフト」は本文と同じ BIZ UDPGothic（真面目な側）。
-const maru = Zen_Maru_Gothic({ subsets: ["latin"], weight: "900" })
+// 「モール」用の丸ゴシック極太 M PLUS Rounded 1c（遊びのある側。2026/11/20、ユーザーが16書体から選んだ）。「シフト」は本文と同じ BIZ UDPGothic（真面目な側）。
+const maru = M_PLUS_Rounded_1c({ subsets: ["latin"], weight: "900" })
 
 // 2026/11/20、ユーザー指示（G3に決定）：1文字ずつ角度と高さを変え、右上がりにする。
 // 2026/11/20 更新：「シフト」は水平のまま。「モール」だけ、モを下げ、ルを大きく上げて高低をはっきりさせる。
