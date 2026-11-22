@@ -41,7 +41,7 @@ export const siteConfig = {
   // X（旧Twitter）公式アカウント
   xUrl: "https://x.com/shiftmall_jp",
   // リリース予定時期
-  releaseTiming: "2026年11月",
+  releaseTiming: "2026年12月",
   // 無料・登録不要・データの保存先（Hero・使い方の注記で使う。v2でクラウドバックアップ等を入れるときは見直す）
   freeNote: "無料で使えます（広告が表示されます）",
   noSignupNote: "アカウント登録は不要です",
@@ -75,10 +75,10 @@ export const siteConfig = {
     { label: "アプリ入手", href: "#preregister" },
   ],
   // 配信開始後に、お知らせ欄の「予定」の項目と置き換えるお知らせ（isReleased のときに使う）
-  releasedNewsItem: { date: "2026.11", tag: "お知らせ", body: "検証版の配信を開始しました。" },
+  releasedNewsItem: { date: "2026.12", tag: "お知らせ", body: "検証版の配信を開始しました。" },
   // お知らせ欄（新しい情報が増えたら先頭に追加する）
   newsItems: [
-    { date: "2026.11", tag: "予定", body: "iOS/Android版の検証版を公開する予定です。" },
+    { date: "2026.12", tag: "予定", body: "iOS/Android版の検証版を公開する予定です。" },
     { date: "2026.10", tag: "お知らせ", body: "公式LINEアカウントで事前登録の受付を開始しました。" },
     { date: "2026.10", tag: "お知らせ", body: "X（旧Twitter）で発信を始めました。" },
   ],

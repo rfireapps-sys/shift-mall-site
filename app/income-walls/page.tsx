@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site-config"
 import { IncomeWallsTabs } from "./tabs"
 import { SinglePanel } from "./single-panel"
 import { FamilyPanel } from "./family-panel"
+import { LineCta } from "./line-cta"
 
 export const metadata: Metadata = {
   title: `年収の壁はいくらから？税金・扶養・社会保険の早見ガイド | ${siteConfig.appName}`,
@@ -28,6 +29,7 @@ export default function IncomeWallsPage() {
           { id: "family", label: "配偶者がいてパート・アルバイトで働く人", panel: <FamilyPanel /> },
         ]}
       />
+      <LineCta />
     </LegalLayout>
   )
 }
