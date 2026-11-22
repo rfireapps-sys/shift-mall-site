@@ -13,7 +13,7 @@ export function LineCta() {
         複数の仕事の収入を、ひとつにまとめて見たい人へ
       </SectionHeading>
       <p className="max-w-3xl text-muted-foreground">
-        {siteConfig.appName}は掛け持ちや副業の勤務時間を入力すると、複数の仕事を合わせた収入の見込みが分かるアプリです。2026年11月に検証版を公開する予定です。公式LINEで、公開のお知らせを受け取れます。
+        {siteConfig.appName}は掛け持ちや副業の勤務時間を入力すると、複数の仕事を合わせた収入の見込みが分かるアプリです。{siteConfig.releaseTiming}に検証版を公開する予定です。公式LINEで、公開のお知らせを受け取れます。
       </p>
       <CampaignButton href={siteConfig.lineUrl}>公式LINEで知らせを受け取る</CampaignButton>
     </section>
